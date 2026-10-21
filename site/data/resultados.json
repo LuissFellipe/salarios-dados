@@ -1,0 +1,669 @@
+{
+ "fonte": "State of Data Brazil (Data Hackers + Bain & Company), CC BY-NC-SA 4.0",
+ "respostas": 22686,
+ "edicoes": [
+  2019,
+  2021,
+  2022,
+  2023,
+  2024,
+  2025
+ ],
+ "mediana_2025": 10562,
+ "respostas_2025": 3161,
+ "cargos_2025": [
+  {
+   "familia": "Engenheiro de ML",
+   "nivel": "Júnior",
+   "mediana": 4601,
+   "ic": [
+    3444,
+    6334
+   ],
+   "n": 21
+  },
+  {
+   "familia": "Engenheiro de ML",
+   "nivel": "Sênior",
+   "mediana": 20279,
+   "ic": [
+    18223,
+    24117
+   ],
+   "n": 67
+  },
+  {
+   "familia": "Cientista de Dados",
+   "nivel": "Júnior",
+   "mediana": 5667,
+   "ic": [
+    4689,
+    6827
+   ],
+   "n": 65
+  },
+  {
+   "familia": "Cientista de Dados",
+   "nivel": "Pleno",
+   "mediana": 9265,
+   "ic": [
+    8684,
+    9715
+   ],
+   "n": 139
+  },
+  {
+   "familia": "Cientista de Dados",
+   "nivel": "Sênior",
+   "mediana": 15523,
+   "ic": [
+    14894,
+    16341
+   ],
+   "n": 216
+  },
+  {
+   "familia": "Engenheiro / Arquiteto de Dados",
+   "nivel": "Júnior",
+   "mediana": 4390,
+   "ic": [
+    3709,
+    5092
+   ],
+   "n": 51
+  },
+  {
+   "familia": "Engenheiro / Arquiteto de Dados",
+   "nivel": "Pleno",
+   "mediana": 8924,
+   "ic": [
+    8259,
+    9439
+   ],
+   "n": 110
+  },
+  {
+   "familia": "Engenheiro / Arquiteto de Dados",
+   "nivel": "Sênior",
+   "mediana": 15493,
+   "ic": [
+    14848,
+    16340
+   ],
+   "n": 257
+  },
+  {
+   "familia": "Desenvolvedor / Eng. de Software",
+   "nivel": "Júnior",
+   "mediana": 3500,
+   "ic": [
+    2309,
+    5600
+   ],
+   "n": 24
+  },
+  {
+   "familia": "Desenvolvedor / Eng. de Software",
+   "nivel": "Pleno",
+   "mediana": 7500,
+   "ic": [
+    5889,
+    9001
+   ],
+   "n": 25
+  },
+  {
+   "familia": "Desenvolvedor / Eng. de Software",
+   "nivel": "Sênior",
+   "mediana": 14842,
+   "ic": [
+    13660,
+    16287
+   ],
+   "n": 53
+  },
+  {
+   "familia": "Analista de BI / Analytics Engineer",
+   "nivel": "Júnior",
+   "mediana": 3612,
+   "ic": [
+    3235,
+    4086
+   ],
+   "n": 68
+  },
+  {
+   "familia": "Analista de BI / Analytics Engineer",
+   "nivel": "Pleno",
+   "mediana": 6843,
+   "ic": [
+    6338,
+    7265
+   ],
+   "n": 122
+  },
+  {
+   "familia": "Analista de BI / Analytics Engineer",
+   "nivel": "Sênior",
+   "mediana": 12228,
+   "ic": [
+    11340,
+    13162
+   ],
+   "n": 155
+  },
+  {
+   "familia": "Analista de Dados",
+   "nivel": "Júnior",
+   "mediana": 3572,
+   "ic": [
+    3173,
+    3958
+   ],
+   "n": 144
+  },
+  {
+   "familia": "Analista de Dados",
+   "nivel": "Pleno",
+   "mediana": 6697,
+   "ic": [
+    6265,
+    7116
+   ],
+   "n": 205
+  },
+  {
+   "familia": "Analista de Dados",
+   "nivel": "Sênior",
+   "mediana": 10780,
+   "ic": [
+    10332,
+    11273
+   ],
+   "n": 239
+  },
+  {
+   "familia": "Analista de Negócios",
+   "nivel": "Júnior",
+   "mediana": 3000,
+   "ic": [
+    2620,
+    4238
+   ],
+   "n": 22
+  },
+  {
+   "familia": "Analista de Negócios",
+   "nivel": "Pleno",
+   "mediana": 6401,
+   "ic": [
+    5659,
+    7212
+   ],
+   "n": 52
+  },
+  {
+   "familia": "Analista de Negócios",
+   "nivel": "Sênior",
+   "mediana": 10429,
+   "ic": [
+    9557,
+    11442
+   ],
+   "n": 66
+  }
+ ],
+ "mediana_geral": {
+  "2019": 7120,
+  "2021": 8812,
+  "2022": 8643,
+  "2023": 9119,
+  "2024": 10131,
+  "2025": 10562
+ },
+ "senior_pct": {
+  "2021": 0.3082,
+  "2022": 0.2986,
+  "2023": 0.3661,
+  "2024": 0.4096,
+  "2025": 0.4796
+ },
+ "evolucao_nivel": [
+  {
+   "nivel": "Júnior",
+   "ano": 2021,
+   "mediana": 4031,
+   "ic": [
+    3759,
+    4246
+   ],
+   "n": 618
+  },
+  {
+   "nivel": "Júnior",
+   "ano": 2022,
+   "mediana": 3916,
+   "ic": [
+    3735,
+    4078
+   ],
+   "n": 1018
+  },
+  {
+   "nivel": "Júnior",
+   "ano": 2023,
+   "mediana": 3801,
+   "ic": [
+    3621,
+    3960
+   ],
+   "n": 1037
+  },
+  {
+   "nivel": "Júnior",
+   "ano": 2024,
+   "mediana": 3657,
+   "ic": [
+    3471,
+    3800
+   ],
+   "n": 862
+  },
+  {
+   "nivel": "Júnior",
+   "ano": 2025,
+   "mediana": 3483,
+   "ic": [
+    3233,
+    3717
+   ],
+   "n": 515
+  },
+  {
+   "nivel": "Pleno",
+   "ano": 2021,
+   "mediana": 8147,
+   "ic": [
+    7870,
+    8392
+   ],
+   "n": 650
+  },
+  {
+   "nivel": "Pleno",
+   "ano": 2022,
+   "mediana": 7994,
+   "ic": [
+    7740,
+    8246
+   ],
+   "n": 1044
+  },
+  {
+   "nivel": "Pleno",
+   "ano": 2023,
+   "mediana": 7381,
+   "ic": [
+    7180,
+    7581
+   ],
+   "n": 1377
+  },
+  {
+   "nivel": "Pleno",
+   "ano": 2024,
+   "mediana": 7544,
+   "ic": [
+    7393,
+    7716
+   ],
+   "n": 1359
+  },
+  {
+   "nivel": "Pleno",
+   "ano": 2025,
+   "mediana": 7461,
+   "ic": [
+    7242,
+    7745
+   ],
+   "n": 761
+  },
+  {
+   "nivel": "Sênior",
+   "ano": 2021,
+   "mediana": 12943,
+   "ic": [
+    12480,
+    13429
+   ],
+   "n": 565
+  },
+  {
+   "nivel": "Sênior",
+   "ano": 2022,
+   "mediana": 13036,
+   "ic": [
+    12707,
+    13413
+   ],
+   "n": 878
+  },
+  {
+   "nivel": "Sênior",
+   "ano": 2023,
+   "mediana": 12990,
+   "ic": [
+    12691,
+    13359
+   ],
+   "n": 1394
+  },
+  {
+   "nivel": "Sênior",
+   "ano": 2024,
+   "mediana": 13404,
+   "ic": [
+    13109,
+    13694
+   ],
+   "n": 1541
+  },
+  {
+   "nivel": "Sênior",
+   "ano": 2025,
+   "mediana": 13664,
+   "ic": [
+    13271,
+    14065
+   ],
+   "n": 1176
+  }
+ ],
+ "efeito_ano": [
+  {
+   "ano": 2021,
+   "efeito": 0.0,
+   "ic": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "ano": 2022,
+   "efeito": -0.01048,
+   "ic": [
+    -0.036403,
+    0.016141
+   ]
+  },
+  {
+   "ano": 2023,
+   "efeito": -0.063113,
+   "ic": [
+    -0.086646,
+    -0.038974
+   ]
+  },
+  {
+   "ano": 2024,
+   "efeito": -0.05342,
+   "ic": [
+    -0.077353,
+    -0.028867
+   ]
+  },
+  {
+   "ano": 2025,
+   "efeito": -0.065503,
+   "ic": [
+    -0.091132,
+    -0.039151
+   ]
+  }
+ ],
+ "n_modelo_ano": 14769,
+ "fatores": [
+  {
+   "grupo": "Modelo de trabalho (vs. presencial)",
+   "nivel": "Remoto",
+   "efeito": 0.227353,
+   "ic": [
+    0.202417,
+    0.252807
+   ]
+  },
+  {
+   "grupo": "Modelo de trabalho (vs. presencial)",
+   "nivel": "Híbrido flexível",
+   "efeito": 0.252362,
+   "ic": [
+    0.223608,
+    0.281791
+   ]
+  },
+  {
+   "grupo": "Modelo de trabalho (vs. presencial)",
+   "nivel": "Híbrido com dias fixos",
+   "efeito": 0.149063,
+   "ic": [
+    0.122093,
+    0.176682
+   ]
+  },
+  {
+   "grupo": "Escolaridade (vs. graduação)",
+   "nivel": "Doutorado",
+   "efeito": 0.163279,
+   "ic": [
+    0.122133,
+    0.205934
+   ]
+  },
+  {
+   "grupo": "Escolaridade (vs. graduação)",
+   "nivel": "Mestrado",
+   "efeito": 0.135304,
+   "ic": [
+    0.109798,
+    0.161396
+   ]
+  },
+  {
+   "grupo": "Escolaridade (vs. graduação)",
+   "nivel": "Pós-graduação (lato sensu)",
+   "efeito": 0.052468,
+   "ic": [
+    0.036149,
+    0.069044
+   ]
+  },
+  {
+   "grupo": "Escolaridade (vs. graduação)",
+   "nivel": "Sem graduação",
+   "efeito": -0.109406,
+   "ic": [
+    -0.15208,
+    -0.064584
+   ]
+  },
+  {
+   "grupo": "Estado (vs. SP)",
+   "nivel": "DF",
+   "efeito": 0.02176,
+   "ic": [
+    -0.014722,
+    0.059593
+   ]
+  },
+  {
+   "grupo": "Estado (vs. SP)",
+   "nivel": "SC",
+   "efeito": -0.053539,
+   "ic": [
+    -0.082568,
+    -0.023592
+   ]
+  },
+  {
+   "grupo": "Estado (vs. SP)",
+   "nivel": "PR",
+   "efeito": -0.082725,
+   "ic": [
+    -0.1052,
+    -0.059686
+   ]
+  },
+  {
+   "grupo": "Estado (vs. SP)",
+   "nivel": "MG",
+   "efeito": -0.085528,
+   "ic": [
+    -0.104755,
+    -0.065888
+   ]
+  },
+  {
+   "grupo": "Estado (vs. SP)",
+   "nivel": "RJ",
+   "efeito": -0.088546,
+   "ic": [
+    -0.110654,
+    -0.065888
+   ]
+  },
+  {
+   "grupo": "Estado (vs. SP)",
+   "nivel": "RS",
+   "efeito": -0.105348,
+   "ic": [
+    -0.129989,
+    -0.080008
+   ]
+  },
+  {
+   "grupo": "Estado (vs. SP)",
+   "nivel": "BA",
+   "efeito": -0.10088,
+   "ic": [
+    -0.138094,
+    -0.06206
+   ]
+  },
+  {
+   "grupo": "Estado (vs. SP)",
+   "nivel": "PE",
+   "efeito": -0.152732,
+   "ic": [
+    -0.189298,
+    -0.114517
+   ]
+  },
+  {
+   "grupo": "Gênero (vs. homens)",
+   "nivel": "Feminino",
+   "efeito": -0.051463,
+   "ic": [
+    -0.065798,
+    -0.036907
+   ]
+  }
+ ],
+ "n_modelo": 14640,
+ "experiencia": {
+  "faixas": [
+   "Sem experiência",
+   "Menos de 1 ano",
+   "1 a 3 anos",
+   "3 a 6 anos",
+   "6 a 10 anos",
+   "Mais de 10 anos"
+  ],
+  "total": [
+   -0.047053,
+   -0.157849,
+   0.0,
+   0.434061,
+   0.776214,
+   0.88058
+  ],
+  "dentro_do_nivel": [
+   -0.08267,
+   -0.076004,
+   0.0,
+   0.141965,
+   0.250305,
+   0.307266
+  ]
+ },
+ "remoto_por_nivel": {
+  "Júnior": {
+   "efeito": 0.144345,
+   "ic": [
+    0.103453,
+    0.186753
+   ]
+  },
+  "Pleno": {
+   "efeito": 0.214526,
+   "ic": [
+    0.174712,
+    0.255689
+   ]
+  },
+  "Sênior": {
+   "efeito": 0.353945,
+   "ic": [
+    0.303035,
+    0.406845
+   ]
+  }
+ },
+ "remoto_pct": {
+  "2021": 0.568435,
+  "2022": 0.457785,
+  "2023": 0.464918,
+  "2024": 0.458629,
+  "2025": 0.401961
+ },
+ "quintos": [
+  {
+   "quinto": 1,
+   "distancia": -0.349904,
+   "insatisfeito": 0.442623,
+   "buscando": 0.490779,
+   "cita_salario": 0.638545
+  },
+  {
+   "quinto": 2,
+   "distancia": -0.153624,
+   "insatisfeito": 0.300205,
+   "buscando": 0.385587,
+   "cita_salario": 0.457241
+  },
+  {
+   "quinto": 3,
+   "distancia": -0.005128,
+   "insatisfeito": 0.269126,
+   "buscando": 0.356557,
+   "cita_salario": 0.343511
+  },
+  {
+   "quinto": 4,
+   "distancia": 0.179151,
+   "insatisfeito": 0.243511,
+   "buscando": 0.339481,
+   "cita_salario": 0.280282
+  },
+  {
+   "quinto": 5,
+   "distancia": 0.548455,
+   "insatisfeito": 0.223437,
+   "buscando": 0.309426,
+   "cita_salario": 0.184049
+  }
+ ],
+ "insatisfacao_por_10pct": 0.01928,
+ "cita_salario_abaixo_do_perfil": 0.763085,
+ "cita_salario_distancia": -0.212487
+}

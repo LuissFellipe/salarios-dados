@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Salários em Dados</title>
+<meta name="description" content="Quanto ganha quem trabalha com dados no Brasil e do que isso depende: seis edições do State of Data Brazil, 2019 a 2025.">
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface-1: #fcfcfb;
+  --text-primary: #0b0b0b; --text-secondary: #52514e; --text-muted: #898781;
+  --grid: #e1e0d9; --axis: #c3c2b7; --border: rgba(11,11,11,0.10);
+  --series-1: #2a78d6; --series-2: #eb6834; --series-3: #1baf7a; --focus: #2a78d6;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface-1: #1a1a19;
+    --text-primary: #f0efec; --text-secondary: #c3c2b7; --text-muted: #898781;
+    --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10);
+    --series-1: #3987e5; --series-2: #d95926; --series-3: #199e70; --focus: #5598e7;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface-1: #1a1a19;
+  --text-primary: #f0efec; --text-secondary: #c3c2b7; --text-muted: #898781;
+  --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10);
+  --series-1: #3987e5; --series-2: #d95926; --series-3: #199e70; --focus: #5598e7;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--text-primary); font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 1080px; margin: 0 auto; padding: 32px 16px 64px; }
+h1 { font-size: 30px; line-height: 1.2; margin: 0 0 8px; font-weight: 650; }
+h2 { font-size: 20px; margin: 0 0 4px; font-weight: 620; }
+p { margin: 0 0 12px; }
+a { color: var(--series-1); }
+code { font: 13px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.lede { color: var(--text-secondary); max-width: 780px; font-size: 16px; }
+.card { background: var(--surface-1); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-top: 16px; }
+.card > .sub { color: var(--text-secondary); margin-bottom: 14px; max-width: 820px; }
+.hero { margin-top: 24px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; }
+.hero .num { font-size: 52px; font-weight: 650; line-height: 1.1; }
+.hero .txt { color: var(--text-secondary); font-size: 16px; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin-top: 16px; }
+.tile { background: var(--surface-1); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; }
+.tile .label { color: var(--text-secondary); font-size: 13px; }
+.tile .value { font-size: 24px; font-weight: 620; margin-top: 2px; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 860px) { .grid2 { grid-template-columns: 1fr; } }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 13px; color: var(--text-secondary); margin-bottom: 8px; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.scroll { overflow-x: auto; }
+svg text { fill: var(--text-secondary); font: 12px system-ui, -apple-system, "Segoe UI", sans-serif; }
+svg .val { fill: var(--text-primary); font-variant-numeric: tabular-nums; }
+svg .ax { fill: var(--text-muted); font-variant-numeric: tabular-nums; font-size: 11px; }
+svg .grp { fill: var(--text-primary); font-weight: 600; font-size: 12.5px; }
+.hit:hover .mark, .hit:focus .mark { filter: brightness(1.15); }
+[tabindex]:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+#tip { position: fixed; pointer-events: none; z-index: 10; display: none; background: var(--surface-1); color: var(--text-primary);
+  border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; font-size: 13px; box-shadow: 0 4px 16px rgba(0,0,0,.12); max-width: 300px; }
+#tip strong { font-size: 15px; display: block; }
+#tip .k { color: var(--text-secondary); }
+.perguntas { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 28px; margin: 0; }
+@media (max-width: 860px) { .perguntas { grid-template-columns: 1fr; } }
+.perguntas div { padding: 10px 0; border-top: 1px solid var(--grid); }
+.perguntas dt { font-weight: 600; }
+.perguntas dd { margin: 2px 0 0; color: var(--text-secondary); font-size: 14px; }
+.note { border-left: 3px solid var(--axis); padding: 4px 12px; color: var(--text-secondary); font-size: 14px; margin-top: 12px; }
+ul.limites { color: var(--text-secondary); padding-left: 20px; }
+ul.limites li { margin-bottom: 6px; }
+ul.limites strong { color: var(--text-primary); }
+footer { color: var(--text-muted); font-size: 13px; margin-top: 40px; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Salários em Dados</h1>
+    <p class="lede">Quanto ganha quem trabalha com dados no Brasil, e do que isso depende. Seis edições do State of Data Brazil, a pesquisa da comunidade Data Hackers com a Bain &amp; Company, de 2019 a 2025, harmonizadas numa tabela só. Valores em reais de novembro de 2025, corrigidos pelo IPCA.</p>
+    <div class="hero"><span class="num" id="hero"></span><span class="txt" id="hero-txt"></span></div>
+    <div class="tiles" id="tiles"></div>
+  </header>
+
+  <section class="card" aria-labelledby="t-perguntas">
+    <h2 id="t-perguntas">As oito perguntas</h2>
+    <div class="sub">Respostas montadas a partir dos dados mostrados abaixo. Os cadernos com a análise completa estão no repositório.</div>
+    <dl class="perguntas" id="perguntas"></dl>
+  </section>
+
+  <section class="card" aria-labelledby="t-cargos">
+    <h2 id="t-cargos">Quanto ganha cada cargo, em cada nível (2025)</h2>
+    <div class="sub">Mediana mensal de quem mora no Brasil. A pesquisa pergunta a faixa salarial, não o valor: a mediana é interpolada dentro da faixa, e o traço é o intervalo de 95% (500 reamostragens). Grupos com menos de 20 respostas ficam de fora.</div>
+    <div class="legend" id="leg-niveis"></div>
+    <div class="scroll"><div id="cargos"></div></div>
+  </section>
+
+  <div class="grid2">
+    <section class="card" aria-labelledby="t-nivel">
+      <h2 id="t-nivel">Dentro de cada nível, o salário real caiu ou parou</h2>
+      <div class="sub">Mediana real por nível. A mediana de todo mundo subiu porque a amostra ficou mais sênior, não porque o mesmo nível passou a ganhar mais.</div>
+      <div class="legend" id="leg-niveis2"></div>
+      <div id="evolucao"></div>
+    </section>
+    <section class="card" aria-labelledby="t-ano">
+      <h2 id="t-ano">Mesmo perfil, anos diferentes</h2>
+      <div class="sub">Regressão por intervalo com cargo, nível, experiência, estado e escolaridade fixos (quem não é gestor). Cada ponto é o salário real em relação a 2021.</div>
+      <div id="anos"></div>
+    </section>
+  </div>
+
+  <section class="card" aria-labelledby="t-fatores">
+    <h2 id="t-fatores">Do que o salário depende</h2>
+    <div class="sub">Cada efeito compara pessoas iguais em todo o resto: cargo, nível, experiência, estado, escolaridade, gênero, porte da empresa, vínculo, modelo de trabalho e ano. É associação, não causa.</div>
+    <div class="scroll"><div id="fatores"></div></div>
+  </section>
+
+  <div class="grid2">
+    <section class="card" aria-labelledby="t-exp">
+      <h2 id="t-exp">Experiência: onde a curva achata</h2>
+      <div class="sub">Diferença em relação a quem tem de 1 a 3 anos de dados. Sem controlar o nível, a experiência inclui o efeito de ser promovido.</div>
+      <div class="legend"><span><i class="dot" style="background:var(--series-1)"></i>Efeito total</span><span><i class="dot" style="background:var(--series-2)"></i>Dentro do mesmo nível</span></div>
+      <div id="experiencia"></div>
+    </section>
+    <section class="card" aria-labelledby="t-sat">
+      <h2 id="t-sat">Quem ganha abaixo do próprio perfil quer sair</h2>
+      <div class="sub">Cinco grupos, da pessoa que mais ganha abaixo do esperado para o perfil dela à que mais ganha acima.</div>
+      <div class="legend"><span><i class="dot" style="background:var(--series-2)"></i>Procurando emprego</span><span><i class="dot" style="background:var(--series-1)"></i>Insatisfeito na empresa</span></div>
+      <div id="satisfacao"></div>
+    </section>
+  </div>
+
+  <section class="card" aria-labelledby="t-limites">
+    <h2 id="t-limites">Limites</h2>
+    <ul class="limites">
+      <li><strong>Amostra autosselecionada.</strong> É quem responde uma pesquisa online da comunidade Data Hackers, não o mercado inteiro. São Paulo é 40% das respostas, e quem responde ficou mais velho e mais estudado ao longo dos anos.</li>
+      <li><strong>Faixa, não valor.</strong> O topo é aberto (acima de R$ 40.001) e é onde a faixa diz menos.</li>
+      <li><strong>Associação, não causa.</strong> Os controles tiram o que a pesquisa mede; empresa, habilidade e rede de contatos ficam de fora.</li>
+      <li><strong>O questionário muda todo ano.</strong> A harmonização escolhe cada coluna pelo texto da pergunta e documenta cada decisão; a edição de 2019 não perguntou o nível e fica fora das comparações controladas.</li>
+    </ul>
+    <p class="note">Método: mediana agrupada e regressão por intervalo log-normal (a probabilidade de o salário cair na faixa declarada), testadas em salários simulados; IPCA do IBGE (tabela 1737), novembro de cada ano levado a novembro de 2025; 23 testes automatizados.</p>
+  </section>
+
+  <footer>Dados: State of Data Brazil, Data Hackers e Bain &amp; Company, sob <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>; os agregados desta página seguem a mesma licença. Código e cadernos: <a href="https://github.com/LuissFellipe/salarios-dados">github.com/LuissFellipe/salarios-dados</a>.</footer>
+</main>
+<div id="tip" role="tooltip"></div>
+
+<script>
+const NS = "http://www.w3.org/2000/svg";
+const NIVEIS = { "Júnior": "var(--series-1)", "Pleno": "var(--series-2)", "Sênior": "var(--series-3)" };
+const fmt = (v, d = 1) => v.toLocaleString("pt-BR", { maximumFractionDigits: d, minimumFractionDigits: d });
+const mil = v => "R$ " + fmt(v / 1000) + " mil";
+const pct = (v, d = 1) => (v > 0 ? "+" : "") + fmt(v * 100, d) + "%";
+const pct0 = v => fmt(v * 100, 0) + "%";
+const menos = v => fmt(-v * 100) + "%";   // "8,6% menos": o sinal fica na palavra
+
+function el(tag, attrs = {}, parent) { const e = document.createElementNS(NS, tag); for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v); if (parent) parent.appendChild(e); return e; }
+function txt(parent, x, y, s, attrs = {}) { const t = el("text", { x, y, ...attrs }, parent); t.textContent = s; return t; }
+function svg(w, h, label, encolhe = true) { const s = el("svg", { viewBox: `0 0 ${w} ${h}`, width: w, height: h, role: "img", "aria-label": label }); s.style.maxWidth = encolhe ? "100%" : "none"; s.style.height = "auto"; return s; }
+function node(tag, text, cls) { const e = document.createElement(tag); if (text != null) e.textContent = text; if (cls) e.className = cls; return e; }
+
+const tip = document.getElementById("tip");
+function mostrar(ev, linhas) {
+  tip.replaceChildren();
+  const [v, ...r] = linhas;
+  tip.appendChild(node("strong", v));
+  for (const l of r) tip.appendChild(node("div", l, "k"));
+  tip.style.display = "block";
+  let x, y;
+  if (ev.type !== "focus") { x = ev.clientX; y = ev.clientY; } else { const b = ev.target.getBoundingClientRect(); x = b.left + b.width / 2; y = b.top; }
+  tip.style.left = Math.min(innerWidth - tip.offsetWidth - 8, Math.max(8, x + 14)) + "px";
+  tip.style.top = (y - tip.offsetHeight - 12 < 8 ? y + 18 : y - tip.offsetHeight - 12) + "px";
+}
+function interativo(g, linhas) {
+  g.setAttribute("tabindex", "0");
+  g.addEventListener("pointermove", ev => mostrar(ev, linhas()));
+  g.addEventListener("pointerleave", () => tip.style.display = "none");
+  g.addEventListener("focus", ev => mostrar(ev, linhas()));
+  g.addEventListener("blur", () => tip.style.display = "none");
+}
+function legendaNiveis(id) {
+  const L = document.getElementById(id);
+  for (const [n, c] of Object.entries(NIVEIS)) { const s = node("span"); const d = node("i", null, "dot"); d.style.background = c; s.append(d, document.createTextNode(n)); L.appendChild(s); }
+}
+function ponto(g, x, y, cor) { el("circle", { class: "mark", cx: x, cy: y, r: 5, fill: cor, stroke: "var(--surface-1)", "stroke-width": 2 }, g); }
+
+async function iniciar() {
+  const D = await fetch("data/resultados.json").then(r => r.json());
+  const ef = (nivel) => D.fatores.find(f => f.nivel === nivel);
+  const ano25 = D.efeito_ano.at(-1);
+  const evo = nv => D.evolucao_nivel.filter(e => e.nivel === nv);
+  const variacao = nv => { const s = evo(nv); return s.at(-1).mediana / s[0].mediana - 1; };
+  const cargo = (f, n) => D.cargos_2025.find(c => c.familia === f && c.nivel === n);
+
+  // ── abertura ──
+  document.getElementById("hero").textContent = mil(D.mediana_2025);
+  document.getElementById("hero-txt").textContent = `é a mediana salarial em 2025, entre ${D.respostas_2025.toLocaleString("pt-BR")} respostas de quem mora no Brasil`;
+  const tiles = [
+    ["Respostas, seis edições", D.respostas.toLocaleString("pt-BR")],
+    ["Salário real do mesmo perfil, 2021 → 2025", pct(ano25.efeito)],
+    ["Remoto em relação a presencial", pct(ef("Remoto").efeito)],
+    ["Mulheres, com o resto fixo", pct(ef("Feminino").efeito)],
+  ];
+  const T = document.getElementById("tiles");
+  for (const [l, v] of tiles) { const d = node("div", null, "tile"); d.append(node("div", l, "label"), node("div", v, "value")); T.appendChild(d); }
+
+  // ── perguntas ──
+  const Q = D.quintos;
+  const sen = f => cargo(f, "Sênior");
+  const perguntas = [
+    ["Quanto ganha cada cargo?", `No sênior, cientista de dados (${mil(sen("Cientista de Dados").mediana)}) e engenheiro de dados (${mil(sen("Engenheiro / Arquiteto de Dados").mediana)}) empatam; analista de dados sênior, ${mil(sen("Analista de Dados").mediana)}. Mediana geral de 2025: ${mil(D.mediana_2025)}.`],
+    ["O salário real subiu ou caiu?", `Caiu para o mesmo perfil: ${pct(ano25.efeito)} entre 2021 e 2025 (IC ${pct(ano25.ic[0])} a ${pct(ano25.ic[1])}). Júnior ${pct(variacao("Júnior"), 0)}, pleno ${pct(variacao("Pleno"), 0)}, sênior ${pct(variacao("Sênior"), 0)}. A mediana bruta subiu porque os sêniores foram de ${pct0(D.senior_pct["2021"])} para ${pct0(D.senior_pct["2025"])} da amostra.`],
+    ["Quanto vale a experiência?", `Mais de 10 anos paga ${pct(D.experiencia.total.at(-1), 0)} sobre 1 a 3 anos, mas a curva achata depois dos 6 anos; dentro do mesmo nível, ${pct(D.experiencia.dentro_do_nivel.at(-1), 0)}.`],
+    ["Remoto paga mais?", `${pct(ef("Remoto").efeito)} que presencial, com o resto fixo: ${pct(D.remoto_por_nivel["Júnior"].efeito, 0)} no júnior e ${pct(D.remoto_por_nivel["Sênior"].efeito, 0)} no sênior. Enquanto isso, o remoto caiu de ${pct0(D.remoto_pct["2021"])} para ${pct0(D.remoto_pct["2025"])} de quem responde.`],
+    ["Minas × São Paulo?", `Minas Gerais paga ${menos(ef("MG").efeito)} menos que São Paulo, no mesmo patamar de Rio (${menos(ef("RJ").efeito)} menos) e Paraná (${menos(ef("PR").efeito)}). O DF empata com SP.`],
+    ["Pós-graduação compensa?", `Mestrado ${pct(ef("Mestrado").efeito)}, doutorado ${pct(ef("Doutorado").efeito)} e pós lato sensu ${pct(ef("Pós-graduação (lato sensu)").efeito)} em relação a quem tem graduação.`],
+    ["Homens e mulheres ganham igual?", `Não: mulheres ganham ${menos(ef("Feminino").efeito)} menos com o resto fixo (IC ${pct(ef("Feminino").ic[0])} a ${pct(ef("Feminino").ic[1])}). Como o modelo fixa o nível, não mede desigualdade nas promoções.`],
+    ["Quem ganha abaixo do perfil está saindo?", `No grupo mais abaixo, ${pct0(Q[0].insatisfeito)} estão insatisfeitos e ${pct0(Q[0].buscando)} procuram emprego, contra ${pct0(Q.at(-1).insatisfeito)} e ${pct0(Q.at(-1).buscando)} no mais acima. E ${pct0(D.cita_salario_abaixo_do_perfil)} de quem reclama do salário está mesmo abaixo do perfil.`],
+  ];
+  const dl = document.getElementById("perguntas");
+  for (const [q, r] of perguntas) { const d = node("div"); d.append(node("dt", q), node("dd", r)); dl.appendChild(d); }
+
+  legendaNiveis("leg-niveis"); legendaNiveis("leg-niveis2");
+
+  // ── cargo × nível ──
+  (() => {
+    const fams = [...new Set(D.cargos_2025.map(c => c.familia))]
+      .sort((a, b) => (cargo(b, "Sênior")?.mediana || 0) - (cargo(a, "Sênior")?.mediana || 0));
+    const W = 980, esq = 260, dir = 90, linha = 54, topo = 8, H = topo + fams.length * linha + 30;
+    const max = 26000, x = v => esq + v / max * (W - esq - dir);
+    const s = svg(W, H, "Mediana salarial por cargo e nível em 2025", false);
+    for (let t = 0; t <= max; t += 5000) {
+      el("line", { x1: x(t), x2: x(t), y1: topo, y2: H - 24, stroke: "var(--grid)" }, s);
+      txt(s, x(t), H - 8, t ? `R$ ${t / 1000} mil` : "R$ 0", { class: "ax", "text-anchor": "middle" });
+    }
+    const desloc = { "Júnior": -14, "Pleno": 0, "Sênior": 14 };
+    fams.forEach((f, i) => {
+      const y0 = topo + i * linha + linha / 2;
+      txt(s, esq - 12, y0 + 4, f, { "text-anchor": "end" });
+      for (const nv of Object.keys(NIVEIS)) {
+        const c = cargo(f, nv); if (!c) continue;
+        const y = y0 + desloc[nv];
+        const g = el("g", { class: "hit", "aria-label": `${f}, ${nv}: ${mil(c.mediana)}` }, s);
+        el("rect", { x: esq, y: y - 7, width: W - esq, height: 14, fill: "transparent" }, g);
+        el("line", { x1: x(c.ic[0]), x2: x(c.ic[1]), y1: y, y2: y, stroke: NIVEIS[nv], "stroke-width": 2, opacity: 0.45 }, g);
+        ponto(g, x(c.mediana), y, NIVEIS[nv]);
+        if (nv === "Sênior") txt(g, x(c.ic[1]) + 8, y + 4, mil(c.mediana), { class: "val" });
+        interativo(g, () => [mil(c.mediana), `${f} · ${nv}`, `IC 95%: ${mil(c.ic[0])} a ${mil(c.ic[1])}`, `${c.n} respostas`]);
+      }
+    });
+    document.getElementById("cargos").replaceChildren(s);
+  })();
+
+  // ── evolução por nível ──
+  (() => {
+    const W = 480, H = 300, m = { l: 62, r: 64, t: 12, b: 30 };
+    const anos = [...new Set(D.evolucao_nivel.map(e => e.ano))];
+    const x = a => m.l + (a - anos[0]) / (anos.at(-1) - anos[0]) * (W - m.l - m.r);
+    const y = v => H - m.b - v / 15000 * (H - m.t - m.b);
+    const s = svg(W, H, "Mediana real por nível, por ano");
+    for (let t = 0; t <= 15000; t += 5000) {
+      el("line", { x1: m.l, x2: W - m.r, y1: y(t), y2: y(t), stroke: "var(--grid)" }, s);
+      txt(s, m.l - 6, y(t) + 4, t ? `R$ ${t / 1000} mil` : "R$ 0", { class: "ax", "text-anchor": "end" });
+    }
+    anos.forEach(a => txt(s, x(a), H - 10, a, { class: "ax", "text-anchor": "middle" }));
+    for (const [nv, cor] of Object.entries(NIVEIS)) {
+      const serie = evo(nv);
+      el("path", { d: serie.map((e, i) => `${i ? "L" : "M"}${x(e.ano)},${y(e.ic[1])}`).join("") + serie.slice().reverse().map(e => `L${x(e.ano)},${y(e.ic[0])}`).join("") + "Z", fill: cor, opacity: 0.12 }, s);
+      el("path", { d: serie.map((e, i) => `${i ? "L" : "M"}${x(e.ano)},${y(e.mediana)}`).join(""), fill: "none", stroke: cor, "stroke-width": 2 }, s);
+      for (const e of serie) {
+        const g = el("g", { class: "hit" }, s);
+        el("circle", { cx: x(e.ano), cy: y(e.mediana), r: 12, fill: "transparent" }, g);
+        ponto(g, x(e.ano), y(e.mediana), cor);
+        interativo(g, () => [mil(e.mediana), `${nv}, ${e.ano}`, `IC 95%: ${mil(e.ic[0])} a ${mil(e.ic[1])}`, `${e.n} respostas`]);
+      }
+      txt(s, x(anos.at(-1)) + 8, y(serie.at(-1).mediana) + 4, pct(variacao(nv), 0), { class: "val" });
+    }
+    document.getElementById("evolucao").replaceChildren(s);
+  })();
+
+  // ── efeito do ano ──
+  (() => {
+    const W = 480, H = 300, m = { l: 48, r: 20, t: 16, b: 30 };
+    const A = D.efeito_ano;
+    const x = a => m.l + (a - 2021) / 4 * (W - m.l - m.r - 40) + 20;
+    const y = v => m.t + (0.04 - v) / 0.14 * (H - m.t - m.b);
+    const s = svg(W, H, "Salário real do mesmo perfil em relação a 2021");
+    for (const t of [0.02, 0, -0.02, -0.04, -0.06, -0.08, -0.1]) {
+      el("line", { x1: m.l, x2: W - m.r, y1: y(t), y2: y(t), stroke: t === 0 ? "var(--text-muted)" : "var(--grid)" }, s);
+      txt(s, m.l - 6, y(t) + 4, (t > 0 ? "+" : "") + fmt(t * 100, 0) + "%", { class: "ax", "text-anchor": "end" });
+    }
+    for (const a of A) {
+      txt(s, x(a.ano), H - 10, a.ano, { class: "ax", "text-anchor": "middle" });
+      const g = el("g", { class: "hit" }, s);
+      el("rect", { x: x(a.ano) - 16, y: m.t, width: 32, height: H - m.t - m.b, fill: "transparent" }, g);
+      el("line", { x1: x(a.ano), x2: x(a.ano), y1: y(a.ic[0]), y2: y(a.ic[1]), stroke: "var(--series-1)", "stroke-width": 2, opacity: 0.5 }, g);
+      ponto(g, x(a.ano), y(a.efeito), "var(--series-1)");
+      txt(g, x(a.ano) + 9, y(a.efeito) + 4, a.ano === 2021 ? "referência" : pct(a.efeito), { class: "val" });
+      interativo(g, () => a.ano === 2021 ? ["Referência", "2021"] : [pct(a.efeito), `${a.ano} em relação a 2021`, `IC 95%: ${pct(a.ic[0])} a ${pct(a.ic[1])}`, `${D.n_modelo_ano.toLocaleString("pt-BR")} respostas no modelo`]);
+    }
+    document.getElementById("anos").replaceChildren(s);
+  })();
+
+  // ── fatores ──
+  (() => {
+    const grupos = [...new Set(D.fatores.map(f => f.grupo))];
+    const linhas = grupos.reduce((n, g) => n + 1 + D.fatores.filter(f => f.grupo === g).length, 0);
+    const W = 980, esq = 260, dir = 80, linha = 26, H = linhas * linha + grupos.length * 8 + 30;
+    const lo = -0.25, hi = 0.35, x = v => esq + (v - lo) / (hi - lo) * (W - esq - dir);
+    const s = svg(W, H, "Efeito de cada fator no salário, com o resto fixo", false);
+    for (let t = -0.2; t <= 0.31; t += 0.1) {
+      el("line", { x1: x(t), x2: x(t), y1: 0, y2: H - 24, stroke: Math.abs(t) < 1e-9 ? "var(--text-muted)" : "var(--grid)" }, s);
+      txt(s, x(t), H - 8, (t > 0 ? "+" : "") + fmt(t * 100, 0) + "%", { class: "ax", "text-anchor": "middle" });
+    }
+    let y = 18;
+    for (const gr of grupos) {
+      txt(s, 0, y, gr, { class: "grp" });
+      y += linha;
+      for (const f of D.fatores.filter(f => f.grupo === gr)) {
+        const g = el("g", { class: "hit", "aria-label": `${f.nivel}: ${pct(f.efeito)}` }, s);
+        el("rect", { x: 0, y: y - linha / 2 - 4, width: W, height: linha, fill: "transparent" }, g);
+        txt(g, esq - 12, y, f.nivel === "outros estados" ? "Outros estados" : f.nivel, { "text-anchor": "end" });
+        el("line", { x1: x(f.ic[0]), x2: x(f.ic[1]), y1: y - 4, y2: y - 4, stroke: "var(--series-1)", "stroke-width": 2, opacity: 0.5 }, g);
+        ponto(g, x(f.efeito), y - 4, "var(--series-1)");
+        txt(g, x(Math.max(f.ic[1], 0)) + 8, y, pct(f.efeito), { class: "val" });
+        interativo(g, () => [pct(f.efeito), `${f.nivel} · ${gr}`, `IC 95%: ${pct(f.ic[0])} a ${pct(f.ic[1])}`]);
+        y += linha;
+      }
+      y += 8;
+    }
+    document.getElementById("fatores").replaceChildren(s);
+  })();
+
+  // ── experiência ──
+  (() => {
+    const E = D.experiencia, W = 480, H = 300, m = { l: 48, r: 48, t: 12, b: 46 };
+    const x = i => m.l + i / (E.faixas.length - 1) * (W - m.l - m.r);
+    const y = v => H - m.b - (v + 0.2) / 1.1 * (H - m.t - m.b);
+    const s = svg(W, H, "Efeito da experiência no salário");
+    for (const t of [-0.2, 0, 0.2, 0.4, 0.6, 0.8]) {
+      el("line", { x1: m.l, x2: W - m.r, y1: y(t), y2: y(t), stroke: t === 0 ? "var(--text-muted)" : "var(--grid)" }, s);
+      txt(s, m.l - 6, y(t) + 4, (t > 0 ? "+" : "") + fmt(t * 100, 0) + "%", { class: "ax", "text-anchor": "end" });
+    }
+    E.faixas.forEach((f, i) => {
+      const [a, b] = f.includes(" a ") ? [f.split(" a ")[0] + " a", f.split(" a ")[1]] : f.split(" de ").length > 1 ? [f.split(" de ")[0], "de " + f.split(" de ")[1]] : [f, ""];
+      txt(s, x(i), H - 28, a, { class: "ax", "text-anchor": "middle" });
+      txt(s, x(i), H - 15, b, { class: "ax", "text-anchor": "middle" });
+    });
+    for (const [chave, cor, nome] of [["total", "var(--series-1)", "Efeito total"], ["dentro_do_nivel", "var(--series-2)", "Dentro do mesmo nível"]]) {
+      el("path", { d: E[chave].map((v, i) => `${i ? "L" : "M"}${x(i)},${y(v)}`).join(""), fill: "none", stroke: cor, "stroke-width": 2 }, s);
+      E[chave].forEach((v, i) => {
+        const g = el("g", { class: "hit" }, s);
+        el("circle", { cx: x(i), cy: y(v), r: 12, fill: "transparent" }, g);
+        ponto(g, x(i), y(v), cor);
+        interativo(g, () => [pct(v), `${nome}: ${E.faixas[i]}`, "em relação a 1 a 3 anos"]);
+      });
+      txt(s, x(E.faixas.length - 1) + 8, y(E[chave].at(-1)) + 4, pct(E[chave].at(-1), 0), { class: "val" });
+    }
+    document.getElementById("experiencia").replaceChildren(s);
+  })();
+
+  // ── satisfação ──
+  (() => {
+    const W = 480, H = 300, m = { l: 40, r: 20, t: 18, b: 46 };
+    const x = i => m.l + 20 + i / (Q.length - 1) * (W - m.l - m.r - 40);
+    const y = v => H - m.b - v / 0.6 * (H - m.t - m.b);
+    const s = svg(W, H, "Insatisfação e procura de emprego por posição em relação ao perfil");
+    for (const t of [0, 0.2, 0.4, 0.6]) {
+      el("line", { x1: m.l, x2: W - m.r, y1: y(t), y2: y(t), stroke: "var(--grid)" }, s);
+      txt(s, m.l - 6, y(t) + 4, pct0(t), { class: "ax", "text-anchor": "end" });
+    }
+    Q.forEach((q, i) => {
+      txt(s, x(i), H - 28, i === 0 ? "mais abaixo" : i === Q.length - 1 ? "mais acima" : `${q.quinto}º`, { class: "ax", "text-anchor": "middle" });
+      txt(s, x(i), H - 15, pct(q.distancia, 0), { class: "ax", "text-anchor": "middle" });
+    });
+    for (const [chave, cor, nome, dy] of [["buscando", "var(--series-2)", "Procurando emprego", -10], ["insatisfeito", "var(--series-1)", "Insatisfeito na empresa", 18]]) {
+      el("path", { d: Q.map((q, i) => `${i ? "L" : "M"}${x(i)},${y(q[chave])}`).join(""), fill: "none", stroke: cor, "stroke-width": 2 }, s);
+      Q.forEach((q, i) => {
+        const g = el("g", { class: "hit" }, s);
+        el("circle", { cx: x(i), cy: y(q[chave]), r: 12, fill: "transparent" }, g);
+        ponto(g, x(i), y(q[chave]), cor);
+        if (i === 0 || i === Q.length - 1) txt(g, x(i), y(q[chave]) + dy, pct0(q[chave]), { class: "val", "text-anchor": "middle" });
+        interativo(g, () => [pct0(q[chave]), nome, `${q.quinto}º grupo: ${pct(q.distancia, 0)} do perfil (mediana)`, `Insatisfeitos que citam o salário: ${pct0(q.cita_salario)}`]);
+      });
+    }
+    document.getElementById("satisfacao").replaceChildren(s);
+  })();
+}
+
+iniciar().catch(err => document.querySelector("main").appendChild(node("p", "Não foi possível carregar os dados: " + err.message)));
+</script>
+</body>
+</html>
