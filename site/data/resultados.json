@@ -213,6 +213,1094 @@
    "n": 66
   }
  ],
+ "cargos_ano": [
+  {
+   "familia": "Cientista de Dados",
+   "nivel": "Júnior",
+   "ano": 2021,
+   "mediana": 4973,
+   "ic": [
+    4323,
+    5633
+   ],
+   "n": 115
+  },
+  {
+   "familia": "Cientista de Dados",
+   "nivel": "Pleno",
+   "ano": 2021,
+   "mediana": 9694,
+   "ic": [
+    9226,
+    10704
+   ],
+   "n": 151
+  },
+  {
+   "familia": "Cientista de Dados",
+   "nivel": "Sênior",
+   "ano": 2021,
+   "mediana": 15443,
+   "ic": [
+    13976,
+    16667
+   ],
+   "n": 88
+  },
+  {
+   "familia": "Engenheiro / Arquiteto de Dados",
+   "nivel": "Júnior",
+   "ano": 2021,
+   "mediana": 5109,
+   "ic": [
+    4517,
+    5585
+   ],
+   "n": 83
+  },
+  {
+   "familia": "Engenheiro / Arquiteto de Dados",
+   "nivel": "Pleno",
+   "ano": 2021,
+   "mediana": 8998,
+   "ic": [
+    8602,
+    9471
+   ],
+   "n": 111
+  },
+  {
+   "familia": "Engenheiro / Arquiteto de Dados",
+   "nivel": "Sênior",
+   "ano": 2021,
+   "mediana": 16692,
+   "ic": [
+    15700,
+    17745
+   ],
+   "n": 108
+  },
+  {
+   "familia": "Desenvolvedor / Eng. de Software",
+   "nivel": "Júnior",
+   "ano": 2021,
+   "mediana": 3847,
+   "ic": [
+    2801,
+    5306
+   ],
+   "n": 33
+  },
+  {
+   "familia": "Desenvolvedor / Eng. de Software",
+   "nivel": "Pleno",
+   "ano": 2021,
+   "mediana": 6846,
+   "ic": [
+    5986,
+    8259
+   ],
+   "n": 26
+  },
+  {
+   "familia": "Desenvolvedor / Eng. de Software",
+   "nivel": "Sênior",
+   "ano": 2021,
+   "mediana": 12267,
+   "ic": [
+    11003,
+    13672
+   ],
+   "n": 45
+  },
+  {
+   "familia": "Analista de BI / Analytics Engineer",
+   "nivel": "Júnior",
+   "ano": 2021,
+   "mediana": 3470,
+   "ic": [
+    3221,
+    3899
+   ],
+   "n": 122
+  },
+  {
+   "familia": "Analista de BI / Analytics Engineer",
+   "nivel": "Pleno",
+   "ano": 2021,
+   "mediana": 6463,
+   "ic": [
+    6121,
+    6852
+   ],
+   "n": 122
+  },
+  {
+   "familia": "Analista de BI / Analytics Engineer",
+   "nivel": "Sênior",
+   "ano": 2021,
+   "mediana": 11937,
+   "ic": [
+    10776,
+    13005
+   ],
+   "n": 92
+  },
+  {
+   "familia": "Analista de Dados",
+   "nivel": "Júnior",
+   "ano": 2021,
+   "mediana": 4345,
+   "ic": [
+    3925,
+    4835
+   ],
+   "n": 120
+  },
+  {
+   "familia": "Analista de Dados",
+   "nivel": "Pleno",
+   "ano": 2021,
+   "mediana": 7574,
+   "ic": [
+    6897,
+    8160
+   ],
+   "n": 104
+  },
+  {
+   "familia": "Analista de Dados",
+   "nivel": "Sênior",
+   "ano": 2021,
+   "mediana": 10931,
+   "ic": [
+    9960,
+    11635
+   ],
+   "n": 94
+  },
+  {
+   "familia": "Analista de Negócios",
+   "nivel": "Júnior",
+   "ano": 2021,
+   "mediana": 4141,
+   "ic": [
+    3588,
+    4539
+   ],
+   "n": 23
+  },
+  {
+   "familia": "Analista de Negócios",
+   "nivel": "Pleno",
+   "ano": 2021,
+   "mediana": 7085,
+   "ic": [
+    6235,
+    8097
+   ],
+   "n": 34
+  },
+  {
+   "familia": "Analista de Negócios",
+   "nivel": "Sênior",
+   "ano": 2021,
+   "mediana": 11387,
+   "ic": [
+    9553,
+    12774
+   ],
+   "n": 39
+  },
+  {
+   "familia": "Engenheiro de ML",
+   "nivel": "Pleno",
+   "ano": 2022,
+   "mediana": 10752,
+   "ic": [
+    9340,
+    11758
+   ],
+   "n": 29
+  },
+  {
+   "familia": "Engenheiro de ML",
+   "nivel": "Sênior",
+   "ano": 2022,
+   "mediana": 20644,
+   "ic": [
+    16789,
+    30822
+   ],
+   "n": 23
+  },
+  {
+   "familia": "Cientista de Dados",
+   "nivel": "Júnior",
+   "ano": 2022,
+   "mediana": 5501,
+   "ic": [
+    4897,
+    6068
+   ],
+   "n": 185
+  },
+  {
+   "familia": "Cientista de Dados",
+   "nivel": "Pleno",
+   "ano": 2022,
+   "mediana": 9917,
+   "ic": [
+    9105,
+    10661
+   ],
+   "n": 187
+  },
+  {
+   "familia": "Cientista de Dados",
+   "nivel": "Sênior",
+   "ano": 2022,
+   "mediana": 15281,
+   "ic": [
+    14515,
+    16011
+   ],
+   "n": 177
+  },
+  {
+   "familia": "Engenheiro / Arquiteto de Dados",
+   "nivel": "Júnior",
+   "ano": 2022,
+   "mediana": 4971,
+   "ic": [
+    4308,
+    5466
+   ],
+   "n": 129
+  },
+  {
+   "familia": "Engenheiro / Arquiteto de Dados",
+   "nivel": "Pleno",
+   "ano": 2022,
+   "mediana": 9427,
+   "ic": [
+    8796,
+    10106
+   ],
+   "n": 178
+  },
+  {
+   "familia": "Engenheiro / Arquiteto de Dados",
+   "nivel": "Sênior",
+   "ano": 2022,
+   "mediana": 15624,
+   "ic": [
+    14891,
+    16286
+   ],
+   "n": 170
+  },
+  {
+   "familia": "Desenvolvedor / Eng. de Software",
+   "nivel": "Júnior",
+   "ano": 2022,
+   "mediana": 3211,
+   "ic": [
+    2807,
+    3671
+   ],
+   "n": 42
+  },
+  {
+   "familia": "Desenvolvedor / Eng. de Software",
+   "nivel": "Pleno",
+   "ano": 2022,
+   "mediana": 8487,
+   "ic": [
+    7455,
+    9964
+   ],
+   "n": 34
+  },
+  {
+   "familia": "Desenvolvedor / Eng. de Software",
+   "nivel": "Sênior",
+   "ano": 2022,
+   "mediana": 11087,
+   "ic": [
+    9175,
+    12662
+   ],
+   "n": 30
+  },
+  {
+   "familia": "Analista de BI / Analytics Engineer",
+   "nivel": "Júnior",
+   "ano": 2022,
+   "mediana": 3596,
+   "ic": [
+    3231,
+    3943
+   ],
+   "n": 156
+  },
+  {
+   "familia": "Analista de BI / Analytics Engineer",
+   "nivel": "Pleno",
+   "ano": 2022,
+   "mediana": 6816,
+   "ic": [
+    6359,
+    7362
+   ],
+   "n": 163
+  },
+  {
+   "familia": "Analista de BI / Analytics Engineer",
+   "nivel": "Sênior",
+   "ano": 2022,
+   "mediana": 11244,
+   "ic": [
+    10360,
+    12110
+   ],
+   "n": 126
+  },
+  {
+   "familia": "Analista de Dados",
+   "nivel": "Júnior",
+   "ano": 2022,
+   "mediana": 4103,
+   "ic": [
+    3860,
+    4363
+   ],
+   "n": 229
+  },
+  {
+   "familia": "Analista de Dados",
+   "nivel": "Pleno",
+   "ano": 2022,
+   "mediana": 7351,
+   "ic": [
+    6840,
+    7809
+   ],
+   "n": 231
+  },
+  {
+   "familia": "Analista de Dados",
+   "nivel": "Sênior",
+   "ano": 2022,
+   "mediana": 11886,
+   "ic": [
+    11297,
+    12574
+   ],
+   "n": 171
+  },
+  {
+   "familia": "Analista de Negócios",
+   "nivel": "Júnior",
+   "ano": 2022,
+   "mediana": 4014,
+   "ic": [
+    3440,
+    4587
+   ],
+   "n": 30
+  },
+  {
+   "familia": "Analista de Negócios",
+   "nivel": "Pleno",
+   "ano": 2022,
+   "mediana": 7852,
+   "ic": [
+    6659,
+    8983
+   ],
+   "n": 49
+  },
+  {
+   "familia": "Analista de Negócios",
+   "nivel": "Sênior",
+   "ano": 2022,
+   "mediana": 11240,
+   "ic": [
+    9940,
+    12421
+   ],
+   "n": 42
+  },
+  {
+   "familia": "Engenheiro de ML",
+   "nivel": "Pleno",
+   "ano": 2023,
+   "mediana": 10619,
+   "ic": [
+    8974,
+    12138
+   ],
+   "n": 29
+  },
+  {
+   "familia": "Engenheiro de ML",
+   "nivel": "Sênior",
+   "ano": 2023,
+   "mediana": 17528,
+   "ic": [
+    14498,
+    20158
+   ],
+   "n": 28
+  },
+  {
+   "familia": "Cientista de Dados",
+   "nivel": "Júnior",
+   "ano": 2023,
+   "mediana": 4963,
+   "ic": [
+    4382,
+    5381
+   ],
+   "n": 163
+  },
+  {
+   "familia": "Cientista de Dados",
+   "nivel": "Pleno",
+   "ano": 2023,
+   "mediana": 9263,
+   "ic": [
+    8703,
+    9735
+   ],
+   "n": 247
+  },
+  {
+   "familia": "Cientista de Dados",
+   "nivel": "Sênior",
+   "ano": 2023,
+   "mediana": 15234,
+   "ic": [
+    14724,
+    15755
+   ],
+   "n": 264
+  },
+  {
+   "familia": "Engenheiro / Arquiteto de Dados",
+   "nivel": "Júnior",
+   "ano": 2023,
+   "mediana": 4556,
+   "ic": [
+    4082,
+    5064
+   ],
+   "n": 124
+  },
+  {
+   "familia": "Engenheiro / Arquiteto de Dados",
+   "nivel": "Pleno",
+   "ano": 2023,
+   "mediana": 8913,
+   "ic": [
+    8377,
+    9508
+   ],
+   "n": 230
+  },
+  {
+   "familia": "Engenheiro / Arquiteto de Dados",
+   "nivel": "Sênior",
+   "ano": 2023,
+   "mediana": 15338,
+   "ic": [
+    14698,
+    15925
+   ],
+   "n": 317
+  },
+  {
+   "familia": "Desenvolvedor / Eng. de Software",
+   "nivel": "Júnior",
+   "ano": 2023,
+   "mediana": 3287,
+   "ic": [
+    2812,
+    4200
+   ],
+   "n": 28
+  },
+  {
+   "familia": "Desenvolvedor / Eng. de Software",
+   "nivel": "Pleno",
+   "ano": 2023,
+   "mediana": 7122,
+   "ic": [
+    6000,
+    8217
+   ],
+   "n": 26
+  },
+  {
+   "familia": "Desenvolvedor / Eng. de Software",
+   "nivel": "Sênior",
+   "ano": 2023,
+   "mediana": 13990,
+   "ic": [
+    11949,
+    15885
+   ],
+   "n": 51
+  },
+  {
+   "familia": "Analista de BI / Analytics Engineer",
+   "nivel": "Júnior",
+   "ano": 2023,
+   "mediana": 3386,
+   "ic": [
+    3032,
+    3722
+   ],
+   "n": 193
+  },
+  {
+   "familia": "Analista de BI / Analytics Engineer",
+   "nivel": "Pleno",
+   "ano": 2023,
+   "mediana": 6590,
+   "ic": [
+    6252,
+    6994
+   ],
+   "n": 251
+  },
+  {
+   "familia": "Analista de BI / Analytics Engineer",
+   "nivel": "Sênior",
+   "ano": 2023,
+   "mediana": 11178,
+   "ic": [
+    10581,
+    11723
+   ],
+   "n": 195
+  },
+  {
+   "familia": "Analista de Dados",
+   "nivel": "Júnior",
+   "ano": 2023,
+   "mediana": 3897,
+   "ic": [
+    3630,
+    4143
+   ],
+   "n": 275
+  },
+  {
+   "familia": "Analista de Dados",
+   "nivel": "Pleno",
+   "ano": 2023,
+   "mediana": 6663,
+   "ic": [
+    6308,
+    6976
+   ],
+   "n": 355
+  },
+  {
+   "familia": "Analista de Dados",
+   "nivel": "Sênior",
+   "ano": 2023,
+   "mediana": 11189,
+   "ic": [
+    10882,
+    11552
+   ],
+   "n": 268
+  },
+  {
+   "familia": "Analista de Negócios",
+   "nivel": "Júnior",
+   "ano": 2023,
+   "mediana": 3903,
+   "ic": [
+    3169,
+    4673
+   ],
+   "n": 43
+  },
+  {
+   "familia": "Analista de Negócios",
+   "nivel": "Pleno",
+   "ano": 2023,
+   "mediana": 6383,
+   "ic": [
+    5811,
+    7100
+   ],
+   "n": 68
+  },
+  {
+   "familia": "Analista de Negócios",
+   "nivel": "Sênior",
+   "ano": 2023,
+   "mediana": 9921,
+   "ic": [
+    8841,
+    10682
+   ],
+   "n": 83
+  },
+  {
+   "familia": "Engenheiro de ML",
+   "nivel": "Pleno",
+   "ano": 2024,
+   "mediana": 9750,
+   "ic": [
+    8619,
+    10668
+   ],
+   "n": 34
+  },
+  {
+   "familia": "Engenheiro de ML",
+   "nivel": "Sênior",
+   "ano": 2024,
+   "mediana": 17908,
+   "ic": [
+    15385,
+    21670
+   ],
+   "n": 58
+  },
+  {
+   "familia": "Cientista de Dados",
+   "nivel": "Júnior",
+   "ano": 2024,
+   "mediana": 4844,
+   "ic": [
+    4233,
+    5356
+   ],
+   "n": 117
+  },
+  {
+   "familia": "Cientista de Dados",
+   "nivel": "Pleno",
+   "ano": 2024,
+   "mediana": 9375,
+   "ic": [
+    8900,
+    9745
+   ],
+   "n": 227
+  },
+  {
+   "familia": "Cientista de Dados",
+   "nivel": "Sênior",
+   "ano": 2024,
+   "mediana": 15159,
+   "ic": [
+    14735,
+    15615
+   ],
+   "n": 335
+  },
+  {
+   "familia": "Engenheiro / Arquiteto de Dados",
+   "nivel": "Júnior",
+   "ano": 2024,
+   "mediana": 4473,
+   "ic": [
+    3887,
+    4967
+   ],
+   "n": 91
+  },
+  {
+   "familia": "Engenheiro / Arquiteto de Dados",
+   "nivel": "Pleno",
+   "ano": 2024,
+   "mediana": 9171,
+   "ic": [
+    8559,
+    9661
+   ],
+   "n": 217
+  },
+  {
+   "familia": "Engenheiro / Arquiteto de Dados",
+   "nivel": "Sênior",
+   "ano": 2024,
+   "mediana": 15157,
+   "ic": [
+    14606,
+    15755
+   ],
+   "n": 331
+  },
+  {
+   "familia": "Desenvolvedor / Eng. de Software",
+   "nivel": "Júnior",
+   "ano": 2024,
+   "mediana": 2612,
+   "ic": [
+    2046,
+    3231
+   ],
+   "n": 29
+  },
+  {
+   "familia": "Desenvolvedor / Eng. de Software",
+   "nivel": "Pleno",
+   "ano": 2024,
+   "mediana": 7408,
+   "ic": [
+    6119,
+    8644
+   ],
+   "n": 48
+  },
+  {
+   "familia": "Desenvolvedor / Eng. de Software",
+   "nivel": "Sênior",
+   "ano": 2024,
+   "mediana": 12361,
+   "ic": [
+    10447,
+    14625
+   ],
+   "n": 43
+  },
+  {
+   "familia": "Analista de BI / Analytics Engineer",
+   "nivel": "Júnior",
+   "ano": 2024,
+   "mediana": 3371,
+   "ic": [
+    3027,
+    3740
+   ],
+   "n": 156
+  },
+  {
+   "familia": "Analista de BI / Analytics Engineer",
+   "nivel": "Pleno",
+   "ano": 2024,
+   "mediana": 6676,
+   "ic": [
+    6297,
+    7004
+   ],
+   "n": 248
+  },
+  {
+   "familia": "Analista de BI / Analytics Engineer",
+   "nivel": "Sênior",
+   "ano": 2024,
+   "mediana": 11880,
+   "ic": [
+    11281,
+    12540
+   ],
+   "n": 215
+  },
+  {
+   "familia": "Analista de Dados",
+   "nivel": "Júnior",
+   "ano": 2024,
+   "mediana": 3827,
+   "ic": [
+    3591,
+    4113
+   ],
+   "n": 243
+  },
+  {
+   "familia": "Analista de Dados",
+   "nivel": "Pleno",
+   "ano": 2024,
+   "mediana": 6903,
+   "ic": [
+    6702,
+    7130
+   ],
+   "n": 387
+  },
+  {
+   "familia": "Analista de Dados",
+   "nivel": "Sênior",
+   "ano": 2024,
+   "mediana": 11342,
+   "ic": [
+    10977,
+    11751
+   ],
+   "n": 318
+  },
+  {
+   "familia": "Analista de Negócios",
+   "nivel": "Júnior",
+   "ano": 2024,
+   "mediana": 4586,
+   "ic": [
+    3983,
+    5026
+   ],
+   "n": 35
+  },
+  {
+   "familia": "Analista de Negócios",
+   "nivel": "Pleno",
+   "ano": 2024,
+   "mediana": 6965,
+   "ic": [
+    6078,
+    7760
+   ],
+   "n": 66
+  },
+  {
+   "familia": "Analista de Negócios",
+   "nivel": "Sênior",
+   "ano": 2024,
+   "mediana": 10969,
+   "ic": [
+    10447,
+    11711
+   ],
+   "n": 80
+  },
+  {
+   "familia": "Engenheiro de ML",
+   "nivel": "Júnior",
+   "ano": 2025,
+   "mediana": 4601,
+   "ic": [
+    3444,
+    6334
+   ],
+   "n": 21
+  },
+  {
+   "familia": "Engenheiro de ML",
+   "nivel": "Sênior",
+   "ano": 2025,
+   "mediana": 20279,
+   "ic": [
+    18223,
+    24117
+   ],
+   "n": 67
+  },
+  {
+   "familia": "Cientista de Dados",
+   "nivel": "Júnior",
+   "ano": 2025,
+   "mediana": 5667,
+   "ic": [
+    4689,
+    6827
+   ],
+   "n": 65
+  },
+  {
+   "familia": "Cientista de Dados",
+   "nivel": "Pleno",
+   "ano": 2025,
+   "mediana": 9265,
+   "ic": [
+    8684,
+    9715
+   ],
+   "n": 139
+  },
+  {
+   "familia": "Cientista de Dados",
+   "nivel": "Sênior",
+   "ano": 2025,
+   "mediana": 15523,
+   "ic": [
+    14894,
+    16341
+   ],
+   "n": 216
+  },
+  {
+   "familia": "Engenheiro / Arquiteto de Dados",
+   "nivel": "Júnior",
+   "ano": 2025,
+   "mediana": 4390,
+   "ic": [
+    3709,
+    5092
+   ],
+   "n": 51
+  },
+  {
+   "familia": "Engenheiro / Arquiteto de Dados",
+   "nivel": "Pleno",
+   "ano": 2025,
+   "mediana": 8924,
+   "ic": [
+    8259,
+    9439
+   ],
+   "n": 110
+  },
+  {
+   "familia": "Engenheiro / Arquiteto de Dados",
+   "nivel": "Sênior",
+   "ano": 2025,
+   "mediana": 15493,
+   "ic": [
+    14848,
+    16340
+   ],
+   "n": 257
+  },
+  {
+   "familia": "Desenvolvedor / Eng. de Software",
+   "nivel": "Júnior",
+   "ano": 2025,
+   "mediana": 3500,
+   "ic": [
+    2309,
+    5600
+   ],
+   "n": 24
+  },
+  {
+   "familia": "Desenvolvedor / Eng. de Software",
+   "nivel": "Pleno",
+   "ano": 2025,
+   "mediana": 7500,
+   "ic": [
+    5889,
+    9001
+   ],
+   "n": 25
+  },
+  {
+   "familia": "Desenvolvedor / Eng. de Software",
+   "nivel": "Sênior",
+   "ano": 2025,
+   "mediana": 14842,
+   "ic": [
+    13660,
+    16287
+   ],
+   "n": 53
+  },
+  {
+   "familia": "Analista de BI / Analytics Engineer",
+   "nivel": "Júnior",
+   "ano": 2025,
+   "mediana": 3612,
+   "ic": [
+    3235,
+    4086
+   ],
+   "n": 68
+  },
+  {
+   "familia": "Analista de BI / Analytics Engineer",
+   "nivel": "Pleno",
+   "ano": 2025,
+   "mediana": 6843,
+   "ic": [
+    6338,
+    7265
+   ],
+   "n": 122
+  },
+  {
+   "familia": "Analista de BI / Analytics Engineer",
+   "nivel": "Sênior",
+   "ano": 2025,
+   "mediana": 12228,
+   "ic": [
+    11340,
+    13162
+   ],
+   "n": 155
+  },
+  {
+   "familia": "Analista de Dados",
+   "nivel": "Júnior",
+   "ano": 2025,
+   "mediana": 3572,
+   "ic": [
+    3173,
+    3958
+   ],
+   "n": 144
+  },
+  {
+   "familia": "Analista de Dados",
+   "nivel": "Pleno",
+   "ano": 2025,
+   "mediana": 6697,
+   "ic": [
+    6265,
+    7116
+   ],
+   "n": 205
+  },
+  {
+   "familia": "Analista de Dados",
+   "nivel": "Sênior",
+   "ano": 2025,
+   "mediana": 10780,
+   "ic": [
+    10332,
+    11273
+   ],
+   "n": 239
+  },
+  {
+   "familia": "Analista de Negócios",
+   "nivel": "Júnior",
+   "ano": 2025,
+   "mediana": 3000,
+   "ic": [
+    2620,
+    4238
+   ],
+   "n": 22
+  },
+  {
+   "familia": "Analista de Negócios",
+   "nivel": "Pleno",
+   "ano": 2025,
+   "mediana": 6401,
+   "ic": [
+    5659,
+    7212
+   ],
+   "n": 52
+  },
+  {
+   "familia": "Analista de Negócios",
+   "nivel": "Sênior",
+   "ano": 2025,
+   "mediana": 10429,
+   "ic": [
+    9557,
+    11442
+   ],
+   "n": 66
+  }
+ ],
+ "ipca": {
+  "2019": 1.402904,
+  "2021": 1.214502,
+  "2022": 1.146831,
+  "2023": 1.095522,
+  "2024": 1.044618,
+  "2025": 1.0
+ },
  "mediana_geral": {
   "2019": 7120,
   "2021": 8812,
@@ -220,6 +1308,14 @@
   "2023": 9119,
   "2024": 10131,
   "2025": 10562
+ },
+ "respostas_ano": {
+  "2019": 1527,
+  "2021": 2338,
+  "2022": 3648,
+  "2023": 4689,
+  "2024": 4786,
+  "2025": 3161
  },
  "senior_pct": {
   "2021": 0.3082,
@@ -617,6 +1713,4704 @@
     0.303035,
     0.406845
    ]
+  }
+ },
+ "fatores_todos": {
+  "Todos": [
+   {
+    "grupo": "Modelo de trabalho (vs. presencial)",
+    "var": "modelo",
+    "nivel": "Híbrido com dias fixos",
+    "efeito": 0.149063,
+    "ic": [
+     0.122093,
+     0.176682
+    ]
+   },
+   {
+    "grupo": "Modelo de trabalho (vs. presencial)",
+    "var": "modelo",
+    "nivel": "Híbrido flexível",
+    "efeito": 0.252362,
+    "ic": [
+     0.223608,
+     0.281791
+    ]
+   },
+   {
+    "grupo": "Modelo de trabalho (vs. presencial)",
+    "var": "modelo",
+    "nivel": "Remoto",
+    "efeito": 0.227353,
+    "ic": [
+     0.202417,
+     0.252807
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "BA",
+    "efeito": -0.10088,
+    "ic": [
+     -0.138094,
+     -0.06206
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "CE",
+    "efeito": -0.093898,
+    "ic": [
+     -0.13138,
+     -0.054799
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "DF",
+    "efeito": 0.02176,
+    "ic": [
+     -0.014722,
+     0.059593
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "ES",
+    "efeito": -0.06995,
+    "ic": [
+     -0.112347,
+     -0.025528
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "GO",
+    "efeito": -0.152555,
+    "ic": [
+     -0.194709,
+     -0.108195
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "MG",
+    "efeito": -0.085528,
+    "ic": [
+     -0.104755,
+     -0.065888
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "PB",
+    "efeito": -0.167281,
+    "ic": [
+     -0.217159,
+     -0.114226
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "PE",
+    "efeito": -0.152732,
+    "ic": [
+     -0.189298,
+     -0.114517
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "PR",
+    "efeito": -0.082725,
+    "ic": [
+     -0.1052,
+     -0.059686
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "RJ",
+    "efeito": -0.088546,
+    "ic": [
+     -0.110654,
+     -0.065888
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "RS",
+    "efeito": -0.105348,
+    "ic": [
+     -0.129989,
+     -0.080008
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "SC",
+    "efeito": -0.053539,
+    "ic": [
+     -0.082568,
+     -0.023592
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "outros estados",
+    "efeito": -0.116772,
+    "ic": [
+     -0.141298,
+     -0.091545
+    ]
+   },
+   {
+    "grupo": "Escolaridade (vs. graduação)",
+    "var": "ensino",
+    "nivel": "Doutorado",
+    "efeito": 0.163279,
+    "ic": [
+     0.122133,
+     0.205934
+    ]
+   },
+   {
+    "grupo": "Escolaridade (vs. graduação)",
+    "var": "ensino",
+    "nivel": "Graduação em curso",
+    "efeito": -0.112676,
+    "ic": [
+     -0.132673,
+     -0.092218
+    ]
+   },
+   {
+    "grupo": "Escolaridade (vs. graduação)",
+    "var": "ensino",
+    "nivel": "Mestrado",
+    "efeito": 0.135304,
+    "ic": [
+     0.109798,
+     0.161396
+    ]
+   },
+   {
+    "grupo": "Escolaridade (vs. graduação)",
+    "var": "ensino",
+    "nivel": "Pós-graduação (lato sensu)",
+    "efeito": 0.052468,
+    "ic": [
+     0.036149,
+     0.069044
+    ]
+   },
+   {
+    "grupo": "Escolaridade (vs. graduação)",
+    "var": "ensino",
+    "nivel": "Sem graduação",
+    "efeito": -0.109406,
+    "ic": [
+     -0.15208,
+     -0.064584
+    ]
+   },
+   {
+    "grupo": "Gênero (vs. homens)",
+    "var": "genero_b",
+    "nivel": "Feminino",
+    "efeito": -0.051463,
+    "ic": [
+     -0.065798,
+     -0.036907
+    ]
+   },
+   {
+    "grupo": "Porte da empresa (vs. 101–500 pessoas)",
+    "var": "porte",
+    "nivel": "11–100",
+    "efeito": -0.077711,
+    "ic": [
+     -0.099286,
+     -0.05562
+    ]
+   },
+   {
+    "grupo": "Porte da empresa (vs. 101–500 pessoas)",
+    "var": "porte",
+    "nivel": "1–10",
+    "efeito": -0.256649,
+    "ic": [
+     -0.28806,
+     -0.223851
+    ]
+   },
+   {
+    "grupo": "Porte da empresa (vs. 101–500 pessoas)",
+    "var": "porte",
+    "nivel": "501–3.000",
+    "efeito": 0.070589,
+    "ic": [
+     0.048859,
+     0.09277
+    ]
+   },
+   {
+    "grupo": "Porte da empresa (vs. 101–500 pessoas)",
+    "var": "porte",
+    "nivel": "Acima de 3.000",
+    "efeito": 0.123311,
+    "ic": [
+     0.10271,
+     0.144297
+    ]
+   },
+   {
+    "grupo": "Vínculo (vs. CLT)",
+    "var": "situacao",
+    "nivel": "Estágio",
+    "efeito": -0.52898,
+    "ic": [
+     -0.544823,
+     -0.512586
+    ]
+   },
+   {
+    "grupo": "Vínculo (vs. CLT)",
+    "var": "situacao",
+    "nivel": "Freelancer",
+    "efeito": -0.123369,
+    "ic": [
+     -0.181249,
+     -0.061399
+    ]
+   },
+   {
+    "grupo": "Vínculo (vs. CLT)",
+    "var": "situacao",
+    "nivel": "No Brasil, para empresa de fora",
+    "efeito": 1.258954,
+    "ic": [
+     1.172313,
+     1.349051
+    ]
+   },
+   {
+    "grupo": "Vínculo (vs. CLT)",
+    "var": "situacao",
+    "nivel": "PJ / Empreendedor",
+    "efeito": 0.161392,
+    "ic": [
+     0.132858,
+     0.190644
+    ]
+   },
+   {
+    "grupo": "Vínculo (vs. CLT)",
+    "var": "situacao",
+    "nivel": "Servidor público",
+    "efeito": 0.338116,
+    "ic": [
+     0.288663,
+     0.389467
+    ]
+   }
+  ],
+  "Júnior": [
+   {
+    "grupo": "Modelo de trabalho (vs. presencial)",
+    "var": "modelo",
+    "nivel": "Híbrido com dias fixos",
+    "efeito": 0.137415,
+    "ic": [
+     0.089551,
+     0.187382
+    ]
+   },
+   {
+    "grupo": "Modelo de trabalho (vs. presencial)",
+    "var": "modelo",
+    "nivel": "Híbrido flexível",
+    "efeito": 0.24544,
+    "ic": [
+     0.194366,
+     0.298699
+    ]
+   },
+   {
+    "grupo": "Modelo de trabalho (vs. presencial)",
+    "var": "modelo",
+    "nivel": "Remoto",
+    "efeito": 0.144345,
+    "ic": [
+     0.103453,
+     0.186753
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "BA",
+    "efeito": -0.086667,
+    "ic": [
+     -0.157258,
+     -0.010163
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "CE",
+    "efeito": -0.104662,
+    "ic": [
+     -0.170499,
+     -0.0336
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "DF",
+    "efeito": 0.022333,
+    "ic": [
+     -0.046123,
+     0.095702
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "ES",
+    "efeito": -0.02686,
+    "ic": [
+     -0.108974,
+     0.062821
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "GO",
+    "efeito": -0.125547,
+    "ic": [
+     -0.20373,
+     -0.039686
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "MG",
+    "efeito": -0.092941,
+    "ic": [
+     -0.129723,
+     -0.054605
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "PB",
+    "efeito": -0.121351,
+    "ic": [
+     -0.211615,
+     -0.020752
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "PE",
+    "efeito": -0.182464,
+    "ic": [
+     -0.249126,
+     -0.109884
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "PR",
+    "efeito": -0.058199,
+    "ic": [
+     -0.105258,
+     -0.008665
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "RJ",
+    "efeito": -0.09351,
+    "ic": [
+     -0.13639,
+     -0.0485
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "RS",
+    "efeito": -0.074088,
+    "ic": [
+     -0.124621,
+     -0.020637
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "SC",
+    "efeito": -0.03616,
+    "ic": [
+     -0.096451,
+     0.028153
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "outros estados",
+    "efeito": -0.123006,
+    "ic": [
+     -0.1671,
+     -0.076577
+    ]
+   },
+   {
+    "grupo": "Escolaridade (vs. graduação)",
+    "var": "ensino",
+    "nivel": "Doutorado",
+    "efeito": 0.336136,
+    "ic": [
+     0.204331,
+     0.482366
+    ]
+   },
+   {
+    "grupo": "Escolaridade (vs. graduação)",
+    "var": "ensino",
+    "nivel": "Graduação em curso",
+    "efeito": -0.109611,
+    "ic": [
+     -0.138083,
+     -0.080198
+    ]
+   },
+   {
+    "grupo": "Escolaridade (vs. graduação)",
+    "var": "ensino",
+    "nivel": "Mestrado",
+    "efeito": 0.13361,
+    "ic": [
+     0.070184,
+     0.200794
+    ]
+   },
+   {
+    "grupo": "Escolaridade (vs. graduação)",
+    "var": "ensino",
+    "nivel": "Pós-graduação (lato sensu)",
+    "efeito": 0.11395,
+    "ic": [
+     0.073938,
+     0.155452
+    ]
+   },
+   {
+    "grupo": "Escolaridade (vs. graduação)",
+    "var": "ensino",
+    "nivel": "Sem graduação",
+    "efeito": -0.164542,
+    "ic": [
+     -0.232065,
+     -0.091082
+    ]
+   },
+   {
+    "grupo": "Gênero (vs. homens)",
+    "var": "genero_b",
+    "nivel": "Feminino",
+    "efeito": -0.049158,
+    "ic": [
+     -0.076405,
+     -0.021108
+    ]
+   },
+   {
+    "grupo": "Porte da empresa (vs. 101–500 pessoas)",
+    "var": "porte",
+    "nivel": "11–100",
+    "efeito": -0.066117,
+    "ic": [
+     -0.103966,
+     -0.02667
+    ]
+   },
+   {
+    "grupo": "Porte da empresa (vs. 101–500 pessoas)",
+    "var": "porte",
+    "nivel": "1–10",
+    "efeito": -0.199247,
+    "ic": [
+     -0.250519,
+     -0.144467
+    ]
+   },
+   {
+    "grupo": "Porte da empresa (vs. 101–500 pessoas)",
+    "var": "porte",
+    "nivel": "501–3.000",
+    "efeito": 0.064192,
+    "ic": [
+     0.022345,
+     0.107752
+    ]
+   },
+   {
+    "grupo": "Porte da empresa (vs. 101–500 pessoas)",
+    "var": "porte",
+    "nivel": "Acima de 3.000",
+    "efeito": 0.165483,
+    "ic": [
+     0.124154,
+     0.208332
+    ]
+   },
+   {
+    "grupo": "Vínculo (vs. CLT)",
+    "var": "situacao",
+    "nivel": "Estágio",
+    "efeito": -0.525721,
+    "ic": [
+     -0.543354,
+     -0.507406
+    ]
+   },
+   {
+    "grupo": "Vínculo (vs. CLT)",
+    "var": "situacao",
+    "nivel": "Freelancer",
+    "efeito": -0.226836,
+    "ic": [
+     -0.307977,
+     -0.136181
+    ]
+   },
+   {
+    "grupo": "Vínculo (vs. CLT)",
+    "var": "situacao",
+    "nivel": "No Brasil, para empresa de fora",
+    "efeito": 0.668079,
+    "ic": [
+     0.430543,
+     0.945056
+    ]
+   },
+   {
+    "grupo": "Vínculo (vs. CLT)",
+    "var": "situacao",
+    "nivel": "PJ / Empreendedor",
+    "efeito": 0.028719,
+    "ic": [
+     -0.022327,
+     0.082431
+    ]
+   },
+   {
+    "grupo": "Vínculo (vs. CLT)",
+    "var": "situacao",
+    "nivel": "Servidor público",
+    "efeito": 0.401499,
+    "ic": [
+     0.30931,
+     0.500181
+    ]
+   }
+  ],
+  "Pleno": [
+   {
+    "grupo": "Modelo de trabalho (vs. presencial)",
+    "var": "modelo",
+    "nivel": "Híbrido com dias fixos",
+    "efeito": 0.112232,
+    "ic": [
+     0.070293,
+     0.155814
+    ]
+   },
+   {
+    "grupo": "Modelo de trabalho (vs. presencial)",
+    "var": "modelo",
+    "nivel": "Híbrido flexível",
+    "efeito": 0.21813,
+    "ic": [
+     0.172888,
+     0.265117
+    ]
+   },
+   {
+    "grupo": "Modelo de trabalho (vs. presencial)",
+    "var": "modelo",
+    "nivel": "Remoto",
+    "efeito": 0.214526,
+    "ic": [
+     0.174712,
+     0.255689
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "BA",
+    "efeito": -0.089785,
+    "ic": [
+     -0.150204,
+     -0.025069
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "CE",
+    "efeito": -0.077655,
+    "ic": [
+     -0.138495,
+     -0.012518
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "DF",
+    "efeito": 0.06996,
+    "ic": [
+     0.003319,
+     0.141029
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "ES",
+    "efeito": -0.079672,
+    "ic": [
+     -0.142292,
+     -0.01248
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "GO",
+    "efeito": -0.213735,
+    "ic": [
+     -0.276659,
+     -0.145337
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "MG",
+    "efeito": -0.086199,
+    "ic": [
+     -0.117,
+     -0.054324
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "PB",
+    "efeito": -0.136013,
+    "ic": [
+     -0.22247,
+     -0.039943
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "PE",
+    "efeito": -0.135031,
+    "ic": [
+     -0.190272,
+     -0.076022
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "PR",
+    "efeito": -0.058598,
+    "ic": [
+     -0.095741,
+     -0.019929
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "RJ",
+    "efeito": -0.082216,
+    "ic": [
+     -0.119444,
+     -0.043414
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "RS",
+    "efeito": -0.103908,
+    "ic": [
+     -0.144289,
+     -0.06162
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "SC",
+    "efeito": -0.039137,
+    "ic": [
+     -0.084389,
+     0.008352
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "outros estados",
+    "efeito": -0.128334,
+    "ic": [
+     -0.167788,
+     -0.087008
+    ]
+   },
+   {
+    "grupo": "Escolaridade (vs. graduação)",
+    "var": "ensino",
+    "nivel": "Doutorado",
+    "efeito": 0.128829,
+    "ic": [
+     0.060086,
+     0.20203
+    ]
+   },
+   {
+    "grupo": "Escolaridade (vs. graduação)",
+    "var": "ensino",
+    "nivel": "Graduação em curso",
+    "efeito": -0.098624,
+    "ic": [
+     -0.133304,
+     -0.062556
+    ]
+   },
+   {
+    "grupo": "Escolaridade (vs. graduação)",
+    "var": "ensino",
+    "nivel": "Mestrado",
+    "efeito": 0.171463,
+    "ic": [
+     0.129525,
+     0.214957
+    ]
+   },
+   {
+    "grupo": "Escolaridade (vs. graduação)",
+    "var": "ensino",
+    "nivel": "Pós-graduação (lato sensu)",
+    "efeito": 0.058211,
+    "ic": [
+     0.03241,
+     0.084656
+    ]
+   },
+   {
+    "grupo": "Escolaridade (vs. graduação)",
+    "var": "ensino",
+    "nivel": "Sem graduação",
+    "efeito": -0.065674,
+    "ic": [
+     -0.137111,
+     0.011678
+    ]
+   },
+   {
+    "grupo": "Gênero (vs. homens)",
+    "var": "genero_b",
+    "nivel": "Feminino",
+    "efeito": -0.026466,
+    "ic": [
+     -0.050271,
+     -0.002065
+    ]
+   },
+   {
+    "grupo": "Porte da empresa (vs. 101–500 pessoas)",
+    "var": "porte",
+    "nivel": "11–100",
+    "efeito": -0.092478,
+    "ic": [
+     -0.126489,
+     -0.057144
+    ]
+   },
+   {
+    "grupo": "Porte da empresa (vs. 101–500 pessoas)",
+    "var": "porte",
+    "nivel": "1–10",
+    "efeito": -0.27882,
+    "ic": [
+     -0.329304,
+     -0.224535
+    ]
+   },
+   {
+    "grupo": "Porte da empresa (vs. 101–500 pessoas)",
+    "var": "porte",
+    "nivel": "501–3.000",
+    "efeito": 0.086391,
+    "ic": [
+     0.051615,
+     0.122318
+    ]
+   },
+   {
+    "grupo": "Porte da empresa (vs. 101–500 pessoas)",
+    "var": "porte",
+    "nivel": "Acima de 3.000",
+    "efeito": 0.143555,
+    "ic": [
+     0.110278,
+     0.177828
+    ]
+   },
+   {
+    "grupo": "Vínculo (vs. CLT)",
+    "var": "situacao",
+    "nivel": "Estágio",
+    "efeito": -0.693018,
+    "ic": [
+     -0.75037,
+     -0.622488
+    ]
+   },
+   {
+    "grupo": "Vínculo (vs. CLT)",
+    "var": "situacao",
+    "nivel": "Freelancer",
+    "efeito": -0.037364,
+    "ic": [
+     -0.142743,
+     0.080967
+    ]
+   },
+   {
+    "grupo": "Vínculo (vs. CLT)",
+    "var": "situacao",
+    "nivel": "No Brasil, para empresa de fora",
+    "efeito": 1.292491,
+    "ic": [
+     1.120149,
+     1.478841
+    ]
+   },
+   {
+    "grupo": "Vínculo (vs. CLT)",
+    "var": "situacao",
+    "nivel": "PJ / Empreendedor",
+    "efeito": 0.185751,
+    "ic": [
+     0.140135,
+     0.233192
+    ]
+   },
+   {
+    "grupo": "Vínculo (vs. CLT)",
+    "var": "situacao",
+    "nivel": "Servidor público",
+    "efeito": 0.403441,
+    "ic": [
+     0.31918,
+     0.493084
+    ]
+   }
+  ],
+  "Sênior": [
+   {
+    "grupo": "Modelo de trabalho (vs. presencial)",
+    "var": "modelo",
+    "nivel": "Híbrido com dias fixos",
+    "efeito": 0.247874,
+    "ic": [
+     0.195083,
+     0.302996
+    ]
+   },
+   {
+    "grupo": "Modelo de trabalho (vs. presencial)",
+    "var": "modelo",
+    "nivel": "Híbrido flexível",
+    "efeito": 0.352579,
+    "ic": [
+     0.296728,
+     0.410836
+    ]
+   },
+   {
+    "grupo": "Modelo de trabalho (vs. presencial)",
+    "var": "modelo",
+    "nivel": "Remoto",
+    "efeito": 0.353945,
+    "ic": [
+     0.303035,
+     0.406845
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "BA",
+    "efeito": -0.113867,
+    "ic": [
+     -0.173683,
+     -0.049721
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "CE",
+    "efeito": -0.099942,
+    "ic": [
+     -0.163857,
+     -0.03114
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "DF",
+    "efeito": -0.00751,
+    "ic": [
+     -0.061358,
+     0.049427
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "ES",
+    "efeito": -0.110749,
+    "ic": [
+     -0.18326,
+     -0.0318
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "GO",
+    "efeito": -0.107602,
+    "ic": [
+     -0.181487,
+     -0.027048
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "MG",
+    "efeito": -0.069173,
+    "ic": [
+     -0.100937,
+     -0.036287
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "PB",
+    "efeito": -0.205365,
+    "ic": [
+     -0.28452,
+     -0.117452
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "PE",
+    "efeito": -0.181331,
+    "ic": [
+     -0.244451,
+     -0.112939
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "PR",
+    "efeito": -0.117138,
+    "ic": [
+     -0.150522,
+     -0.082441
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "RJ",
+    "efeito": -0.085755,
+    "ic": [
+     -0.119877,
+     -0.050309
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "RS",
+    "efeito": -0.137331,
+    "ic": [
+     -0.174056,
+     -0.098973
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "SC",
+    "efeito": -0.089166,
+    "ic": [
+     -0.134205,
+     -0.041783
+    ]
+   },
+   {
+    "grupo": "Estado (vs. SP)",
+    "var": "uf_grupo",
+    "nivel": "outros estados",
+    "efeito": -0.090108,
+    "ic": [
+     -0.132698,
+     -0.045427
+    ]
+   },
+   {
+    "grupo": "Escolaridade (vs. graduação)",
+    "var": "ensino",
+    "nivel": "Doutorado",
+    "efeito": 0.150808,
+    "ic": [
+     0.096676,
+     0.207612
+    ]
+   },
+   {
+    "grupo": "Escolaridade (vs. graduação)",
+    "var": "ensino",
+    "nivel": "Graduação em curso",
+    "efeito": -0.134166,
+    "ic": [
+     -0.186633,
+     -0.078316
+    ]
+   },
+   {
+    "grupo": "Escolaridade (vs. graduação)",
+    "var": "ensino",
+    "nivel": "Mestrado",
+    "efeito": 0.103183,
+    "ic": [
+     0.067063,
+     0.140526
+    ]
+   },
+   {
+    "grupo": "Escolaridade (vs. graduação)",
+    "var": "ensino",
+    "nivel": "Pós-graduação (lato sensu)",
+    "efeito": 0.022887,
+    "ic": [
+     -0.001048,
+     0.047395
+    ]
+   },
+   {
+    "grupo": "Escolaridade (vs. graduação)",
+    "var": "ensino",
+    "nivel": "Sem graduação",
+    "efeito": -0.059164,
+    "ic": [
+     -0.141,
+     0.030468
+    ]
+   },
+   {
+    "grupo": "Gênero (vs. homens)",
+    "var": "genero_b",
+    "nivel": "Feminino",
+    "efeito": -0.081653,
+    "ic": [
+     -0.104439,
+     -0.058286
+    ]
+   },
+   {
+    "grupo": "Porte da empresa (vs. 101–500 pessoas)",
+    "var": "porte",
+    "nivel": "11–100",
+    "efeito": -0.061597,
+    "ic": [
+     -0.101527,
+     -0.019892
+    ]
+   },
+   {
+    "grupo": "Porte da empresa (vs. 101–500 pessoas)",
+    "var": "porte",
+    "nivel": "1–10",
+    "efeito": -0.280731,
+    "ic": [
+     -0.3469,
+     -0.207857
+    ]
+   },
+   {
+    "grupo": "Porte da empresa (vs. 101–500 pessoas)",
+    "var": "porte",
+    "nivel": "501–3.000",
+    "efeito": 0.057406,
+    "ic": [
+     0.021915,
+     0.09413
+    ]
+   },
+   {
+    "grupo": "Porte da empresa (vs. 101–500 pessoas)",
+    "var": "porte",
+    "nivel": "Acima de 3.000",
+    "efeito": 0.080081,
+    "ic": [
+     0.047265,
+     0.113925
+    ]
+   },
+   {
+    "grupo": "Vínculo (vs. CLT)",
+    "var": "situacao",
+    "nivel": "Estágio",
+    "efeito": -0.787206,
+    "ic": [
+     -0.907659,
+     -0.509626
+    ]
+   },
+   {
+    "grupo": "Vínculo (vs. CLT)",
+    "var": "situacao",
+    "nivel": "Freelancer",
+    "efeito": -0.047517,
+    "ic": [
+     -0.163797,
+     0.084933
+    ]
+   },
+   {
+    "grupo": "Vínculo (vs. CLT)",
+    "var": "situacao",
+    "nivel": "No Brasil, para empresa de fora",
+    "efeito": 1.230305,
+    "ic": [
+     1.128882,
+     1.336561
+    ]
+   },
+   {
+    "grupo": "Vínculo (vs. CLT)",
+    "var": "situacao",
+    "nivel": "PJ / Empreendedor",
+    "efeito": 0.240532,
+    "ic": [
+     0.190926,
+     0.292204
+    ]
+   },
+   {
+    "grupo": "Vínculo (vs. CLT)",
+    "var": "situacao",
+    "nivel": "Servidor público",
+    "efeito": 0.202062,
+    "ic": [
+     0.126759,
+     0.282398
+    ]
+   }
+  ]
+ },
+ "n_fatores": {
+  "Todos": 14640,
+  "Júnior": 3987,
+  "Pleno": 5143,
+  "Sênior": 5510
+ },
+ "simulador": {
+  "colunas": [
+   "Intercept",
+   "ano_c=2022",
+   "ano_c=2023",
+   "ano_c=2024",
+   "ano_c=2025",
+   "familia=Analista de Dados",
+   "familia=Analista de Negócios",
+   "familia=Cientista de Dados",
+   "familia=DBA",
+   "familia=Desenvolvedor / Eng. de Software",
+   "familia=Engenheiro / Arquiteto de Dados",
+   "familia=Engenheiro de ML",
+   "familia=Estatístico",
+   "familia=Inteligência de Mercado",
+   "familia=Outros",
+   "familia=Product Manager",
+   "nivel_comparavel=Pleno",
+   "nivel_comparavel=Sênior",
+   "exp_faixa=3 a 6 anos",
+   "exp_faixa=6 a 10 anos",
+   "exp_faixa=Mais de 10 anos",
+   "exp_faixa=Menos de 1 ano",
+   "exp_faixa=Sem experiência",
+   "modelo=Híbrido com dias fixos",
+   "modelo=Híbrido flexível",
+   "modelo=Remoto",
+   "uf_grupo=BA",
+   "uf_grupo=CE",
+   "uf_grupo=DF",
+   "uf_grupo=ES",
+   "uf_grupo=GO",
+   "uf_grupo=MG",
+   "uf_grupo=PB",
+   "uf_grupo=PE",
+   "uf_grupo=PR",
+   "uf_grupo=RJ",
+   "uf_grupo=RS",
+   "uf_grupo=SC",
+   "uf_grupo=outros estados",
+   "ensino=Doutorado",
+   "ensino=Graduação em curso",
+   "ensino=Mestrado",
+   "ensino=Pós-graduação (lato sensu)",
+   "ensino=Sem graduação",
+   "genero_b=Feminino",
+   "porte=11–100",
+   "porte=1–10",
+   "porte=501–3.000",
+   "porte=Acima de 3.000",
+   "situacao=Estágio",
+   "situacao=Freelancer",
+   "situacao=No Brasil, para empresa de fora",
+   "situacao=PJ / Empreendedor",
+   "situacao=Servidor público"
+  ],
+  "beta": [
+   8.2500611,
+   -0.024365304,
+   -0.062429963,
+   -0.052483273,
+   -0.053857555,
+   0.0091992421,
+   0.011838827,
+   0.23607543,
+   -0.023977915,
+   0.10022159,
+   0.22258071,
+   0.33590357,
+   0.048107469,
+   -0.063728396,
+   -0.094552951,
+   0.17458942,
+   0.3487083,
+   0.73260677,
+   0.13275039,
+   0.2233872,
+   0.26793777,
+   -0.079047476,
+   -0.086288178,
+   0.13894692,
+   0.22503105,
+   0.20486009,
+   -0.10633928,
+   -0.098603679,
+   0.021526775,
+   -0.07251697,
+   -0.16552959,
+   -0.089408709,
+   -0.18305938,
+   -0.16573876,
+   -0.086348154,
+   -0.092713871,
+   -0.11132014,
+   -0.055025468,
+   -0.12417154,
+   0.15124287,
+   -0.11954502,
+   0.12690025,
+   0.051137669,
+   -0.11586658,
+   -0.052834034,
+   -0.080897096,
+   -0.29658667,
+   0.068209255,
+   0.11628065,
+   -0.75285492,
+   -0.13166969,
+   0.81490186,
+   0.14961898,
+   0.29126289
+  ],
+  "cov": [
+   [
+    0.000327571,
+    -8.34526e-05,
+    -8.51344e-05,
+    -8.25551e-05,
+    -8.40072e-05,
+    -5.87575e-05,
+    -6.08782e-05,
+    -5.6205e-05,
+    -6.35136e-05,
+    -5.99362e-05,
+    -5.06057e-05,
+    -4.79259e-05,
+    -8.58814e-05,
+    -6.76069e-05,
+    -7.28498e-05,
+    -3.2515e-05,
+    -5.41811e-05,
+    -4.53271e-05,
+    -1.01716e-05,
+    -1.53948e-05,
+    -9.44175e-06,
+    -5.40753e-05,
+    -3.76696e-05,
+    -7.23172e-05,
+    -7.80629e-05,
+    -7.6449e-05,
+    -2.80106e-05,
+    -3.74394e-05,
+    -3.0865e-05,
+    -3.12926e-05,
+    -4.96204e-05,
+    -3.27368e-05,
+    -3.47508e-05,
+    -3.52206e-05,
+    -3.13506e-05,
+    -2.28289e-05,
+    -3.07755e-05,
+    -3.1858e-05,
+    -3.89617e-05,
+    -4.3295e-06,
+    -4.41723e-05,
+    -8.74645e-06,
+    -2.0707e-05,
+    -2.88089e-05,
+    -8.05694e-06,
+    -5.49078e-05,
+    -4.75361e-05,
+    -5.46482e-05,
+    -5.01325e-05,
+    -1.5223e-05,
+    4.23512e-06,
+    -3.45815e-06,
+    -1.03321e-05,
+    -2.18367e-05
+   ],
+   [
+    -8.34526e-05,
+    0.000141565,
+    8.9059e-05,
+    8.97105e-05,
+    8.98599e-05,
+    -4.06936e-06,
+    1.05498e-06,
+    -2.17022e-06,
+    1.15797e-05,
+    1.71601e-06,
+    -2.55993e-06,
+    -8.91037e-07,
+    1.19504e-05,
+    -1.3591e-06,
+    -6.00227e-06,
+    -1.12919e-05,
+    4.43212e-06,
+    6.37476e-06,
+    -1.27065e-05,
+    -5.35739e-06,
+    -9.63566e-06,
+    -1.08377e-06,
+    -1.61907e-06,
+    -9.15167e-07,
+    -1.95378e-06,
+    4.38146e-06,
+    -7.5065e-06,
+    1.46653e-07,
+    1.76806e-06,
+    -3.14757e-06,
+    4.14318e-06,
+    1.25218e-06,
+    2.12893e-06,
+    -2.49826e-06,
+    -3.52351e-06,
+    1.76634e-07,
+    1.05042e-06,
+    1.11543e-06,
+    -3.32408e-06,
+    -1.77797e-07,
+    -6.70504e-07,
+    2.14952e-06,
+    9.6961e-07,
+    -7.25146e-07,
+    -3.41723e-06,
+    -1.81698e-07,
+    -1.72384e-06,
+    -3.2102e-08,
+    -2.44027e-06,
+    1.07189e-06,
+    9.82485e-07,
+    -1.85705e-06,
+    -2.88076e-06,
+    4.43929e-06
+   ],
+   [
+    -8.51344e-05,
+    8.9059e-05,
+    0.000131786,
+    9.22524e-05,
+    9.26982e-05,
+    -4.43302e-06,
+    -1.80467e-08,
+    -4.45252e-07,
+    8.71933e-06,
+    4.25863e-06,
+    -2.35817e-06,
+    2.32543e-06,
+    1.63984e-05,
+    -4.14953e-07,
+    -2.83708e-06,
+    -1.25613e-05,
+    3.65502e-06,
+    3.85178e-06,
+    -1.54961e-05,
+    -6.11509e-06,
+    -9.59019e-06,
+    4.84909e-06,
+    1.01369e-06,
+    -2.58541e-07,
+    3.99857e-06,
+    8.24941e-06,
+    -5.76851e-06,
+    -2.63366e-06,
+    4.01221e-07,
+    -4.87936e-06,
+    6.95985e-07,
+    1.38463e-06,
+    -2.53342e-06,
+    -3.9813e-06,
+    -5.25451e-06,
+    -2.08683e-06,
+    -8.73535e-07,
+    -2.50732e-06,
+    -4.35179e-06,
+    -8.0692e-08,
+    -2.24472e-07,
+    9.38466e-07,
+    6.94067e-07,
+    1.44069e-06,
+    -3.42804e-06,
+    -2.10641e-06,
+    -4.18895e-06,
+    -2.61025e-07,
+    -4.0398e-06,
+    -2.56914e-06,
+    -6.73888e-07,
+    -3.2556e-06,
+    -4.16653e-06,
+    7.36195e-06
+   ],
+   [
+    -8.25551e-05,
+    8.97105e-05,
+    9.22524e-05,
+    0.000135417,
+    9.48722e-05,
+    -5.58774e-06,
+    8.71956e-07,
+    -6.74411e-07,
+    2.71272e-05,
+    3.12319e-06,
+    -1.82315e-06,
+    -7.77569e-07,
+    1.67938e-05,
+    1.79645e-05,
+    -1.96506e-06,
+    -1.1945e-05,
+    3.17292e-06,
+    3.05418e-06,
+    -1.97423e-05,
+    -1.00897e-05,
+    -1.16636e-05,
+    4.42485e-06,
+    -5.7613e-06,
+    -4.01764e-07,
+    5.04062e-06,
+    8.8176e-06,
+    -3.00708e-06,
+    -2.91832e-06,
+    -2.47326e-08,
+    -4.54112e-06,
+    2.2079e-06,
+    -1.30268e-07,
+    -3.99131e-06,
+    -4.18051e-06,
+    -5.60185e-06,
+    -1.03225e-06,
+    -4.92624e-06,
+    -3.56182e-06,
+    -5.03472e-06,
+    -1.27206e-06,
+    -1.21767e-06,
+    1.11626e-06,
+    3.33671e-07,
+    1.21615e-06,
+    -3.74214e-06,
+    -1.56598e-06,
+    -2.8785e-06,
+    -8.72114e-07,
+    -5.38726e-06,
+    -3.40945e-06,
+    6.90415e-07,
+    -4.208e-06,
+    -3.30117e-06,
+    9.44984e-06
+   ],
+   [
+    -8.40072e-05,
+    8.98599e-05,
+    9.26982e-05,
+    9.48722e-05,
+    0.000160301,
+    -7.04412e-06,
+    -2.62041e-06,
+    -2.80887e-06,
+    2.64186e-05,
+    -1.01435e-06,
+    -4.14063e-06,
+    -8.81349e-06,
+    1.82495e-05,
+    1.64825e-05,
+    -4.63267e-06,
+    -8.04558e-06,
+    3.54202e-06,
+    -2.08589e-07,
+    -2.09126e-05,
+    -1.26159e-05,
+    -1.16222e-05,
+    4.73605e-06,
+    -5.16625e-06,
+    1.09742e-06,
+    8.722e-06,
+    1.4446e-05,
+    -2.68267e-06,
+    -3.35831e-06,
+    7.24832e-07,
+    -5.40804e-06,
+    1.88794e-06,
+    2.38175e-07,
+    -1.41066e-06,
+    -3.57257e-06,
+    -2.74563e-06,
+    -1.29902e-06,
+    -3.98107e-07,
+    -6.39466e-07,
+    -5.17401e-06,
+    -2.65481e-07,
+    -6.77347e-07,
+    1.22048e-06,
+    -5.8874e-07,
+    1.91352e-06,
+    -3.55497e-06,
+    -1.99592e-06,
+    -1.84667e-06,
+    -1.0522e-06,
+    -3.01825e-06,
+    -6.2914e-06,
+    -4.69679e-06,
+    -1.09805e-05,
+    -6.97854e-06,
+    7.04549e-06
+   ],
+   [
+    -5.87575e-05,
+    -4.06936e-06,
+    -4.43302e-06,
+    -5.58774e-06,
+    -7.04412e-06,
+    0.000112023,
+    6.60034e-05,
+    6.71517e-05,
+    6.36771e-05,
+    6.51441e-05,
+    6.55558e-05,
+    6.62542e-05,
+    6.47908e-05,
+    6.48702e-05,
+    6.54196e-05,
+    6.695e-05,
+    6.48949e-07,
+    1.06296e-06,
+    1.51243e-06,
+    1.63217e-06,
+    2.51426e-06,
+    -1.19518e-06,
+    1.01188e-07,
+    -4.38202e-06,
+    -4.99434e-06,
+    -4.63288e-06,
+    2.66221e-06,
+    2.86408e-06,
+    1.17977e-06,
+    -9.4314e-07,
+    5.39246e-06,
+    7.80606e-07,
+    4.25134e-06,
+    9.91269e-07,
+    2.44815e-06,
+    -1.19591e-08,
+    4.82749e-08,
+    2.82104e-06,
+    1.64401e-06,
+    -3.49743e-06,
+    1.31219e-06,
+    -2.97298e-06,
+    1.62883e-07,
+    1.84874e-06,
+    -1.96882e-06,
+    -1.18494e-06,
+    -3.23455e-06,
+    -4.82918e-07,
+    -7.6889e-07,
+    1.38606e-06,
+    -1.77869e-06,
+    2.52094e-06,
+    3.47678e-06,
+    -2.89806e-06
+   ],
+   [
+    -6.08782e-05,
+    1.05498e-06,
+    -1.80467e-08,
+    8.71956e-07,
+    -2.62041e-06,
+    6.60034e-05,
+    0.000279615,
+    6.51345e-05,
+    6.5156e-05,
+    6.62201e-05,
+    6.41382e-05,
+    6.36649e-05,
+    6.47305e-05,
+    6.66678e-05,
+    6.89387e-05,
+    6.8696e-05,
+    -4.58038e-06,
+    -9.30561e-06,
+    2.76631e-06,
+    7.02823e-06,
+    3.52085e-06,
+    -4.12777e-06,
+    -8.28561e-06,
+    -5.17493e-06,
+    -2.75794e-06,
+    3.3375e-06,
+    1.15619e-06,
+    3.89192e-06,
+    -2.11501e-07,
+    4.33316e-06,
+    1.67305e-06,
+    -5.89983e-07,
+    6.1217e-06,
+    -3.18944e-06,
+    2.30067e-06,
+    -3.22745e-06,
+    6.19112e-07,
+    4.45595e-06,
+    1.28224e-06,
+    2.37082e-06,
+    2.0495e-06,
+    2.01133e-06,
+    2.00356e-06,
+    3.25472e-06,
+    -5.54703e-06,
+    -8.63019e-07,
+    -5.25853e-06,
+    -2.5679e-06,
+    -3.38692e-06,
+    5.37078e-06,
+    2.80561e-07,
+    4.23186e-06,
+    3.38345e-06,
+    2.02225e-06
+   ],
+   [
+    -5.6205e-05,
+    -2.17022e-06,
+    -4.45252e-07,
+    -6.74411e-07,
+    -2.80887e-06,
+    6.71517e-05,
+    6.51345e-05,
+    0.000135893,
+    6.61191e-05,
+    6.63848e-05,
+    6.91319e-05,
+    7.65566e-05,
+    7.11281e-05,
+    6.66707e-05,
+    6.35743e-05,
+    6.96574e-05,
+    2.9943e-06,
+    2.25938e-06,
+    -1.45944e-06,
+    4.9188e-07,
+    4.40476e-06,
+    1.78417e-06,
+    -2.39836e-06,
+    -7.07313e-06,
+    -1.22796e-05,
+    -1.41883e-05,
+    3.59272e-06,
+    3.16232e-06,
+    -3.77402e-06,
+    1.92381e-06,
+    4.53068e-06,
+    -6.16382e-07,
+    1.6202e-06,
+    7.81494e-07,
+    2.65899e-06,
+    -9.20197e-07,
+    2.20016e-06,
+    3.43673e-06,
+    1.2694e-06,
+    -3.84421e-05,
+    4.8919e-06,
+    -2.47016e-05,
+    2.54427e-06,
+    5.36985e-06,
+    3.72801e-06,
+    -1.98166e-06,
+    -5.18546e-06,
+    -1.05176e-06,
+    -3.75541e-06,
+    -2.8944e-06,
+    5.92779e-06,
+    7.31681e-06,
+    2.26473e-06,
+    2.25206e-06
+   ],
+   [
+    -6.35136e-05,
+    1.15797e-05,
+    8.71933e-06,
+    2.71272e-05,
+    2.64186e-05,
+    6.36771e-05,
+    6.5156e-05,
+    6.61191e-05,
+    0.00360164,
+    7.20372e-05,
+    6.81422e-05,
+    6.50935e-05,
+    8.83178e-05,
+    7.302e-05,
+    7.01705e-05,
+    6.71093e-05,
+    -8.58004e-07,
+    -4.4086e-06,
+    -7.19652e-06,
+    -1.50318e-05,
+    -4.85387e-05,
+    -2.1727e-06,
+    -1.60096e-05,
+    -4.09018e-06,
+    -5.74995e-06,
+    -5.00054e-06,
+    1.1723e-05,
+    -9.43849e-06,
+    -2.22462e-05,
+    7.21656e-06,
+    -3.10911e-06,
+    -1.37864e-05,
+    8.16641e-06,
+    5.79382e-06,
+    2.87805e-06,
+    3.08008e-06,
+    4.35071e-06,
+    -1.11608e-05,
+    4.29487e-06,
+    5.7077e-06,
+    -2.95565e-06,
+    -3.88952e-06,
+    -3.77558e-06,
+    -3.77629e-06,
+    5.91939e-06,
+    -4.53204e-06,
+    -2.71478e-05,
+    -1.84842e-06,
+    -9.70046e-07,
+    -7.54586e-06,
+    -2.89664e-05,
+    1.50302e-05,
+    9.45145e-06,
+    -1.24455e-05
+   ],
+   [
+    -5.99362e-05,
+    1.71601e-06,
+    4.25863e-06,
+    3.12319e-06,
+    -1.01435e-06,
+    6.51441e-05,
+    6.62201e-05,
+    6.63848e-05,
+    7.20372e-05,
+    0.000368655,
+    6.67988e-05,
+    6.83253e-05,
+    7.59044e-05,
+    6.61254e-05,
+    8.59684e-05,
+    6.80579e-05,
+    -4.13777e-06,
+    -9.34775e-06,
+    4.42805e-06,
+    3.38906e-06,
+    -5.31928e-06,
+    -1.09392e-05,
+    -5.32007e-05,
+    1.24407e-06,
+    1.31911e-07,
+    -3.60399e-06,
+    -4.73851e-06,
+    6.82215e-06,
+    -4.61497e-06,
+    4.83358e-06,
+    -6.42206e-06,
+    -7.51211e-07,
+    1.922e-06,
+    3.53753e-06,
+    4.13903e-07,
+    -4.97272e-07,
+    -1.60621e-06,
+    -1.23369e-06,
+    -1.58986e-06,
+    1.00713e-06,
+    7.06117e-07,
+    -2.80838e-06,
+    1.41986e-06,
+    4.98315e-06,
+    3.6982e-06,
+    -4.94008e-06,
+    -1.19637e-05,
+    -1.36423e-06,
+    -1.03982e-06,
+    -2.96765e-06,
+    -3.32886e-06,
+    -5.00488e-06,
+    -3.63427e-06,
+    -2.40536e-05
+   ],
+   [
+    -5.06057e-05,
+    -2.55993e-06,
+    -2.35817e-06,
+    -1.82315e-06,
+    -4.14063e-06,
+    6.55558e-05,
+    6.41382e-05,
+    6.91319e-05,
+    6.81422e-05,
+    6.67988e-05,
+    0.000132006,
+    7.18862e-05,
+    6.36798e-05,
+    6.297e-05,
+    6.10406e-05,
+    6.92834e-05,
+    2.25872e-07,
+    -2.23605e-06,
+    -2.41486e-06,
+    -3.26199e-06,
+    -7.35589e-06,
+    2.06595e-07,
+    -3.44109e-06,
+    -5.71346e-06,
+    -1.21916e-05,
+    -1.7405e-05,
+    1.6163e-06,
+    2.35992e-06,
+    -2.17108e-06,
+    5.91966e-07,
+    -2.17223e-07,
+    1.88582e-07,
+    -7.0771e-06,
+    -4.28594e-06,
+    -5.01756e-08,
+    -1.13454e-06,
+    -1.25869e-06,
+    1.20833e-07,
+    -4.37362e-08,
+    4.58503e-07,
+    -1.24758e-07,
+    -1.7526e-06,
+    1.62182e-06,
+    -5.16273e-06,
+    4.75832e-06,
+    2.19007e-07,
+    2.96443e-06,
+    4.05583e-07,
+    -1.24373e-06,
+    1.76728e-06,
+    4.95027e-06,
+    -6.2229e-06,
+    -1.40975e-06,
+    -5.73328e-07
+   ],
+   [
+    -4.79259e-05,
+    -8.91037e-07,
+    2.32543e-06,
+    -7.77569e-07,
+    -8.81349e-06,
+    6.62542e-05,
+    6.36649e-05,
+    7.65566e-05,
+    6.50935e-05,
+    6.83253e-05,
+    7.18862e-05,
+    0.000476136,
+    6.93176e-05,
+    6.3721e-05,
+    6.14243e-05,
+    7.01769e-05,
+    2.43964e-06,
+    2.07648e-07,
+    -4.24938e-06,
+    -4.34838e-07,
+    -2.45304e-06,
+    2.40795e-06,
+    -5.54803e-06,
+    -7.28274e-06,
+    -1.38786e-05,
+    -1.72896e-05,
+    1.63934e-06,
+    -3.63146e-06,
+    -5.67162e-06,
+    2.36533e-06,
+    -9.4189e-06,
+    -2.25423e-06,
+    -1.54477e-05,
+    -2.77028e-06,
+    -5.43579e-06,
+    -8.6323e-07,
+    -6.79139e-07,
+    -1.47031e-06,
+    -1.28026e-05,
+    -2.39024e-05,
+    3.28342e-06,
+    -2.20827e-05,
+    4.31053e-06,
+    5.66769e-06,
+    5.83368e-06,
+    -1.74118e-06,
+    -2.094e-06,
+    -3.80834e-06,
+    -4.20188e-06,
+    -6.84063e-06,
+    -6.66919e-07,
+    -2.92337e-05,
+    -2.53179e-06,
+    6.68392e-06
+   ],
+   [
+    -8.58814e-05,
+    1.19504e-05,
+    1.63984e-05,
+    1.67938e-05,
+    1.82495e-05,
+    6.47908e-05,
+    6.47305e-05,
+    7.11281e-05,
+    8.83178e-05,
+    7.59044e-05,
+    6.36798e-05,
+    6.93176e-05,
+    0.00187043,
+    7.22415e-05,
+    8.25953e-05,
+    6.38636e-05,
+    4.36405e-06,
+    9.28698e-06,
+    -6.82787e-06,
+    -1.37367e-05,
+    -6.22298e-05,
+    4.41781e-06,
+    -7.91015e-06,
+    1.29384e-05,
+    1.20096e-05,
+    2.00414e-05,
+    -2.63462e-05,
+    1.6993e-06,
+    -2.79022e-05,
+    9.62829e-06,
+    1.78615e-05,
+    2.03265e-06,
+    -9.53482e-06,
+    4.30375e-06,
+    6.02876e-06,
+    2.15249e-06,
+    -3.71765e-06,
+    5.20963e-06,
+    -1.10777e-05,
+    -2.5426e-05,
+    -1.65674e-07,
+    -2.45407e-05,
+    4.87719e-06,
+    6.20518e-06,
+    -6.14671e-06,
+    -5.53669e-06,
+    -7.0656e-06,
+    -2.70965e-08,
+    7.339e-07,
+    -1.43852e-05,
+    7.4216e-06,
+    1.07313e-06,
+    1.48129e-06,
+    -6.94136e-05
+   ],
+   [
+    -6.76069e-05,
+    -1.3591e-06,
+    -4.14953e-07,
+    1.79645e-05,
+    1.64825e-05,
+    6.48702e-05,
+    6.66678e-05,
+    6.66707e-05,
+    7.302e-05,
+    6.61254e-05,
+    6.297e-05,
+    6.3721e-05,
+    7.22415e-05,
+    0.00189519,
+    6.9406e-05,
+    6.71233e-05,
+    4.45579e-07,
+    -2.34961e-06,
+    -1.12998e-06,
+    1.98777e-06,
+    -4.76287e-06,
+    -1.19063e-05,
+    -4.52285e-06,
+    -4.6249e-06,
+    2.94907e-06,
+    8.4611e-06,
+    -6.528e-06,
+    9.63178e-06,
+    3.71451e-06,
+    2.32387e-06,
+    -4.10832e-06,
+    -3.13654e-06,
+    -3.67833e-05,
+    1.57677e-06,
+    -5.41259e-06,
+    -3.57281e-06,
+    -8.98656e-06,
+    1.09156e-06,
+    -2.97291e-07,
+    -1.27756e-06,
+    2.38511e-06,
+    -1.45029e-05,
+    -8.30629e-07,
+    3.44663e-06,
+    -2.73395e-06,
+    -3.29986e-06,
+    -1.39261e-05,
+    -1.10632e-06,
+    -2.68963e-06,
+    -7.04545e-06,
+    -2.89978e-07,
+    4.23699e-06,
+    1.34131e-06,
+    1.04891e-05
+   ],
+   [
+    -7.28498e-05,
+    -6.00227e-06,
+    -2.83708e-06,
+    -1.96506e-06,
+    -4.63267e-06,
+    6.54196e-05,
+    6.89387e-05,
+    6.35743e-05,
+    7.01705e-05,
+    8.59684e-05,
+    6.10406e-05,
+    6.14243e-05,
+    8.25953e-05,
+    6.9406e-05,
+    0.000204408,
+    6.58404e-05,
+    -2.4424e-06,
+    -3.78525e-06,
+    5.25267e-06,
+    2.39671e-06,
+    -4.988e-06,
+    -1.73549e-05,
+    -0.000100843,
+    1.67823e-05,
+    1.75705e-05,
+    2.04407e-05,
+    -2.34835e-06,
+    3.7436e-06,
+    2.77851e-06,
+    3.58939e-06,
+    5.40775e-06,
+    1.65021e-06,
+    3.73367e-08,
+    3.80713e-07,
+    3.6323e-06,
+    -1.46752e-06,
+    6.31051e-07,
+    4.41768e-06,
+    6.50899e-07,
+    -1.17387e-05,
+    -4.33979e-07,
+    -4.0211e-06,
+    -9.58901e-07,
+    -8.92142e-06,
+    -2.24952e-06,
+    -3.24218e-06,
+    -1.75411e-05,
+    6.22353e-07,
+    -2.17039e-06,
+    7.75511e-06,
+    -1.38475e-05,
+    1.62567e-07,
+    2.89092e-06,
+    -3.00418e-05
+   ],
+   [
+    -3.2515e-05,
+    -1.12919e-05,
+    -1.25613e-05,
+    -1.1945e-05,
+    -8.04558e-06,
+    6.695e-05,
+    6.8696e-05,
+    6.96574e-05,
+    6.71093e-05,
+    6.80579e-05,
+    6.92834e-05,
+    7.01769e-05,
+    6.38636e-05,
+    6.71233e-05,
+    6.58404e-05,
+    0.000701219,
+    -4.0608e-06,
+    -2.17104e-05,
+    5.43824e-06,
+    1.43342e-05,
+    4.74659e-06,
+    -9.20994e-06,
+    -8.34117e-06,
+    -4.31079e-06,
+    -1.00384e-05,
+    -1.05564e-05,
+    3.67609e-06,
+    9.19561e-06,
+    8.89495e-07,
+    3.61566e-06,
+    5.78706e-06,
+    -3.52109e-06,
+    7.19795e-06,
+    -2.08288e-06,
+    -6.2803e-06,
+    -3.40054e-07,
+    -1.3643e-05,
+    -2.95943e-06,
+    -4.53361e-06,
+    1.27461e-06,
+    4.72688e-06,
+    -8.52154e-06,
+    -3.22437e-06,
+    4.19904e-06,
+    -8.63285e-06,
+    -3.83564e-06,
+    -1.36741e-06,
+    -4.33338e-06,
+    -8.7318e-06,
+    3.34686e-06,
+    5.39932e-06,
+    -1.87227e-06,
+    4.73377e-07,
+    -2.16789e-06
+   ],
+   [
+    -5.41811e-05,
+    4.43212e-06,
+    3.65502e-06,
+    3.17292e-06,
+    3.54202e-06,
+    6.48949e-07,
+    -4.58038e-06,
+    2.9943e-06,
+    -8.58004e-07,
+    -4.13777e-06,
+    2.25872e-07,
+    2.43964e-06,
+    4.36405e-06,
+    4.45579e-07,
+    -2.4424e-06,
+    -4.0608e-06,
+    9.78583e-05,
+    7.80903e-05,
+    -2.35368e-05,
+    -1.99535e-05,
+    -1.83202e-05,
+    2.47447e-05,
+    6.84261e-06,
+    -5.41766e-06,
+    -4.98378e-06,
+    -6.06248e-06,
+    -6.8855e-07,
+    2.5111e-06,
+    2.65485e-06,
+    -5.16565e-07,
+    2.27498e-06,
+    1.65405e-06,
+    6.48909e-06,
+    -1.01552e-06,
+    -3.07216e-08,
+    1.32101e-06,
+    1.85713e-06,
+    -1.13582e-06,
+    1.5186e-06,
+    -8.5826e-06,
+    1.1674e-05,
+    -7.00079e-06,
+    -6.52335e-06,
+    2.48071e-06,
+    2.64174e-06,
+    2.27783e-06,
+    6.11405e-06,
+    -1.61684e-06,
+    -1.25402e-06,
+    3.05536e-05,
+    1.82924e-06,
+    -1.36568e-06,
+    -3.67509e-06,
+    5.41538e-06
+   ],
+   [
+    -4.53271e-05,
+    6.37476e-06,
+    3.85178e-06,
+    3.05418e-06,
+    -2.08589e-07,
+    1.06296e-06,
+    -9.30561e-06,
+    2.25938e-06,
+    -4.4086e-06,
+    -9.34775e-06,
+    -2.23605e-06,
+    2.07648e-07,
+    9.28698e-06,
+    -2.34961e-06,
+    -3.78525e-06,
+    -2.17104e-05,
+    7.80903e-05,
+    0.00013123,
+    -4.06658e-05,
+    -5.83687e-05,
+    -5.99238e-05,
+    2.0388e-05,
+    -4.22912e-06,
+    -8.39246e-06,
+    -9.99185e-06,
+    -1.22109e-05,
+    3.24238e-06,
+    8.08871e-06,
+    5.29493e-06,
+    5.5235e-06,
+    6.18901e-06,
+    6.73245e-06,
+    1.15001e-05,
+    6.25665e-06,
+    3.46366e-06,
+    4.35846e-06,
+    6.08024e-06,
+    4.24521e-06,
+    5.76433e-06,
+    -1.80665e-05,
+    1.34804e-05,
+    -1.20561e-05,
+    -1.22431e-05,
+    3.23953e-06,
+    6.39017e-06,
+    2.87745e-06,
+    9.29896e-06,
+    -4.43929e-06,
+    -6.20825e-06,
+    2.81222e-05,
+    2.78392e-06,
+    -1.21793e-05,
+    -3.65671e-06,
+    1.12229e-05
+   ],
+   [
+    -1.01716e-05,
+    -1.27065e-05,
+    -1.54961e-05,
+    -1.97423e-05,
+    -2.09126e-05,
+    1.51243e-06,
+    2.76631e-06,
+    -1.45944e-06,
+    -7.19652e-06,
+    4.42805e-06,
+    -2.41486e-06,
+    -4.24938e-06,
+    -6.82787e-06,
+    -1.12998e-06,
+    5.25267e-06,
+    5.43824e-06,
+    -2.35368e-05,
+    -4.06658e-05,
+    8.43455e-05,
+    6.4218e-05,
+    6.46967e-05,
+    2.66747e-05,
+    3.58704e-05,
+    9.87002e-07,
+    1.00282e-06,
+    5.17887e-07,
+    1.77413e-06,
+    5.50334e-07,
+    -7.38941e-07,
+    -1.89834e-07,
+    7.74069e-07,
+    1.51637e-08,
+    1.83251e-06,
+    2.29037e-06,
+    7.98918e-07,
+    -6.00599e-07,
+    -1.17322e-06,
+    1.33196e-07,
+    1.35002e-06,
+    3.92678e-07,
+    5.52609e-06,
+    -2.58826e-06,
+    -1.08339e-06,
+    -1.01781e-06,
+    4.26838e-07,
+    1.61994e-06,
+    -3.902e-06,
+    -2.30808e-06,
+    -1.6147e-06,
+    1.5245e-06,
+    -4.1682e-07,
+    -5.32703e-06,
+    1.57698e-06,
+    -2.34634e-06
+   ],
+   [
+    -1.53948e-05,
+    -5.35739e-06,
+    -6.11509e-06,
+    -1.00897e-05,
+    -1.26159e-05,
+    1.63217e-06,
+    7.02823e-06,
+    4.9188e-07,
+    -1.50318e-05,
+    3.38906e-06,
+    -3.26199e-06,
+    -4.34838e-07,
+    -1.37367e-05,
+    1.98777e-06,
+    2.39671e-06,
+    1.43342e-05,
+    -1.99535e-05,
+    -5.83687e-05,
+    6.4218e-05,
+    0.000205028,
+    8.17554e-05,
+    2.77541e-05,
+    4.20916e-05,
+    2.53301e-06,
+    3.25598e-06,
+    2.59385e-06,
+    5.14218e-07,
+    -2.11616e-06,
+    -3.73609e-06,
+    3.20658e-06,
+    1.60862e-06,
+    -1.23522e-06,
+    -1.20587e-06,
+    5.32352e-06,
+    6.97522e-07,
+    -9.88461e-07,
+    -9.1875e-07,
+    -4.07228e-07,
+    1.77716e-06,
+    -8.31734e-06,
+    5.93762e-06,
+    -7.36017e-06,
+    -4.58732e-06,
+    -6.14041e-06,
+    9.67504e-07,
+    1.08931e-06,
+    -5.62938e-06,
+    -3.29404e-06,
+    -3.77244e-06,
+    -1.28935e-06,
+    -4.86565e-06,
+    -1.35144e-05,
+    1.75764e-07,
+    -9.31085e-06
+   ],
+   [
+    -9.44175e-06,
+    -9.63566e-06,
+    -9.59019e-06,
+    -1.16636e-05,
+    -1.16222e-05,
+    2.51426e-06,
+    3.52085e-06,
+    4.40476e-06,
+    -4.85387e-05,
+    -5.31928e-06,
+    -7.35589e-06,
+    -2.45304e-06,
+    -6.22298e-05,
+    -4.76287e-06,
+    -4.988e-06,
+    4.74659e-06,
+    -1.83202e-05,
+    -5.99238e-05,
+    6.46967e-05,
+    8.17554e-05,
+    0.000231722,
+    2.97284e-05,
+    4.90299e-05,
+    1.87942e-06,
+    4.95439e-06,
+    1.84695e-06,
+    -4.82626e-06,
+    2.75899e-07,
+    -9.83862e-06,
+    2.56491e-06,
+    1.26857e-07,
+    4.99091e-07,
+    1.02742e-06,
+    3.0986e-06,
+    1.54602e-06,
+    -2.8282e-06,
+    -5.43189e-06,
+    8.23784e-07,
+    2.84321e-06,
+    -1.99457e-05,
+    5.62984e-06,
+    -8.95842e-06,
+    -8.86069e-06,
+    -8.27987e-07,
+    6.64682e-07,
+    -1.34164e-06,
+    -8.14388e-06,
+    -4.12951e-06,
+    -4.38631e-06,
+    -2.88295e-06,
+    -8.39484e-06,
+    -4.53711e-06,
+    -2.58232e-06,
+    -1.47097e-05
+   ],
+   [
+    -5.40753e-05,
+    -1.08377e-06,
+    4.84909e-06,
+    4.42485e-06,
+    4.73605e-06,
+    -1.19518e-06,
+    -4.12777e-06,
+    1.78417e-06,
+    -2.1727e-06,
+    -1.09392e-05,
+    2.06595e-07,
+    2.40795e-06,
+    4.41781e-06,
+    -1.19063e-05,
+    -1.73549e-05,
+    -9.20994e-06,
+    2.47447e-05,
+    2.0388e-05,
+    2.66747e-05,
+    2.77541e-05,
+    2.97284e-05,
+    0.000143196,
+    5.57304e-05,
+    6.10794e-06,
+    7.12519e-06,
+    6.20652e-06,
+    1.1387e-06,
+    1.64764e-06,
+    1.66263e-06,
+    3.99643e-06,
+    -7.27787e-07,
+    3.24829e-06,
+    2.04902e-06,
+    2.47623e-06,
+    8.35901e-07,
+    -3.40536e-07,
+    2.86749e-06,
+    1.80082e-06,
+    2.64412e-06,
+    -1.9913e-06,
+    5.9602e-07,
+    -1.27234e-06,
+    -1.439e-06,
+    -2.28094e-06,
+    -1.30082e-06,
+    -2.73722e-06,
+    -7.264e-06,
+    -1.52564e-06,
+    -8.63024e-07,
+    -3.17632e-05,
+    -8.24843e-06,
+    8.70403e-08,
+    -2.74566e-06,
+    2.88018e-06
+   ],
+   [
+    -3.76696e-05,
+    -1.61907e-06,
+    1.01369e-06,
+    -5.7613e-06,
+    -5.16625e-06,
+    1.01188e-07,
+    -8.28561e-06,
+    -2.39836e-06,
+    -1.60096e-05,
+    -5.32007e-05,
+    -3.44109e-06,
+    -5.54803e-06,
+    -7.91015e-06,
+    -4.52285e-06,
+    -0.000100843,
+    -8.34117e-06,
+    6.84261e-06,
+    -4.22912e-06,
+    3.58704e-05,
+    4.20916e-05,
+    4.90299e-05,
+    5.57304e-05,
+    0.000353299,
+    1.19728e-05,
+    1.4871e-05,
+    1.18479e-05,
+    4.62504e-06,
+    4.03012e-06,
+    6.05762e-06,
+    -1.81857e-06,
+    1.15835e-05,
+    3.53313e-06,
+    5.60484e-06,
+    -1.42427e-06,
+    4.36388e-06,
+    -9.99327e-07,
+    2.05975e-06,
+    1.54915e-06,
+    9.8488e-06,
+    7.17224e-06,
+    2.06172e-06,
+    4.55867e-06,
+    7.23039e-07,
+    -1.25998e-05,
+    -2.67392e-06,
+    -5.48678e-06,
+    -8.56566e-06,
+    -2.20041e-06,
+    -2.25861e-06,
+    -7.45047e-06,
+    -1.99724e-05,
+    1.75436e-07,
+    4.20961e-06,
+    -8.95119e-06
+   ],
+   [
+    -7.23172e-05,
+    -9.15167e-07,
+    -2.58541e-07,
+    -4.01764e-07,
+    1.09742e-06,
+    -4.38202e-06,
+    -5.17493e-06,
+    -7.07313e-06,
+    -4.09018e-06,
+    1.24407e-06,
+    -5.71346e-06,
+    -7.28274e-06,
+    1.29384e-05,
+    -4.6249e-06,
+    1.67823e-05,
+    -4.31079e-06,
+    -5.41766e-06,
+    -8.39246e-06,
+    9.87002e-07,
+    2.53301e-06,
+    1.87942e-06,
+    6.10794e-06,
+    1.19728e-05,
+    0.000146848,
+    8.09198e-05,
+    7.92009e-05,
+    9.22512e-06,
+    1.43917e-05,
+    8.2226e-06,
+    1.08188e-05,
+    2.35589e-05,
+    7.04291e-06,
+    7.56406e-06,
+    1.45137e-05,
+    1.03165e-05,
+    -1.2249e-07,
+    9.59425e-06,
+    8.97993e-06,
+    2.11373e-05,
+    -9.59124e-07,
+    5.41044e-06,
+    5.60306e-07,
+    9.51555e-07,
+    4.88942e-06,
+    -4.32236e-06,
+    -1.1278e-06,
+    1.38643e-06,
+    -3.02113e-06,
+    -8.8383e-06,
+    -1.07335e-05,
+    -1.12849e-05,
+    -1.28396e-06,
+    -5.05401e-06,
+    1.07251e-05
+   ],
+   [
+    -7.80629e-05,
+    -1.95378e-06,
+    3.99857e-06,
+    5.04062e-06,
+    8.722e-06,
+    -4.99434e-06,
+    -2.75794e-06,
+    -1.22796e-05,
+    -5.74995e-06,
+    1.31911e-07,
+    -1.21916e-05,
+    -1.38786e-05,
+    1.20096e-05,
+    2.94907e-06,
+    1.75705e-05,
+    -1.00384e-05,
+    -4.98378e-06,
+    -9.99185e-06,
+    1.00282e-06,
+    3.25598e-06,
+    4.95439e-06,
+    7.12519e-06,
+    1.4871e-05,
+    8.09198e-05,
+    0.000140438,
+    8.43748e-05,
+    9.88579e-06,
+    1.323e-05,
+    1.24427e-05,
+    7.54098e-06,
+    2.41848e-05,
+    5.45821e-06,
+    9.9477e-06,
+    1.22254e-05,
+    1.35747e-05,
+    1.11241e-06,
+    7.72216e-06,
+    6.90352e-06,
+    2.06207e-05,
+    1.05735e-06,
+    7.09025e-06,
+    -7.65757e-07,
+    2.01872e-06,
+    2.74846e-06,
+    -5.21093e-06,
+    1.3342e-06,
+    2.28968e-06,
+    -3.61095e-06,
+    -8.03931e-06,
+    -1.17698e-05,
+    -1.19821e-05,
+    -3.21652e-06,
+    -8.41529e-06,
+    1.97446e-05
+   ],
+   [
+    -7.6449e-05,
+    4.38146e-06,
+    8.24941e-06,
+    8.8176e-06,
+    1.4446e-05,
+    -4.63288e-06,
+    3.3375e-06,
+    -1.41883e-05,
+    -5.00054e-06,
+    -3.60399e-06,
+    -1.7405e-05,
+    -1.72896e-05,
+    2.00414e-05,
+    8.4611e-06,
+    2.04407e-05,
+    -1.05564e-05,
+    -6.06248e-06,
+    -1.22109e-05,
+    5.17887e-07,
+    2.59385e-06,
+    1.84695e-06,
+    6.20652e-06,
+    1.18479e-05,
+    7.92009e-05,
+    8.43748e-05,
+    0.000109679,
+    -4.67678e-06,
+    1.33214e-07,
+    3.19526e-06,
+    1.70487e-06,
+    1.22741e-05,
+    -7.29479e-07,
+    -7.98231e-06,
+    3.21876e-06,
+    2.88887e-06,
+    -4.96481e-06,
+    2.88364e-06,
+    -2.96896e-07,
+    8.09905e-06,
+    -2.36527e-06,
+    7.07941e-06,
+    -1.59286e-06,
+    2.02808e-06,
+    4.30325e-06,
+    -7.85137e-06,
+    1.69986e-06,
+    1.29139e-06,
+    -1.0519e-06,
+    -5.06829e-06,
+    -9.04407e-06,
+    -2.19559e-05,
+    -2.09631e-05,
+    -1.17872e-05,
+    2.46977e-05
+   ],
+   [
+    -2.80106e-05,
+    -7.5065e-06,
+    -5.76851e-06,
+    -3.00708e-06,
+    -2.68267e-06,
+    2.66221e-06,
+    1.15619e-06,
+    3.59272e-06,
+    1.1723e-05,
+    -4.73851e-06,
+    1.6163e-06,
+    1.63934e-06,
+    -2.63462e-05,
+    -6.528e-06,
+    -2.34835e-06,
+    3.67609e-06,
+    -6.8855e-07,
+    3.24238e-06,
+    1.77413e-06,
+    5.14218e-07,
+    -4.82626e-06,
+    1.1387e-06,
+    4.62504e-06,
+    9.22512e-06,
+    9.88579e-06,
+    -4.67678e-06,
+    0.000465108,
+    3.22487e-05,
+    3.47866e-05,
+    2.99557e-05,
+    3.40546e-05,
+    2.99498e-05,
+    3.4644e-05,
+    3.20223e-05,
+    3.01406e-05,
+    2.91453e-05,
+    2.9336e-05,
+    3.0557e-05,
+    3.5393e-05,
+    -1.22963e-05,
+    -8.16919e-06,
+    -3.96628e-06,
+    -1.05887e-06,
+    -7.11488e-06,
+    -1.63802e-06,
+    -2.4527e-06,
+    -1.4926e-06,
+    1.09781e-06,
+    5.36887e-06,
+    3.52695e-06,
+    1.94208e-06,
+    6.16447e-06,
+    2.72075e-06,
+    -3.23881e-05
+   ],
+   [
+    -3.74394e-05,
+    1.46653e-07,
+    -2.63366e-06,
+    -2.91832e-06,
+    -3.35831e-06,
+    2.86408e-06,
+    3.89192e-06,
+    3.16232e-06,
+    -9.43849e-06,
+    6.82215e-06,
+    2.35992e-06,
+    -3.63146e-06,
+    1.6993e-06,
+    9.63178e-06,
+    3.7436e-06,
+    9.19561e-06,
+    2.5111e-06,
+    8.08871e-06,
+    5.50334e-07,
+    -2.11616e-06,
+    2.75899e-07,
+    1.64764e-06,
+    4.03012e-06,
+    1.43917e-05,
+    1.323e-05,
+    1.33214e-07,
+    3.22487e-05,
+    0.000464567,
+    3.1234e-05,
+    3.06775e-05,
+    3.35234e-05,
+    3.01392e-05,
+    3.36454e-05,
+    3.16242e-05,
+    3.04867e-05,
+    2.89044e-05,
+    2.91233e-05,
+    3.10193e-05,
+    3.37755e-05,
+    -2.42284e-06,
+    -5.3965e-06,
+    -4.26678e-06,
+    -4.47353e-06,
+    -3.88763e-06,
+    2.55088e-06,
+    -3.5442e-06,
+    2.20261e-06,
+    -1.32352e-06,
+    3.85926e-06,
+    -7.57384e-07,
+    -2.94243e-06,
+    1.60998e-06,
+    1.9844e-08,
+    -8.94714e-06
+   ],
+   [
+    -3.0865e-05,
+    1.76806e-06,
+    4.01221e-07,
+    -2.47326e-08,
+    7.24832e-07,
+    1.17977e-06,
+    -2.11501e-07,
+    -3.77402e-06,
+    -2.22462e-05,
+    -4.61497e-06,
+    -2.17108e-06,
+    -5.67162e-06,
+    -2.79022e-05,
+    3.71451e-06,
+    2.77851e-06,
+    8.89495e-07,
+    2.65485e-06,
+    5.29493e-06,
+    -7.38941e-07,
+    -3.73609e-06,
+    -9.83862e-06,
+    1.66263e-06,
+    6.05762e-06,
+    8.2226e-06,
+    1.24427e-05,
+    3.19526e-06,
+    3.47866e-05,
+    3.1234e-05,
+    0.000344097,
+    2.88205e-05,
+    3.40062e-05,
+    2.92491e-05,
+    3.40651e-05,
+    2.97488e-05,
+    2.91916e-05,
+    2.87591e-05,
+    2.86638e-05,
+    2.92861e-05,
+    3.50375e-05,
+    2.8602e-06,
+    -2.4979e-06,
+    -5.78048e-06,
+    -4.89087e-06,
+    6.81329e-08,
+    4.92148e-07,
+    -2.1385e-06,
+    1.1843e-07,
+    -1.08245e-06,
+    5.73825e-07,
+    -1.13616e-05,
+    -8.62789e-06,
+    -8.31599e-07,
+    -1.88737e-07,
+    -5.10536e-05
+   ],
+   [
+    -3.12926e-05,
+    -3.14757e-06,
+    -4.87936e-06,
+    -4.54112e-06,
+    -5.40804e-06,
+    -9.4314e-07,
+    4.33316e-06,
+    1.92381e-06,
+    7.21656e-06,
+    4.83358e-06,
+    5.91966e-07,
+    2.36533e-06,
+    9.62829e-06,
+    2.32387e-06,
+    3.58939e-06,
+    3.61566e-06,
+    -5.16565e-07,
+    5.5235e-06,
+    -1.89834e-07,
+    3.20658e-06,
+    2.56491e-06,
+    3.99643e-06,
+    -1.81857e-06,
+    1.08188e-05,
+    7.54098e-06,
+    1.70487e-06,
+    2.99557e-05,
+    3.06775e-05,
+    2.88205e-05,
+    0.000566668,
+    3.09748e-05,
+    2.84576e-05,
+    3.07588e-05,
+    3.06607e-05,
+    2.88337e-05,
+    2.80795e-05,
+    2.81359e-05,
+    2.9645e-05,
+    3.14062e-05,
+    4.17528e-06,
+    -3.51533e-06,
+    -4.55474e-06,
+    1.59606e-06,
+    1.76025e-06,
+    3.11376e-06,
+    -3.40824e-06,
+    -1.97276e-06,
+    -1.06438e-06,
+    8.60719e-07,
+    -9.71494e-07,
+    5.24708e-06,
+    4.11932e-06,
+    -8.52302e-06,
+    -1.02186e-05
+   ],
+   [
+    -4.96204e-05,
+    4.14318e-06,
+    6.95985e-07,
+    2.2079e-06,
+    1.88794e-06,
+    5.39246e-06,
+    1.67305e-06,
+    4.53068e-06,
+    -3.10911e-06,
+    -6.42206e-06,
+    -2.17223e-07,
+    -9.4189e-06,
+    1.78615e-05,
+    -4.10832e-06,
+    5.40775e-06,
+    5.78706e-06,
+    2.27498e-06,
+    6.18901e-06,
+    7.74069e-07,
+    1.60862e-06,
+    1.26857e-07,
+    -7.27787e-07,
+    1.15835e-05,
+    2.35589e-05,
+    2.41848e-05,
+    1.22741e-05,
+    3.40546e-05,
+    3.35234e-05,
+    3.40062e-05,
+    3.09748e-05,
+    0.000677639,
+    3.01535e-05,
+    3.465e-05,
+    3.2203e-05,
+    3.142e-05,
+    2.83529e-05,
+    2.95249e-05,
+    3.15688e-05,
+    3.65089e-05,
+    -7.26912e-06,
+    -1.16248e-06,
+    1.39643e-07,
+    -2.45408e-06,
+    4.26189e-07,
+    1.89129e-06,
+    -6.38625e-06,
+    -7.4203e-07,
+    -6.97159e-07,
+    1.12134e-06,
+    6.13268e-06,
+    -6.03152e-06,
+    -4.12252e-06,
+    -6.74954e-06,
+    -2.50309e-05
+   ],
+   [
+    -3.27368e-05,
+    1.25218e-06,
+    1.38463e-06,
+    -1.30268e-07,
+    2.38175e-07,
+    7.80606e-07,
+    -5.89983e-07,
+    -6.16382e-07,
+    -1.37864e-05,
+    -7.51211e-07,
+    1.88582e-07,
+    -2.25423e-06,
+    2.03265e-06,
+    -3.13654e-06,
+    1.65021e-06,
+    -3.52109e-06,
+    1.65405e-06,
+    6.73245e-06,
+    1.51637e-08,
+    -1.23522e-06,
+    4.99091e-07,
+    3.24829e-06,
+    3.53313e-06,
+    7.04291e-06,
+    5.45821e-06,
+    -7.29479e-07,
+    2.99498e-05,
+    3.01392e-05,
+    2.92491e-05,
+    2.84576e-05,
+    3.01535e-05,
+    0.000117541,
+    3.07201e-05,
+    2.94421e-05,
+    2.86118e-05,
+    2.78888e-05,
+    2.80653e-05,
+    2.93644e-05,
+    3.04827e-05,
+    -3.40431e-06,
+    -2.52145e-06,
+    -2.52773e-06,
+    -3.89907e-06,
+    -2.61431e-06,
+    -1.86343e-06,
+    -2.89485e-06,
+    -2.98643e-06,
+    -1.27247e-06,
+    4.05848e-06,
+    -3.21687e-07,
+    1.71522e-06,
+    3.10144e-06,
+    2.79995e-06,
+    -6.27146e-06
+   ],
+   [
+    -3.47508e-05,
+    2.12893e-06,
+    -2.53342e-06,
+    -3.99131e-06,
+    -1.41066e-06,
+    4.25134e-06,
+    6.1217e-06,
+    1.6202e-06,
+    8.16641e-06,
+    1.922e-06,
+    -7.0771e-06,
+    -1.54477e-05,
+    -9.53482e-06,
+    -3.67833e-05,
+    3.73367e-08,
+    7.19795e-06,
+    6.48909e-06,
+    1.15001e-05,
+    1.83251e-06,
+    -1.20587e-06,
+    1.02742e-06,
+    2.04902e-06,
+    5.60484e-06,
+    7.56406e-06,
+    9.9477e-06,
+    -7.98231e-06,
+    3.4644e-05,
+    3.36454e-05,
+    3.40651e-05,
+    3.07588e-05,
+    3.465e-05,
+    3.07201e-05,
+    0.000993099,
+    3.33346e-05,
+    3.11693e-05,
+    3.01455e-05,
+    2.93834e-05,
+    3.18057e-05,
+    3.59181e-05,
+    -8.56466e-06,
+    6.8578e-06,
+    -1.13161e-05,
+    -3.43661e-06,
+    2.03496e-06,
+    1.24482e-06,
+    -4.05242e-06,
+    -3.17209e-06,
+    6.67006e-07,
+    5.5059e-06,
+    -7.99172e-06,
+    -8.02022e-06,
+    1.45981e-05,
+    -1.9624e-06,
+    -2.16692e-05
+   ],
+   [
+    -3.52206e-05,
+    -2.49826e-06,
+    -3.9813e-06,
+    -4.18051e-06,
+    -3.57257e-06,
+    9.91269e-07,
+    -3.18944e-06,
+    7.81494e-07,
+    5.79382e-06,
+    3.53753e-06,
+    -4.28594e-06,
+    -2.77028e-06,
+    4.30375e-06,
+    1.57677e-06,
+    3.80713e-07,
+    -2.08288e-06,
+    -1.01552e-06,
+    6.25665e-06,
+    2.29037e-06,
+    5.32352e-06,
+    3.0986e-06,
+    2.47623e-06,
+    -1.42427e-06,
+    1.45137e-05,
+    1.22254e-05,
+    3.21876e-06,
+    3.20223e-05,
+    3.16242e-05,
+    2.97488e-05,
+    3.06607e-05,
+    3.2203e-05,
+    2.94421e-05,
+    3.33346e-05,
+    0.00050663,
+    3.01052e-05,
+    2.88689e-05,
+    2.94072e-05,
+    3.07884e-05,
+    3.35707e-05,
+    -1.40409e-05,
+    -2.23439e-06,
+    -1.36879e-05,
+    -2.10232e-06,
+    -1.38071e-05,
+    2.39353e-06,
+    2.6005e-06,
+    -6.05954e-06,
+    1.54972e-06,
+    5.11625e-06,
+    8.97003e-07,
+    4.84876e-06,
+    2.10164e-06,
+    -9.99567e-07,
+    -5.81982e-06
+   ],
+   [
+    -3.13506e-05,
+    -3.52351e-06,
+    -5.25451e-06,
+    -5.60185e-06,
+    -2.74563e-06,
+    2.44815e-06,
+    2.30067e-06,
+    2.65899e-06,
+    2.87805e-06,
+    4.13903e-07,
+    -5.01756e-08,
+    -5.43579e-06,
+    6.02876e-06,
+    -5.41259e-06,
+    3.6323e-06,
+    -6.2803e-06,
+    -3.07216e-08,
+    3.46366e-06,
+    7.98918e-07,
+    6.97522e-07,
+    1.54602e-06,
+    8.35901e-07,
+    4.36388e-06,
+    1.03165e-05,
+    1.35747e-05,
+    2.88887e-06,
+    3.01406e-05,
+    3.04867e-05,
+    2.91916e-05,
+    2.88337e-05,
+    3.142e-05,
+    2.86118e-05,
+    3.11693e-05,
+    3.01052e-05,
+    0.000160191,
+    2.77914e-05,
+    2.88802e-05,
+    2.94982e-05,
+    3.12848e-05,
+    -5.84834e-06,
+    -3.14696e-06,
+    -4.1686e-06,
+    -4.7094e-06,
+    -3.97706e-06,
+    1.76215e-06,
+    -7.68395e-07,
+    -2.85755e-07,
+    -3.52679e-07,
+    1.24175e-06,
+    1.8079e-06,
+    2.7168e-06,
+    1.24076e-06,
+    -4.67384e-07,
+    -3.35358e-06
+   ],
+   [
+    -2.28289e-05,
+    1.76634e-07,
+    -2.08683e-06,
+    -1.03225e-06,
+    -1.29902e-06,
+    -1.19591e-08,
+    -3.22745e-06,
+    -9.20197e-07,
+    3.08008e-06,
+    -4.97272e-07,
+    -1.13454e-06,
+    -8.6323e-07,
+    2.15249e-06,
+    -3.57281e-06,
+    -1.46752e-06,
+    -3.40054e-07,
+    1.32101e-06,
+    4.35846e-06,
+    -6.00599e-07,
+    -9.88461e-07,
+    -2.8282e-06,
+    -3.40536e-07,
+    -9.99327e-07,
+    -1.2249e-07,
+    1.11241e-06,
+    -4.96481e-06,
+    2.91453e-05,
+    2.89044e-05,
+    2.87591e-05,
+    2.80795e-05,
+    2.83529e-05,
+    2.78888e-05,
+    3.01455e-05,
+    2.88689e-05,
+    2.77914e-05,
+    0.000156957,
+    2.74469e-05,
+    2.83946e-05,
+    2.92061e-05,
+    -7.37052e-07,
+    -4.1477e-06,
+    -7.28493e-06,
+    -2.19453e-06,
+    -1.54738e-06,
+    1.30406e-06,
+    -1.46474e-06,
+    -3.36912e-06,
+    -2.24235e-06,
+    1.62006e-06,
+    -2.07178e-06,
+    -5.07039e-06,
+    4.23673e-07,
+    -4.90379e-07,
+    -5.42709e-06
+   ],
+   [
+    -3.07755e-05,
+    1.05042e-06,
+    -8.73535e-07,
+    -4.92624e-06,
+    -3.98107e-07,
+    4.82749e-08,
+    6.19112e-07,
+    2.20016e-06,
+    4.35071e-06,
+    -1.60621e-06,
+    -1.25869e-06,
+    -6.79139e-07,
+    -3.71765e-06,
+    -8.98656e-06,
+    6.31051e-07,
+    -1.3643e-05,
+    1.85713e-06,
+    6.08024e-06,
+    -1.17322e-06,
+    -9.1875e-07,
+    -5.43189e-06,
+    2.86749e-06,
+    2.05975e-06,
+    9.59425e-06,
+    7.72216e-06,
+    2.88364e-06,
+    2.9336e-05,
+    2.91233e-05,
+    2.86638e-05,
+    2.81359e-05,
+    2.95249e-05,
+    2.80653e-05,
+    2.93834e-05,
+    2.94072e-05,
+    2.88802e-05,
+    2.74469e-05,
+    0.000203055,
+    2.85886e-05,
+    2.99774e-05,
+    -8.55588e-06,
+    -8.10441e-06,
+    -6.3753e-06,
+    -3.90075e-06,
+    -5.71904e-06,
+    4.73785e-07,
+    6.42275e-07,
+    -5.73373e-09,
+    1.67063e-06,
+    3.10219e-07,
+    4.24318e-06,
+    1.57696e-06,
+    1.9216e-06,
+    1.12864e-06,
+    -8.11196e-07
+   ],
+   [
+    -3.1858e-05,
+    1.11543e-06,
+    -2.50732e-06,
+    -3.56182e-06,
+    -6.39466e-07,
+    2.82104e-06,
+    4.45595e-06,
+    3.43673e-06,
+    -1.11608e-05,
+    -1.23369e-06,
+    1.20833e-07,
+    -1.47031e-06,
+    5.20963e-06,
+    1.09156e-06,
+    4.41768e-06,
+    -2.95943e-06,
+    -1.13582e-06,
+    4.24521e-06,
+    1.33196e-07,
+    -4.07228e-07,
+    8.23784e-07,
+    1.80082e-06,
+    1.54915e-06,
+    8.97993e-06,
+    6.90352e-06,
+    -2.96896e-07,
+    3.0557e-05,
+    3.10193e-05,
+    2.92861e-05,
+    2.9645e-05,
+    3.15688e-05,
+    2.93644e-05,
+    3.18057e-05,
+    3.07884e-05,
+    2.94982e-05,
+    2.83946e-05,
+    2.85886e-05,
+    0.000252597,
+    3.15106e-05,
+    -1.9274e-06,
+    -3.20519e-06,
+    -5.12772e-06,
+    -2.34814e-06,
+    -6.28678e-06,
+    -4.09204e-07,
+    -1.68486e-06,
+    -7.64418e-06,
+    -2.38428e-06,
+    5.15979e-06,
+    2.96961e-06,
+    7.99407e-07,
+    -5.45133e-06,
+    -2.49567e-06,
+    -6.59229e-06
+   ],
+   [
+    -3.89617e-05,
+    -3.32408e-06,
+    -4.35179e-06,
+    -5.03472e-06,
+    -5.17401e-06,
+    1.64401e-06,
+    1.28224e-06,
+    1.2694e-06,
+    4.29487e-06,
+    -1.58986e-06,
+    -4.37362e-08,
+    -1.28026e-05,
+    -1.10777e-05,
+    -2.97291e-07,
+    6.50899e-07,
+    -4.53361e-06,
+    1.5186e-06,
+    5.76433e-06,
+    1.35002e-06,
+    1.77716e-06,
+    2.84321e-06,
+    2.64412e-06,
+    9.8488e-06,
+    2.11373e-05,
+    2.06207e-05,
+    8.09905e-06,
+    3.5393e-05,
+    3.37755e-05,
+    3.50375e-05,
+    3.14062e-05,
+    3.65089e-05,
+    3.04827e-05,
+    3.59181e-05,
+    3.35707e-05,
+    3.12848e-05,
+    2.92061e-05,
+    2.99774e-05,
+    3.15106e-05,
+    0.000206441,
+    -1.03008e-05,
+    -2.14208e-06,
+    -7.93613e-06,
+    -1.8429e-06,
+    -1.10945e-05,
+    2.3004e-06,
+    -5.10795e-06,
+    -1.2845e-06,
+    -1.3623e-06,
+    3.01208e-06,
+    -4.72844e-06,
+    -2.30321e-05,
+    6.1888e-06,
+    -1.38455e-06,
+    -2.74596e-05
+   ],
+   [
+    -4.3295e-06,
+    -1.77797e-07,
+    -8.0692e-08,
+    -1.27206e-06,
+    -2.65481e-07,
+    -3.49743e-06,
+    2.37082e-06,
+    -3.84421e-05,
+    5.7077e-06,
+    1.00713e-06,
+    4.58503e-07,
+    -2.39024e-05,
+    -2.5426e-05,
+    -1.27756e-06,
+    -1.17387e-05,
+    1.27461e-06,
+    -8.5826e-06,
+    -1.80665e-05,
+    3.92678e-07,
+    -8.31734e-06,
+    -1.99457e-05,
+    -1.9913e-06,
+    7.17224e-06,
+    -9.59124e-07,
+    1.05735e-06,
+    -2.36527e-06,
+    -1.22963e-05,
+    -2.42284e-06,
+    2.8602e-06,
+    4.17528e-06,
+    -7.26912e-06,
+    -3.40431e-06,
+    -8.56466e-06,
+    -1.40409e-05,
+    -5.84834e-06,
+    -7.37052e-07,
+    -8.55588e-06,
+    -1.9274e-06,
+    -1.03008e-05,
+    0.000337577,
+    2.09551e-05,
+    4.66947e-05,
+    3.28316e-05,
+    2.49816e-05,
+    -9.13354e-06,
+    -1.36701e-06,
+    7.18703e-07,
+    2.47913e-06,
+    1.31819e-06,
+    9.77057e-07,
+    -5.14354e-06,
+    5.68145e-06,
+    2.42213e-06,
+    -2.81788e-05
+   ],
+   [
+    -4.41723e-05,
+    -6.70504e-07,
+    -2.24472e-07,
+    -1.21767e-06,
+    -6.77347e-07,
+    1.31219e-06,
+    2.0495e-06,
+    4.8919e-06,
+    -2.95565e-06,
+    7.06117e-07,
+    -1.24758e-07,
+    3.28342e-06,
+    -1.65674e-07,
+    2.38511e-06,
+    -4.33979e-07,
+    4.72688e-06,
+    1.1674e-05,
+    1.34804e-05,
+    5.52609e-06,
+    5.93762e-06,
+    5.62984e-06,
+    5.9602e-07,
+    2.06172e-06,
+    5.41044e-06,
+    7.09025e-06,
+    7.07941e-06,
+    -8.16919e-06,
+    -5.3965e-06,
+    -2.4979e-06,
+    -3.51533e-06,
+    -1.16248e-06,
+    -2.52145e-06,
+    6.8578e-06,
+    -2.23439e-06,
+    -3.14696e-06,
+    -4.1477e-06,
+    -8.10441e-06,
+    -3.20519e-06,
+    -2.14208e-06,
+    2.09551e-05,
+    0.000135244,
+    2.20365e-05,
+    2.41016e-05,
+    3.22491e-05,
+    5.08508e-06,
+    -1.33892e-06,
+    -5.19734e-06,
+    -7.32487e-07,
+    2.19778e-07,
+    -6.24184e-05,
+    8.42269e-08,
+    3.72377e-06,
+    -1.87373e-07,
+    6.71991e-06
+   ],
+   [
+    -8.74645e-06,
+    2.14952e-06,
+    9.38466e-07,
+    1.11626e-06,
+    1.22048e-06,
+    -2.97298e-06,
+    2.01133e-06,
+    -2.47016e-05,
+    -3.88952e-06,
+    -2.80838e-06,
+    -1.7526e-06,
+    -2.20827e-05,
+    -2.45407e-05,
+    -1.45029e-05,
+    -4.0211e-06,
+    -8.52154e-06,
+    -7.00079e-06,
+    -1.20561e-05,
+    -2.58826e-06,
+    -7.36017e-06,
+    -8.95842e-06,
+    -1.27234e-06,
+    4.55867e-06,
+    5.60306e-07,
+    -7.65757e-07,
+    -1.59286e-06,
+    -3.96628e-06,
+    -4.26678e-06,
+    -5.78048e-06,
+    -4.55474e-06,
+    1.39643e-07,
+    -2.52773e-06,
+    -1.13161e-05,
+    -1.36879e-05,
+    -4.1686e-06,
+    -7.28493e-06,
+    -6.3753e-06,
+    -5.12772e-06,
+    -7.93613e-06,
+    4.66947e-05,
+    2.20365e-05,
+    0.000134399,
+    3.14027e-05,
+    2.53722e-05,
+    -6.6287e-06,
+    -1.84373e-06,
+    -1.62745e-07,
+    -3.05814e-07,
+    -8.79645e-07,
+    1.91161e-06,
+    -4.21206e-06,
+    8.25427e-07,
+    1.43897e-06,
+    -1.96148e-05
+   ],
+   [
+    -2.0707e-05,
+    9.6961e-07,
+    6.94067e-07,
+    3.33671e-07,
+    -5.8874e-07,
+    1.62883e-07,
+    2.00356e-06,
+    2.54427e-06,
+    -3.77558e-06,
+    1.41986e-06,
+    1.62182e-06,
+    4.31053e-06,
+    4.87719e-06,
+    -8.30629e-07,
+    -9.58901e-07,
+    -3.22437e-06,
+    -6.52335e-06,
+    -1.22431e-05,
+    -1.08339e-06,
+    -4.58732e-06,
+    -8.86069e-06,
+    -1.439e-06,
+    7.23039e-07,
+    9.51555e-07,
+    2.01872e-06,
+    2.02808e-06,
+    -1.05887e-06,
+    -4.47353e-06,
+    -4.89087e-06,
+    1.59606e-06,
+    -2.45408e-06,
+    -3.89907e-06,
+    -3.43661e-06,
+    -2.10232e-06,
+    -4.7094e-06,
+    -2.19453e-06,
+    -3.90075e-06,
+    -2.34814e-06,
+    -1.8429e-06,
+    3.28316e-05,
+    2.41016e-05,
+    3.14027e-05,
+    6.35683e-05,
+    2.74138e-05,
+    -3.30945e-06,
+    1.54177e-06,
+    1.88119e-06,
+    -5.02439e-07,
+    -1.5824e-06,
+    1.74637e-06,
+    1.03094e-06,
+    3.23953e-06,
+    7.65918e-07,
+    -4.80696e-06
+   ],
+   [
+    -2.88089e-05,
+    -7.25146e-07,
+    1.44069e-06,
+    1.21615e-06,
+    1.91352e-06,
+    1.84874e-06,
+    3.25472e-06,
+    5.36985e-06,
+    -3.77629e-06,
+    4.98315e-06,
+    -5.16273e-06,
+    5.66769e-06,
+    6.20518e-06,
+    3.44663e-06,
+    -8.92142e-06,
+    4.19904e-06,
+    2.48071e-06,
+    3.23953e-06,
+    -1.01781e-06,
+    -6.14041e-06,
+    -8.27987e-07,
+    -2.28094e-06,
+    -1.25998e-05,
+    4.88942e-06,
+    2.74846e-06,
+    4.30325e-06,
+    -7.11488e-06,
+    -3.88763e-06,
+    6.81329e-08,
+    1.76025e-06,
+    4.26189e-07,
+    -2.61431e-06,
+    2.03496e-06,
+    -1.38071e-05,
+    -3.97706e-06,
+    -1.54738e-06,
+    -5.71904e-06,
+    -6.28678e-06,
+    -1.10945e-05,
+    2.49816e-05,
+    3.22491e-05,
+    2.53722e-05,
+    2.74138e-05,
+    0.000627616,
+    3.24833e-06,
+    -4.08264e-06,
+    -2.16724e-05,
+    -2.20072e-06,
+    7.36859e-07,
+    -6.93765e-07,
+    -4.35548e-05,
+    -1.2573e-05,
+    -5.6958e-06,
+    8.55071e-06
+   ],
+   [
+    -8.05694e-06,
+    -3.41723e-06,
+    -3.42804e-06,
+    -3.74214e-06,
+    -3.55497e-06,
+    -1.96882e-06,
+    -5.54703e-06,
+    3.72801e-06,
+    5.91939e-06,
+    3.6982e-06,
+    4.75832e-06,
+    5.83368e-06,
+    -6.14671e-06,
+    -2.73395e-06,
+    -2.24952e-06,
+    -8.63285e-06,
+    2.64174e-06,
+    6.39017e-06,
+    4.26838e-07,
+    9.67504e-07,
+    6.64682e-07,
+    -1.30082e-06,
+    -2.67392e-06,
+    -4.32236e-06,
+    -5.21093e-06,
+    -7.85137e-06,
+    -1.63802e-06,
+    2.55088e-06,
+    4.92148e-07,
+    3.11376e-06,
+    1.89129e-06,
+    -1.86343e-06,
+    1.24482e-06,
+    2.39353e-06,
+    1.76215e-06,
+    1.30406e-06,
+    4.73785e-07,
+    -4.09204e-07,
+    2.3004e-06,
+    -9.13354e-06,
+    5.08508e-06,
+    -6.6287e-06,
+    -3.30945e-06,
+    3.24833e-06,
+    6.03714e-05,
+    -3.46171e-07,
+    1.2555e-07,
+    -1.20065e-06,
+    -1.40781e-06,
+    -4.43203e-06,
+    -8.80005e-07,
+    4.34447e-06,
+    2.82258e-06,
+    1.73024e-06
+   ],
+   [
+    -5.49078e-05,
+    -1.81698e-07,
+    -2.10641e-06,
+    -1.56598e-06,
+    -1.99592e-06,
+    -1.18494e-06,
+    -8.63019e-07,
+    -1.98166e-06,
+    -4.53204e-06,
+    -4.94008e-06,
+    2.19007e-07,
+    -1.74118e-06,
+    -5.53669e-06,
+    -3.29986e-06,
+    -3.24218e-06,
+    -3.83564e-06,
+    2.27783e-06,
+    2.87745e-06,
+    1.61994e-06,
+    1.08931e-06,
+    -1.34164e-06,
+    -2.73722e-06,
+    -5.48678e-06,
+    -1.1278e-06,
+    1.3342e-06,
+    1.69986e-06,
+    -2.4527e-06,
+    -3.5442e-06,
+    -2.1385e-06,
+    -3.40824e-06,
+    -6.38625e-06,
+    -2.89485e-06,
+    -4.05242e-06,
+    2.6005e-06,
+    -7.68395e-07,
+    -1.46474e-06,
+    6.42275e-07,
+    -1.68486e-06,
+    -5.10795e-06,
+    -1.36701e-06,
+    -1.33892e-06,
+    -1.84373e-06,
+    1.54177e-06,
+    -4.08264e-06,
+    -3.46171e-07,
+    0.000145844,
+    7.18242e-05,
+    5.75503e-05,
+    5.60158e-05,
+    -2.6548e-06,
+    -2.00395e-05,
+    -1.6034e-05,
+    -2.50938e-05,
+    6.03603e-06
+   ],
+   [
+    -4.75361e-05,
+    -1.72384e-06,
+    -4.18895e-06,
+    -2.8785e-06,
+    -1.84667e-06,
+    -3.23455e-06,
+    -5.25853e-06,
+    -5.18546e-06,
+    -2.71478e-05,
+    -1.19637e-05,
+    2.96443e-06,
+    -2.094e-06,
+    -7.0656e-06,
+    -1.39261e-05,
+    -1.75411e-05,
+    -1.36741e-06,
+    6.11405e-06,
+    9.29896e-06,
+    -3.902e-06,
+    -5.62938e-06,
+    -8.14388e-06,
+    -7.264e-06,
+    -8.56566e-06,
+    1.38643e-06,
+    2.28968e-06,
+    1.29139e-06,
+    -1.4926e-06,
+    2.20261e-06,
+    1.1843e-07,
+    -1.97276e-06,
+    -7.4203e-07,
+    -2.98643e-06,
+    -3.17209e-06,
+    -6.05954e-06,
+    -2.85755e-07,
+    -3.36912e-06,
+    -5.73373e-09,
+    -7.64418e-06,
+    -1.2845e-06,
+    7.18703e-07,
+    -5.19734e-06,
+    -1.62745e-07,
+    1.88119e-06,
+    -2.16724e-05,
+    1.2555e-07,
+    7.18242e-05,
+    0.000485242,
+    5.57011e-05,
+    5.29622e-05,
+    -9.90101e-06,
+    -0.00020377,
+    -1.04045e-05,
+    -4.46887e-05,
+    9.28318e-06
+   ],
+   [
+    -5.46482e-05,
+    -3.2102e-08,
+    -2.61025e-07,
+    -8.72114e-07,
+    -1.0522e-06,
+    -4.82918e-07,
+    -2.5679e-06,
+    -1.05176e-06,
+    -1.84842e-06,
+    -1.36423e-06,
+    4.05583e-07,
+    -3.80834e-06,
+    -2.70965e-08,
+    -1.10632e-06,
+    6.22353e-07,
+    -4.33338e-06,
+    -1.61684e-06,
+    -4.43929e-06,
+    -2.30808e-06,
+    -3.29404e-06,
+    -4.12951e-06,
+    -1.52564e-06,
+    -2.20041e-06,
+    -3.02113e-06,
+    -3.61095e-06,
+    -1.0519e-06,
+    1.09781e-06,
+    -1.32352e-06,
+    -1.08245e-06,
+    -1.06438e-06,
+    -6.97159e-07,
+    -1.27247e-06,
+    6.67006e-07,
+    1.54972e-06,
+    -3.52679e-07,
+    -2.24235e-06,
+    1.67063e-06,
+    -2.38428e-06,
+    -1.3623e-06,
+    2.47913e-06,
+    -7.32487e-07,
+    -3.05814e-07,
+    -5.02439e-07,
+    -2.20072e-06,
+    -1.20065e-06,
+    5.75503e-05,
+    5.57011e-05,
+    0.000109459,
+    6.29223e-05,
+    -1.01825e-06,
+    5.90522e-06,
+    1.08621e-05,
+    1.18693e-05,
+    -6.41138e-06
+   ],
+   [
+    -5.01325e-05,
+    -2.44027e-06,
+    -4.0398e-06,
+    -5.38726e-06,
+    -3.01825e-06,
+    -7.6889e-07,
+    -3.38692e-06,
+    -3.75541e-06,
+    -9.70046e-07,
+    -1.03982e-06,
+    -1.24373e-06,
+    -4.20188e-06,
+    7.339e-07,
+    -2.68963e-06,
+    -2.17039e-06,
+    -8.7318e-06,
+    -1.25402e-06,
+    -6.20825e-06,
+    -1.6147e-06,
+    -3.77244e-06,
+    -4.38631e-06,
+    -8.63024e-07,
+    -2.25861e-06,
+    -8.8383e-06,
+    -8.03931e-06,
+    -5.06829e-06,
+    5.36887e-06,
+    3.85926e-06,
+    5.73825e-07,
+    8.60719e-07,
+    1.12134e-06,
+    4.05848e-06,
+    5.5059e-06,
+    5.11625e-06,
+    1.24175e-06,
+    1.62006e-06,
+    3.10219e-07,
+    5.15979e-06,
+    3.01208e-06,
+    1.31819e-06,
+    2.19778e-07,
+    -8.79645e-07,
+    -1.5824e-06,
+    7.36859e-07,
+    -1.40781e-06,
+    5.60158e-05,
+    5.29622e-05,
+    6.29223e-05,
+    8.91814e-05,
+    -1.37421e-06,
+    8.40929e-06,
+    1.86353e-05,
+    1.82238e-05,
+    -7.36504e-06
+   ],
+   [
+    -1.5223e-05,
+    1.07189e-06,
+    -2.56914e-06,
+    -3.40945e-06,
+    -6.2914e-06,
+    1.38606e-06,
+    5.37078e-06,
+    -2.8944e-06,
+    -7.54586e-06,
+    -2.96765e-06,
+    1.76728e-06,
+    -6.84063e-06,
+    -1.43852e-05,
+    -7.04545e-06,
+    7.75511e-06,
+    3.34686e-06,
+    3.05536e-05,
+    2.81222e-05,
+    1.5245e-06,
+    -1.28935e-06,
+    -2.88295e-06,
+    -3.17632e-05,
+    -7.45047e-06,
+    -1.07335e-05,
+    -1.17698e-05,
+    -9.04407e-06,
+    3.52695e-06,
+    -7.57384e-07,
+    -1.13616e-05,
+    -9.71494e-07,
+    6.13268e-06,
+    -3.21687e-07,
+    -7.99172e-06,
+    8.97003e-07,
+    1.8079e-06,
+    -2.07178e-06,
+    4.24318e-06,
+    2.96961e-06,
+    -4.72844e-06,
+    9.77057e-07,
+    -6.24184e-05,
+    1.91161e-06,
+    1.74637e-06,
+    -6.93765e-07,
+    -4.43203e-06,
+    -2.6548e-06,
+    -9.90101e-06,
+    -1.01825e-06,
+    -1.37421e-06,
+    0.000304721,
+    3.01268e-05,
+    4.47898e-06,
+    1.77841e-05,
+    1.17954e-05
+   ],
+   [
+    4.23512e-06,
+    9.82485e-07,
+    -6.73888e-07,
+    6.90415e-07,
+    -4.69679e-06,
+    -1.77869e-06,
+    2.80561e-07,
+    5.92779e-06,
+    -2.89664e-05,
+    -3.32886e-06,
+    4.95027e-06,
+    -6.66919e-07,
+    7.4216e-06,
+    -2.89978e-07,
+    -1.38475e-05,
+    5.39932e-06,
+    1.82924e-06,
+    2.78392e-06,
+    -4.1682e-07,
+    -4.86565e-06,
+    -8.39484e-06,
+    -8.24843e-06,
+    -1.99724e-05,
+    -1.12849e-05,
+    -1.19821e-05,
+    -2.19559e-05,
+    1.94208e-06,
+    -2.94243e-06,
+    -8.62789e-06,
+    5.24708e-06,
+    -6.03152e-06,
+    1.71522e-06,
+    -8.02022e-06,
+    4.84876e-06,
+    2.7168e-06,
+    -5.07039e-06,
+    1.57696e-06,
+    7.99407e-07,
+    -2.30321e-05,
+    -5.14354e-06,
+    8.42269e-08,
+    -4.21206e-06,
+    1.03094e-06,
+    -4.35548e-05,
+    -8.80005e-07,
+    -2.00395e-05,
+    -0.00020377,
+    5.90522e-06,
+    8.40929e-06,
+    3.01268e-05,
+    0.00121449,
+    3.0878e-05,
+    4.77341e-05,
+    1.69237e-05
+   ],
+   [
+    -3.45815e-06,
+    -1.85705e-06,
+    -3.2556e-06,
+    -4.208e-06,
+    -1.09805e-05,
+    2.52094e-06,
+    4.23186e-06,
+    7.31681e-06,
+    1.50302e-05,
+    -5.00488e-06,
+    -6.2229e-06,
+    -2.92337e-05,
+    1.07313e-06,
+    4.23699e-06,
+    1.62567e-07,
+    -1.87227e-06,
+    -1.36568e-06,
+    -1.21793e-05,
+    -5.32703e-06,
+    -1.35144e-05,
+    -4.53711e-06,
+    8.70403e-08,
+    1.75436e-07,
+    -1.28396e-06,
+    -3.21652e-06,
+    -2.09631e-05,
+    6.16447e-06,
+    1.60998e-06,
+    -8.31599e-07,
+    4.11932e-06,
+    -4.12252e-06,
+    3.10144e-06,
+    1.45981e-05,
+    2.10164e-06,
+    1.24076e-06,
+    4.23673e-07,
+    1.9216e-06,
+    -5.45133e-06,
+    6.1888e-06,
+    5.68145e-06,
+    3.72377e-06,
+    8.25427e-07,
+    3.23953e-06,
+    -1.2573e-05,
+    4.34447e-06,
+    -1.6034e-05,
+    -1.04045e-05,
+    1.08621e-05,
+    1.86353e-05,
+    4.47898e-06,
+    3.0878e-05,
+    0.000398154,
+    3.19414e-05,
+    1.17913e-06
+   ],
+   [
+    -1.03321e-05,
+    -2.88076e-06,
+    -4.16653e-06,
+    -3.30117e-06,
+    -6.97854e-06,
+    3.47678e-06,
+    3.38345e-06,
+    2.26473e-06,
+    9.45145e-06,
+    -3.63427e-06,
+    -1.40975e-06,
+    -2.53179e-06,
+    1.48129e-06,
+    1.34131e-06,
+    2.89092e-06,
+    4.73377e-07,
+    -3.67509e-06,
+    -3.65671e-06,
+    1.57698e-06,
+    1.75764e-07,
+    -2.58232e-06,
+    -2.74566e-06,
+    4.20961e-06,
+    -5.05401e-06,
+    -8.41529e-06,
+    -1.17872e-05,
+    2.72075e-06,
+    1.9844e-08,
+    -1.88737e-07,
+    -8.52302e-06,
+    -6.74954e-06,
+    2.79995e-06,
+    -1.9624e-06,
+    -9.99567e-07,
+    -4.67384e-07,
+    -4.90379e-07,
+    1.12864e-06,
+    -2.49567e-06,
+    -1.38455e-06,
+    2.42213e-06,
+    -1.87373e-07,
+    1.43897e-06,
+    7.65918e-07,
+    -5.6958e-06,
+    2.82258e-06,
+    -2.50938e-05,
+    -4.46887e-05,
+    1.18693e-05,
+    1.82238e-05,
+    1.77841e-05,
+    4.77341e-05,
+    3.19414e-05,
+    0.000161073,
+    5.27268e-06
+   ],
+   [
+    -2.18367e-05,
+    4.43929e-06,
+    7.36195e-06,
+    9.44984e-06,
+    7.04549e-06,
+    -2.89806e-06,
+    2.02225e-06,
+    2.25206e-06,
+    -1.24455e-05,
+    -2.40536e-05,
+    -5.73328e-07,
+    6.68392e-06,
+    -6.94136e-05,
+    1.04891e-05,
+    -3.00418e-05,
+    -2.16789e-06,
+    5.41538e-06,
+    1.12229e-05,
+    -2.34634e-06,
+    -9.31085e-06,
+    -1.47097e-05,
+    2.88018e-06,
+    -8.95119e-06,
+    1.07251e-05,
+    1.97446e-05,
+    2.46977e-05,
+    -3.23881e-05,
+    -8.94714e-06,
+    -5.10536e-05,
+    -1.02186e-05,
+    -2.50309e-05,
+    -6.27146e-06,
+    -2.16692e-05,
+    -5.81982e-06,
+    -3.35358e-06,
+    -5.42709e-06,
+    -8.11196e-07,
+    -6.59229e-06,
+    -2.74596e-05,
+    -2.81788e-05,
+    6.71991e-06,
+    -1.96148e-05,
+    -4.80696e-06,
+    8.55071e-06,
+    1.73024e-06,
+    6.03603e-06,
+    9.28318e-06,
+    -6.41138e-06,
+    -7.36504e-06,
+    1.17954e-05,
+    1.69237e-05,
+    1.17913e-06,
+    5.27268e-06,
+    0.000369136
+   ]
+  ],
+  "sigma": 0.376486,
+  "n": 14640,
+  "variaveis": [
+   {
+    "var": "familia",
+    "rotulo": "Cargo",
+    "ref": "Analista de BI / Analytics Engineer",
+    "niveis": [
+     {
+      "nivel": "Analista de BI / Analytics Engineer",
+      "n": 2361
+     },
+     {
+      "nivel": "Analista de Dados",
+      "n": 3364
+     },
+     {
+      "nivel": "Analista de Negócios",
+      "n": 726
+     },
+     {
+      "nivel": "Cientista de Dados",
+      "n": 2651
+     },
+     {
+      "nivel": "DBA",
+      "n": 44
+     },
+     {
+      "nivel": "Desenvolvedor / Eng. de Software",
+      "n": 531
+     },
+     {
+      "nivel": "Engenheiro / Arquiteto de Dados",
+      "n": 2486
+     },
+     {
+      "nivel": "Engenheiro de ML",
+      "n": 388
+     },
+     {
+      "nivel": "Estatístico",
+      "n": 89
+     },
+     {
+      "nivel": "Inteligência de Mercado",
+      "n": 86
+     },
+     {
+      "nivel": "Outros",
+      "n": 1669
+     },
+     {
+      "nivel": "Product Manager",
+      "n": 245
+     }
+    ]
+   },
+   {
+    "var": "nivel_comparavel",
+    "rotulo": "Nível",
+    "ref": "Júnior",
+    "niveis": [
+     {
+      "nivel": "Júnior",
+      "n": 3987
+     },
+     {
+      "nivel": "Pleno",
+      "n": 5143
+     },
+     {
+      "nivel": "Sênior",
+      "n": 5510
+     }
+    ]
+   },
+   {
+    "var": "exp_faixa",
+    "rotulo": "Experiência em dados",
+    "ref": "1 a 3 anos",
+    "niveis": [
+     {
+      "nivel": "1 a 3 anos",
+      "n": 4065
+     },
+     {
+      "nivel": "3 a 6 anos",
+      "n": 5832
+     },
+     {
+      "nivel": "6 a 10 anos",
+      "n": 1204
+     },
+     {
+      "nivel": "Mais de 10 anos",
+      "n": 1054
+     },
+     {
+      "nivel": "Menos de 1 ano",
+      "n": 1802
+     },
+     {
+      "nivel": "Sem experiência",
+      "n": 683
+     }
+    ]
+   },
+   {
+    "var": "modelo",
+    "rotulo": "Modelo de trabalho",
+    "ref": "Presencial",
+    "niveis": [
+     {
+      "nivel": "Híbrido com dias fixos",
+      "n": 2262
+     },
+     {
+      "nivel": "Híbrido flexível",
+      "n": 2774
+     },
+     {
+      "nivel": "Presencial",
+      "n": 2446
+     },
+     {
+      "nivel": "Remoto",
+      "n": 7158
+     }
+    ]
+   },
+   {
+    "var": "uf_grupo",
+    "rotulo": "Estado",
+    "ref": "SP",
+    "niveis": [
+     {
+      "nivel": "BA",
+      "n": 361
+     },
+     {
+      "nivel": "CE",
+      "n": 358
+     },
+     {
+      "nivel": "DF",
+      "n": 505
+     },
+     {
+      "nivel": "ES",
+      "n": 288
+     },
+     {
+      "nivel": "GO",
+      "n": 241
+     },
+     {
+      "nivel": "MG",
+      "n": 1738
+     },
+     {
+      "nivel": "PB",
+      "n": 162
+     },
+     {
+      "nivel": "PE",
+      "n": 326
+     },
+     {
+      "nivel": "PR",
+      "n": 1176
+     },
+     {
+      "nivel": "RJ",
+      "n": 1196
+     },
+     {
+      "nivel": "RS",
+      "n": 884
+     },
+     {
+      "nivel": "SC",
+      "n": 691
+     },
+     {
+      "nivel": "SP",
+      "n": 5794
+     },
+     {
+      "nivel": "outros estados",
+      "n": 920
+     }
+    ]
+   },
+   {
+    "var": "ensino",
+    "rotulo": "Escolaridade",
+    "ref": "Graduação",
+    "niveis": [
+     {
+      "nivel": "Doutorado",
+      "n": 542
+     },
+     {
+      "nivel": "Graduação",
+      "n": 5388
+     },
+     {
+      "nivel": "Graduação em curso",
+      "n": 1948
+     },
+     {
+      "nivel": "Mestrado",
+      "n": 1631
+     },
+     {
+      "nivel": "Pós-graduação (lato sensu)",
+      "n": 4867
+     },
+     {
+      "nivel": "Sem graduação",
+      "n": 264
+     }
+    ]
+   },
+   {
+    "var": "genero_b",
+    "rotulo": "Gênero",
+    "ref": "Masculino",
+    "niveis": [
+     {
+      "nivel": "Feminino",
+      "n": 3527
+     },
+     {
+      "nivel": "Masculino",
+      "n": 11113
+     }
+    ]
+   },
+   {
+    "var": "porte",
+    "rotulo": "Porte da empresa (pessoas)",
+    "ref": "101–500",
+    "niveis": [
+     {
+      "nivel": "101–500",
+      "n": 2570
+     },
+     {
+      "nivel": "11–100",
+      "n": 1928
+     },
+     {
+      "nivel": "1–10",
+      "n": 428
+     },
+     {
+      "nivel": "501–3.000",
+      "n": 3228
+     },
+     {
+      "nivel": "Acima de 3.000",
+      "n": 6486
+     }
+    ]
+   },
+   {
+    "var": "situacao",
+    "rotulo": "Vínculo",
+    "ref": "CLT",
+    "niveis": [
+     {
+      "nivel": "CLT",
+      "n": 11535
+     },
+     {
+      "nivel": "Estágio",
+      "n": 815
+     },
+     {
+      "nivel": "Freelancer",
+      "n": 144
+     },
+     {
+      "nivel": "No Brasil, para empresa de fora",
+      "n": 432
+     },
+     {
+      "nivel": "PJ / Empreendedor",
+      "n": 1224
+     },
+     {
+      "nivel": "Servidor público",
+      "n": 490
+     }
+    ]
+   }
+  ],
+  "fixo": {
+   "ano_c": "2025"
   }
  },
  "remoto_pct": {

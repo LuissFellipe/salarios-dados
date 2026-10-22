@@ -64,13 +64,64 @@ def efeito(m, var, nivel):
     return {"efeito": round(float(r["efeito"]), 6), "ic": [round(float(r["ic_baixo"]), 6), round(float(r["ic_alto"]), 6)]}
 
 
+ROTULOS = {"familia": "Cargo", "nivel_comparavel": "Nível", "exp_faixa": "Experiência em dados", "modelo": "Modelo de trabalho",
+           "uf_grupo": "Estado", "ensino": "Escolaridade", "genero_b": "Gênero", "porte": "Porte da empresa (pessoas)",
+           "situacao": "Vínculo"}
+# grupos do gráfico de fatores na versão completa; ano, cargo, nível e
+# experiência têm gráfico próprio
+GRUPOS_FATORES = {"modelo": "Modelo de trabalho (vs. presencial)", "ensino": "Escolaridade (vs. graduação)",
+                  "uf_grupo": "Estado (vs. SP)", "genero_b": "Gênero (vs. homens)",
+                  "porte": "Porte da empresa (vs. 101–500 pessoas)", "situacao": "Vínculo (vs. CLT)"}
+
+
+def chave(nome):
+    """'C(modelo, Treatment('Presencial'))[T.Remoto]' → ('modelo', 'Remoto')."""
+    if nome == "Intercept":
+        return None, None
+    var = nome[2:].split(",")[0].split(")")[0]
+    return var, nome.split("[T.", 1)[1][:-1]
+
+
+def todos_os_efeitos(m):
+    e = m.efeitos()
+    return [{"grupo": GRUPOS_FATORES[v], "var": v, "nivel": n, "efeito": round(float(r["efeito"]), 6),
+             "ic": [round(float(r["ic_baixo"]), 6), round(float(r["ic_alto"]), 6)]}
+            for nome, r in e.iterrows() if (v := chave(nome)[0]) in GRUPOS_FATORES for n in [chave(nome)[1]]]
+
+
+def simulador(m, d, variaveis):
+    """O que a página precisa para prever log(salário) = xβ de um perfil
+    qualquer, com o intervalo de xβ por x'Σx. Só agregado: coeficientes e
+    covariância, nenhuma resposta."""
+    k = len(m.nomes)
+    vars_ = []
+    for v in variaveis:
+        com_coluna = {chave(n)[1] for n in m.nomes if chave(n)[0] == v}
+        presentes = [str(c) for c in d[v].cat.categories] if hasattr(d[v], "cat") else sorted(d[v].dropna().unique())
+        ref = [c for c in presentes if c not in com_coluna]
+        assert len(ref) == 1, (v, ref)
+        contagem = d[v].astype(str).value_counts()
+        vars_.append({"var": v, "rotulo": ROTULOS[v], "ref": ref[0],
+                      "niveis": [{"nivel": c, "n": int(contagem.get(c, 0))} for c in presentes]})
+    return {
+        "colunas": ["Intercept" if n == "Intercept" else "=".join(chave(n)) for n in m.nomes],
+        "beta": [float(f"{b:.8g}") for b in m.theta[:-1]],
+        "cov": [[float(f"{m.cov[i, j]:.6g}") for j in range(k)] for i in range(k)],
+        "sigma": round(m.sigma, 6), "n": m.n, "variaveis": vars_,
+        "fixo": {"ano_c": "2025"},
+    }
+
+
 def exportar():
     df, br = base()
     r25 = br[br["ano"] == 2025]
 
-    cargos = [{"familia": fam, "nivel": nv, **m}
-              for fam in FAMILIAS for nv in NIVEIS
-              if (m := mediana_ic(r25[(r25["familia"] == fam) & (r25["nivel_comparavel"] == nv)]))]
+    # cargo × nível em cada edição com nível (2021 em diante): alimenta o
+    # gráfico de cargos com filtro de ano e a evolução de cada cargo
+    cargos_ano = [{"familia": fam, "nivel": nv, "ano": int(a), **m}
+                  for a in range(2021, 2026) for fam in FAMILIAS for nv in NIVEIS
+                  if (m := mediana_ic(br[(br["ano"] == a) & (br["familia"] == fam) & (br["nivel_comparavel"] == nv)]))]
+    cargos = [{k: v for k, v in c.items() if k != "ano"} for c in cargos_ano if c["ano"] == 2025]
 
     com_nivel = br[br["nivel_comparavel"].notna()]
     evolucao_nivel = [{"nivel": nv, "ano": int(a), **mediana_ic(g)}
@@ -109,11 +160,13 @@ def exportar():
     experiencia = {nome: [0.0 if n == "1 a 3 anos" else efeito(m, "exp_faixa", n)["efeito"] for n in exp_ordem]
                    for nome, m in [("total", sem_nivel), ("dentro_do_nivel", completo)]}
 
-    remoto_nivel = {}
+    remoto_nivel, fatores_todos, n_por_nivel = {}, {"Todos": todos_os_efeitos(completo)}, {"Todos": completo.n}
     for nv in NIVEIS:
         m = RegressaoIntervalar(" + ".join(termo(v) for v in controles if v != "nivel_comparavel"),
                                 d[d["nivel_comparavel"] == nv]).ajustar()
         remoto_nivel[nv] = efeito(m, "modelo", "Remoto")
+        fatores_todos[nv], n_por_nivel[nv] = todos_os_efeitos(m), m.n
+    sim = simulador(completo, d, [v for v in controles if v != "ano_c"])
 
     d["relativo"] = completo.residuo_generalizado()
     d["quinto"] = pd.qcut(d["relativo"], 5, labels=False) + 1
@@ -135,12 +188,15 @@ def exportar():
         "fonte": "State of Data Brazil (Data Hackers + Bain & Company), CC BY-NC-SA 4.0",
         "respostas": int(len(df)), "edicoes": sorted(int(a) for a in df["ano"].unique()),
         "mediana_2025": round(mediana_agrupada(r25["sal_min"], r25["sal_max"])), "respostas_2025": int(len(r25)),
-        "cargos_2025": cargos,
-        "mediana_geral": mediana_geral, "senior_pct": {int(k): float(v) for k, v in senior_pct.items()},
+        "cargos_2025": cargos, "cargos_ano": cargos_ano,
+        "ipca": {int(a): round(fator(int(a)), 6) for a in sorted(df["ano"].unique())},
+        "mediana_geral": mediana_geral, "respostas_ano": {int(a): int(n) for a, n in br.groupby("ano").size().items()},
+        "senior_pct": {int(k): float(v) for k, v in senior_pct.items()},
         "evolucao_nivel": evolucao_nivel, "efeito_ano": anos, "n_modelo_ano": m03.n,
         "fatores": fatores, "n_modelo": completo.n,
         "experiencia": {"faixas": exp_ordem, **experiencia},
-        "remoto_por_nivel": remoto_nivel,
+        "remoto_por_nivel": remoto_nivel, "fatores_todos": fatores_todos, "n_fatores": n_por_nivel,
+        "simulador": sim,
         "remoto_pct": {int(a): round(float(v), 6) for a, v in modelo_trab["Remoto"].items()},
         "quintos": quintos,
         "insatisfacao_por_10pct": round(float(lg.get_margeff().summary_frame().loc["dez_pct_abaixo", "dy/dx"]), 6),

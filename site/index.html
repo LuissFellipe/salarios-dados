@@ -72,6 +72,29 @@ svg .grp { fill: var(--text-primary); font-weight: 600; font-size: 12.5px; }
 ul.limites { color: var(--text-secondary); padding-left: 20px; }
 ul.limites li { margin-bottom: 6px; }
 ul.limites strong { color: var(--text-primary); }
+.ctrl { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin-bottom: 12px; font-size: 13px; color: var(--text-secondary); }
+.seg { display: inline-flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.seg button { font: inherit; font-size: 13px; color: var(--text-secondary); background: transparent; border: 0; padding: 5px 11px; cursor: pointer; min-height: 32px; }
+.seg button + button { border-left: 1px solid var(--border); }
+.seg button[aria-pressed="true"] { background: var(--text-primary); color: var(--page); }
+select { font: inherit; font-size: 13px; color: var(--text-primary); background: var(--page); border: 1px solid var(--border); border-radius: 8px; padding: 5px 8px; min-height: 32px; max-width: 100%; }
+details.tabela { margin-top: 10px; font-size: 13px; color: var(--text-secondary); }
+details.tabela summary { cursor: pointer; }
+details.tabela table { border-collapse: collapse; margin-top: 8px; font-variant-numeric: tabular-nums; }
+details.tabela th, details.tabela td { padding: 4px 10px; border-bottom: 1px solid var(--grid); text-align: right; }
+details.tabela th:first-child, details.tabela td:first-child { text-align: left; }
+details.tabela th { color: var(--text-primary); font-weight: 600; }
+svg .rotulo { cursor: pointer; }
+svg .rotulo:hover, svg .rotulo.ativo { fill: var(--text-primary); }
+.sim { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 24px; }
+@media (max-width: 860px) { .sim { grid-template-columns: 1fr; } }
+.campos { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; align-content: start; }
+@media (max-width: 480px) { .campos { grid-template-columns: 1fr; } }
+.campos label { display: flex; flex-direction: column; gap: 3px; font-size: 13px; color: var(--text-secondary); }
+.previsto .num { font-size: 40px; font-weight: 650; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.previsto .txt { color: var(--text-secondary); font-size: 14px; }
+.pesos h3 { font-size: 14px; font-weight: 600; margin: 14px 0 4px; }
+.aviso { color: var(--text-secondary); font-size: 13px; margin-top: 8px; }
 footer { color: var(--text-muted); font-size: 13px; margin-top: 40px; }
 </style>
 </head>
@@ -91,16 +114,19 @@ footer { color: var(--text-muted); font-size: 13px; margin-top: 40px; }
   </section>
 
   <section class="card" aria-labelledby="t-cargos">
-    <h2 id="t-cargos">Quanto ganha cada cargo, em cada nível (2025)</h2>
-    <div class="sub">Mediana mensal de quem mora no Brasil. A pesquisa pergunta a faixa salarial, não o valor: a mediana é interpolada dentro da faixa, e o traço é o intervalo de 95% (500 reamostragens). Grupos com menos de 20 respostas ficam de fora.</div>
+    <h2 id="t-cargos">Quanto ganha cada cargo, em cada nível (<span id="cargos-ano">2025</span>)</h2>
+    <div class="sub">Mediana mensal de quem mora no Brasil, em reais de novembro de 2025. A pesquisa pergunta a faixa salarial, não o valor: a mediana é interpolada dentro da faixa, e o traço é o intervalo de 95% (500 reamostragens). Grupos com menos de 20 respostas ficam de fora. A escala é a mesma em todos os anos; clique num cargo para ver a evolução dele.</div>
+    <div class="ctrl"><span>Edição</span><div class="seg" id="seg-cargos" role="group" aria-label="Edição da pesquisa"></div></div>
     <div class="legend" id="leg-niveis"></div>
     <div class="scroll"><div id="cargos"></div></div>
+    <details class="tabela"><summary>Ver como tabela</summary><div class="scroll" id="tab-cargos"></div></details>
   </section>
 
   <div class="grid2">
     <section class="card" aria-labelledby="t-nivel">
       <h2 id="t-nivel">Dentro de cada nível, o salário real caiu ou parou</h2>
-      <div class="sub">Mediana real por nível. A mediana de todo mundo subiu porque a amostra ficou mais sênior, não porque o mesmo nível passou a ganhar mais.</div>
+      <div class="sub">Mediana por nível. A mediana de todo mundo subiu porque a amostra ficou mais sênior, não porque o mesmo nível passou a ganhar mais. Em valores nominais, o que parece aumento é quase todo inflação.</div>
+      <div class="ctrl"><select id="sel-evo" aria-label="Cargo"><option value="">Todos os cargos</option></select><div class="seg" id="seg-evo" role="group" aria-label="Valores"></div></div>
       <div class="legend" id="leg-niveis2"></div>
       <div id="evolucao"></div>
     </section>
@@ -113,7 +139,8 @@ footer { color: var(--text-muted); font-size: 13px; margin-top: 40px; }
 
   <section class="card" aria-labelledby="t-fatores">
     <h2 id="t-fatores">Do que o salário depende</h2>
-    <div class="sub">Cada efeito compara pessoas iguais em todo o resto: cargo, nível, experiência, estado, escolaridade, gênero, porte da empresa, vínculo, modelo de trabalho e ano. É associação, não causa.</div>
+    <div class="sub">Cada efeito compara pessoas iguais em todo o resto: cargo, nível, experiência, estado, escolaridade, gênero, porte da empresa, vínculo, modelo de trabalho e ano. É associação, não causa. A escala é proporcional (+100% fica à mesma distância do zero que −50%); separando por nível, cada um tem o próprio modelo.</div>
+    <div class="ctrl"><span>Quem entra no modelo</span><div class="seg" id="seg-fatores" role="group" aria-label="Nível"></div><span id="n-fatores"></span></div>
     <div class="scroll"><div id="fatores"></div></div>
   </section>
 
@@ -132,6 +159,20 @@ footer { color: var(--text-muted); font-size: 13px; margin-top: 40px; }
     </section>
   </div>
 
+  <section class="card" aria-labelledby="t-sim">
+    <h2 id="t-sim">Quanto ganharia um perfil como este em 2025</h2>
+    <div class="sub">A mesma regressão do gráfico de fatores, usada para prever: escolha o perfil e veja a mediana que o modelo espera para ele. O modelo soma os efeitos, então supõe, por exemplo, que o remoto vale o mesmo para qualquer cargo e nível — o que o gráfico acima mostra que não é bem assim.</div>
+    <div class="sim">
+      <form class="campos" id="campos" onsubmit="return false"></form>
+      <div>
+        <div class="previsto"><div class="num" id="sim-num"></div><div class="txt" id="sim-txt"></div></div>
+        <div id="sim-faixa"></div>
+        <div class="pesos"><h3>O que mais pesa neste perfil</h3><div class="sub" id="sim-ref" style="font-size:13px;margin:0 0 4px"></div><div id="sim-pesos"></div></div>
+        <div class="aviso" id="sim-aviso"></div>
+      </div>
+    </div>
+  </section>
+
   <section class="card" aria-labelledby="t-limites">
     <h2 id="t-limites">Limites</h2>
     <ul class="limites">
@@ -140,7 +181,7 @@ footer { color: var(--text-muted); font-size: 13px; margin-top: 40px; }
       <li><strong>Associação, não causa.</strong> Os controles tiram o que a pesquisa mede; empresa, habilidade e rede de contatos ficam de fora.</li>
       <li><strong>O questionário muda todo ano.</strong> A harmonização escolhe cada coluna pelo texto da pergunta e documenta cada decisão; a edição de 2019 não perguntou o nível e fica fora das comparações controladas.</li>
     </ul>
-    <p class="note">Método: mediana agrupada e regressão por intervalo log-normal (a probabilidade de o salário cair na faixa declarada), testadas em salários simulados; IPCA do IBGE (tabela 1737), novembro de cada ano levado a novembro de 2025; 23 testes automatizados.</p>
+    <p class="note">Método: mediana agrupada e regressão por intervalo log-normal; no simulador, a mediana prevista é exp(xβ), o intervalo vem da covariância dos coeficientes e a faixa de metade das pessoas, de exp(xβ ± 0,674σ) (a probabilidade de o salário cair na faixa declarada), testadas em salários simulados; IPCA do IBGE (tabela 1737), novembro de cada ano levado a novembro de 2025; 23 testes automatizados.</p>
   </section>
 
   <footer>Dados: State of Data Brazil, Data Hackers e Bain &amp; Company, sob <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>; os agregados desta página seguem a mesma licença. Código e cadernos: <a href="https://github.com/LuissFellipe/salarios-dados">github.com/LuissFellipe/salarios-dados</a>.</footer>
@@ -184,6 +225,19 @@ function legendaNiveis(id) {
   const L = document.getElementById(id);
   for (const [n, c] of Object.entries(NIVEIS)) { const s = node("span"); const d = node("i", null, "dot"); d.style.background = c; s.append(d, document.createTextNode(n)); L.appendChild(s); }
 }
+// largura disponível para o gráfico; abaixo de 640 px o rótulo vai para cima
+// da linha em vez de ocupar uma coluna à esquerda
+const largura = (id, max) => Math.max(320, Math.min(max, document.getElementById(id).clientWidth || max));
+const redesenhar = [];
+let tRes; addEventListener("resize", () => { clearTimeout(tRes); tRes = setTimeout(() => redesenhar.forEach(f => f()), 150); });
+function segmentado(id, opcoes, atual, ao) {
+  const box = document.getElementById(id);
+  for (const o of opcoes) {
+    const b = node("button", o); b.type = "button"; b.setAttribute("aria-pressed", o === atual);
+    b.addEventListener("click", () => { for (const c of box.children) c.setAttribute("aria-pressed", c === b); ao(o); });
+    box.appendChild(b);
+  }
+}
 function ponto(g, x, y, cor) { el("circle", { class: "mark", cx: x, cy: y, r: 5, fill: cor, stroke: "var(--surface-1)", "stroke-width": 2 }, g); }
 
 async function iniciar() {
@@ -224,61 +278,109 @@ async function iniciar() {
 
   legendaNiveis("leg-niveis"); legendaNiveis("leg-niveis2");
 
-  // ── cargo × nível ──
-  (() => {
-    const fams = [...new Set(D.cargos_2025.map(c => c.familia))]
-      .sort((a, b) => (cargo(b, "Sênior")?.mediana || 0) - (cargo(a, "Sênior")?.mediana || 0));
-    const W = 980, esq = 260, dir = 90, linha = 54, topo = 8, H = topo + fams.length * linha + 30;
-    const max = 26000, x = v => esq + v / max * (W - esq - dir);
-    const s = svg(W, H, "Mediana salarial por cargo e nível em 2025", false);
+  // ── cargo × nível, com filtro de edição ──
+  // a ordem das linhas é a do sênior em 2025 e não muda com o ano, para o
+  // olho comparar a mesma linha entre edições
+  const anosCargo = [...new Set(D.cargos_ano.map(c => c.ano))];
+  const fams = [...new Set(D.cargos_ano.map(c => c.familia))]
+    .sort((a, b) => (cargo(b, "Sênior")?.mediana || 0) - (cargo(a, "Sênior")?.mediana || 0));
+  const cargoAno = (f, n, a) => D.cargos_ano.find(c => c.familia === f && c.nivel === n && c.ano === a);
+  let anoCargos = anosCargo.at(-1), famEvo = "", nominal = false;
+  const real = (v, a) => nominal ? v / D.ipca[a] : v;
+
+  function desenharCargos() {
+    document.getElementById("cargos-ano").textContent = anoCargos;
+    const W = largura("cargos", 980), estreito = W < 640, esq = estreito ? 8 : 260, dir = 90, linha = estreito ? 72 : 54, topo = 8, H = topo + fams.length * linha + 30;
+    const max = Math.ceil(Math.max(...D.cargos_ano.map(c => c.ic[1])) / 5000) * 5000, x = v => esq + v / max * (W - esq - dir);
+    const s = svg(W, H, `Mediana salarial por cargo e nível em ${anoCargos}`, false);
     for (let t = 0; t <= max; t += 5000) {
       el("line", { x1: x(t), x2: x(t), y1: topo, y2: H - 24, stroke: "var(--grid)" }, s);
       txt(s, x(t), H - 8, t ? `R$ ${t / 1000} mil` : "R$ 0", { class: "ax", "text-anchor": "middle" });
     }
     const desloc = { "Júnior": -14, "Pleno": 0, "Sênior": 14 };
     fams.forEach((f, i) => {
-      const y0 = topo + i * linha + linha / 2;
-      txt(s, esq - 12, y0 + 4, f, { "text-anchor": "end" });
+      const y0 = topo + i * linha + linha / 2 + (estreito ? 10 : 0);
+      const r = txt(s, estreito ? 0 : esq - 12, estreito ? y0 - 24 : y0 + 4, f, { "text-anchor": estreito ? "start" : "end", class: "rotulo" + (f === famEvo ? " ativo" : ""), tabindex: 0, role: "button", "aria-label": `Ver a evolução de ${f}` });
+      const escolher = () => { famEvo = famEvo === f ? "" : f; document.getElementById("sel-evo").value = famEvo; desenharCargos(); desenharEvolucao(); };
+      r.addEventListener("click", escolher);
+      r.addEventListener("keydown", ev => { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); escolher(); } });
+      let algum = false;
       for (const nv of Object.keys(NIVEIS)) {
-        const c = cargo(f, nv); if (!c) continue;
+        const c = cargoAno(f, nv, anoCargos); if (!c) continue;
+        algum = true;
         const y = y0 + desloc[nv];
         const g = el("g", { class: "hit", "aria-label": `${f}, ${nv}: ${mil(c.mediana)}` }, s);
         el("rect", { x: esq, y: y - 7, width: W - esq, height: 14, fill: "transparent" }, g);
         el("line", { x1: x(c.ic[0]), x2: x(c.ic[1]), y1: y, y2: y, stroke: NIVEIS[nv], "stroke-width": 2, opacity: 0.45 }, g);
         ponto(g, x(c.mediana), y, NIVEIS[nv]);
         if (nv === "Sênior") txt(g, x(c.ic[1]) + 8, y + 4, mil(c.mediana), { class: "val" });
-        interativo(g, () => [mil(c.mediana), `${f} · ${nv}`, `IC 95%: ${mil(c.ic[0])} a ${mil(c.ic[1])}`, `${c.n} respostas`]);
+        const ant = cargoAno(f, nv, anoCargos - 1);
+        interativo(g, () => [mil(c.mediana), `${f} · ${nv} · ${anoCargos}`, `IC 95%: ${mil(c.ic[0])} a ${mil(c.ic[1])}`, `${c.n} respostas`,
+          ...(ant ? [`${pct(c.mediana / ant.mediana - 1, 0)} sobre ${anoCargos - 1} (real)`] : [])]);
       }
+      if (!algum) txt(s, esq + 8, y0 + 4, "menos de 20 respostas em cada nível", { class: "ax" });
     });
     document.getElementById("cargos").replaceChildren(s);
-  })();
 
-  // ── evolução por nível ──
-  (() => {
+    const t = document.createElement("table");
+    const cab = t.insertRow(); for (const h of ["Cargo", "Nível", "Mediana", "IC 95%", "Respostas"]) cab.appendChild(node("th", h));
+    for (const f of fams) for (const nv of Object.keys(NIVEIS)) {
+      const c = cargoAno(f, nv, anoCargos); if (!c) continue;
+      const r = t.insertRow();
+      for (const v of [f, nv, mil(c.mediana), `${mil(c.ic[0])} a ${mil(c.ic[1])}`, c.n]) r.insertCell().textContent = v;
+    }
+    document.getElementById("tab-cargos").replaceChildren(t);
+  }
+  segmentado("seg-cargos", anosCargo.map(String), String(anoCargos), v => { anoCargos = +v; desenharCargos(); });
+  desenharCargos(); redesenhar.push(desenharCargos);
+
+  // ── evolução por nível, de todos ou de um cargo ──
+  const sel = document.getElementById("sel-evo");
+  for (const f of fams) sel.appendChild(new Option(f, f));
+  sel.addEventListener("change", () => { famEvo = sel.value; desenharCargos(); desenharEvolucao(); });
+  segmentado("seg-evo", ["Real", "Nominal"], "Real", v => { nominal = v === "Nominal"; desenharEvolucao(); });
+
+  function desenharEvolucao() {
     const W = 480, H = 300, m = { l: 62, r: 64, t: 12, b: 30 };
+    const serieDe = nv => famEvo ? D.cargos_ano.filter(c => c.familia === famEvo && c.nivel === nv) : evo(nv);
     const anos = [...new Set(D.evolucao_nivel.map(e => e.ano))];
+    const todas = Object.keys(NIVEIS).flatMap(serieDe);
+    const topoY = Math.max(15000, Math.ceil(Math.max(...todas.map(e => real(e.ic[1], e.ano))) / 5000) * 5000);
     const x = a => m.l + (a - anos[0]) / (anos.at(-1) - anos[0]) * (W - m.l - m.r);
-    const y = v => H - m.b - v / 15000 * (H - m.t - m.b);
-    const s = svg(W, H, "Mediana real por nível, por ano");
-    for (let t = 0; t <= 15000; t += 5000) {
+    const y = v => H - m.b - v / topoY * (H - m.t - m.b);
+    const s = svg(W, H, `Mediana ${nominal ? "nominal" : "real"} por nível, por ano${famEvo ? ", " + famEvo : ""}`);
+    for (let t = 0; t <= topoY; t += 5000) {
       el("line", { x1: m.l, x2: W - m.r, y1: y(t), y2: y(t), stroke: "var(--grid)" }, s);
       txt(s, m.l - 6, y(t) + 4, t ? `R$ ${t / 1000} mil` : "R$ 0", { class: "ax", "text-anchor": "end" });
     }
     anos.forEach(a => txt(s, x(a), H - 10, a, { class: "ax", "text-anchor": "middle" }));
+    // um ano sem 20 respostas quebra a linha em vez de ligar os vizinhos
+    const trechos = serie => serie.reduce((acc, e, i) => { if (!i || e.ano !== serie[i - 1].ano + 1) acc.push([]); acc.at(-1).push(e); return acc; }, []);
+    const rotulos = [];
     for (const [nv, cor] of Object.entries(NIVEIS)) {
-      const serie = evo(nv);
-      el("path", { d: serie.map((e, i) => `${i ? "L" : "M"}${x(e.ano)},${y(e.ic[1])}`).join("") + serie.slice().reverse().map(e => `L${x(e.ano)},${y(e.ic[0])}`).join("") + "Z", fill: cor, opacity: 0.12 }, s);
-      el("path", { d: serie.map((e, i) => `${i ? "L" : "M"}${x(e.ano)},${y(e.mediana)}`).join(""), fill: "none", stroke: cor, "stroke-width": 2 }, s);
+      const serie = serieDe(nv);
+      if (!serie.length) continue;
+      for (const tr of trechos(serie)) {
+        el("path", { d: tr.map((e, i) => `${i ? "L" : "M"}${x(e.ano)},${y(real(e.ic[1], e.ano))}`).join("") + tr.slice().reverse().map(e => `L${x(e.ano)},${y(real(e.ic[0], e.ano))}`).join("") + "Z", fill: cor, opacity: 0.12 }, s);
+        el("path", { d: tr.map((e, i) => `${i ? "L" : "M"}${x(e.ano)},${y(real(e.mediana, e.ano))}`).join(""), fill: "none", stroke: cor, "stroke-width": 2 }, s);
+      }
       for (const e of serie) {
         const g = el("g", { class: "hit" }, s);
-        el("circle", { cx: x(e.ano), cy: y(e.mediana), r: 12, fill: "transparent" }, g);
-        ponto(g, x(e.ano), y(e.mediana), cor);
-        interativo(g, () => [mil(e.mediana), `${nv}, ${e.ano}`, `IC 95%: ${mil(e.ic[0])} a ${mil(e.ic[1])}`, `${e.n} respostas`]);
+        el("circle", { cx: x(e.ano), cy: y(real(e.mediana, e.ano)), r: 12, fill: "transparent" }, g);
+        ponto(g, x(e.ano), y(real(e.mediana, e.ano)), cor);
+        interativo(g, () => [mil(real(e.mediana, e.ano)), `${famEvo || "Todos os cargos"} · ${nv}, ${e.ano}`,
+          nominal ? `${mil(e.mediana)} em reais de nov/2025` : `${mil(e.mediana / D.ipca[e.ano])} em reais da época`,
+          `IC 95%: ${mil(real(e.ic[0], e.ano))} a ${mil(real(e.ic[1], e.ano))}`, `${e.n} respostas`]);
       }
-      txt(s, x(anos.at(-1)) + 8, y(serie.at(-1).mediana) + 4, pct(variacao(nv), 0), { class: "val" });
+      const ini = serie[0], fim = serie.at(-1);
+      if (ini !== fim) rotulos.push({ y: y(real(fim.mediana, fim.ano)), x: x(fim.ano) + 8,
+        t: pct(real(fim.mediana, fim.ano) / real(ini.mediana, ini.ano) - 1, 0) + (ini.ano !== anos[0] ? ` desde ${ini.ano}` : "") });
     }
+    // rótulos do fim da linha não se sobrepõem
+    rotulos.sort((a, b) => a.y - b.y).forEach((r, i, arr) => { if (i && r.y - arr[i - 1].y < 14) r.y = arr[i - 1].y + 14; txt(s, r.x, r.y + 4, r.t, { class: "val" }); });
     document.getElementById("evolucao").replaceChildren(s);
-  })();
+  }
+  desenharEvolucao();
 
   // ── efeito do ano ──
   (() => {
@@ -303,35 +405,49 @@ async function iniciar() {
     document.getElementById("anos").replaceChildren(s);
   })();
 
-  // ── fatores ──
-  (() => {
-    const grupos = [...new Set(D.fatores.map(f => f.grupo))];
-    const linhas = grupos.reduce((n, g) => n + 1 + D.fatores.filter(f => f.grupo === g).length, 0);
-    const W = 980, esq = 260, dir = 80, linha = 26, H = linhas * linha + grupos.length * 8 + 30;
-    const lo = -0.25, hi = 0.35, x = v => esq + (v - lo) / (hi - lo) * (W - esq - dir);
-    const s = svg(W, H, "Efeito de cada fator no salário, com o resto fixo", false);
-    for (let t = -0.2; t <= 0.31; t += 0.1) {
-      el("line", { x1: x(t), x2: x(t), y1: 0, y2: H - 24, stroke: Math.abs(t) < 1e-9 ? "var(--text-muted)" : "var(--grid)" }, s);
+  // ── fatores, por nível ──
+  // escala em log(1 + efeito): +100% e −50% são o mesmo fator, ×2 e ÷2
+  const ordemFatores = {};
+  for (const f of D.fatores_todos["Todos"]) ordemFatores[f.var + "|" + f.nivel] = f.efeito;
+  let nivelFatores = "Todos";
+  function desenharFatores() {
+    const F = D.fatores_todos[nivelFatores];
+    document.getElementById("n-fatores").textContent = `${D.n_fatores[nivelFatores].toLocaleString("pt-BR")} respostas, 2021–2025`;
+    const grupos = [...new Set(F.map(f => f.grupo))];
+    const doGrupo = gr => F.filter(f => f.grupo === gr).sort((a, b) => ordemFatores[b.var + "|" + b.nivel] - ordemFatores[a.var + "|" + a.nivel]);
+    const W = largura("fatores", 980), estreito = W < 640, esq = estreito ? 8 : 260, dir = 64, linha = estreito ? 40 : 26;
+    const H = F.length * linha + grupos.length * (26 + 8) + 30;
+    const lo = -0.8, hi = 1.6, L = v => Math.log1p(Math.min(hi, Math.max(lo, v)));
+    const x = v => esq + (L(v) - L(lo)) / (L(hi) - L(lo)) * (W - esq - dir);
+    const s = svg(W, H, `Efeito de cada fator no salário, com o resto fixo (${nivelFatores})`, false);
+    for (const t of estreito ? [-0.5, 0, 0.5, 1.5] : [-0.75, -0.5, -0.25, 0, 0.25, 0.5, 1, 1.5]) {
+      el("line", { x1: x(t), x2: x(t), y1: 0, y2: H - 24, stroke: t === 0 ? "var(--text-muted)" : "var(--grid)" }, s);
       txt(s, x(t), H - 8, (t > 0 ? "+" : "") + fmt(t * 100, 0) + "%", { class: "ax", "text-anchor": "middle" });
     }
     let y = 18;
     for (const gr of grupos) {
       txt(s, 0, y, gr, { class: "grp" });
-      y += linha;
-      for (const f of D.fatores.filter(f => f.grupo === gr)) {
+      y += estreito ? 34 : linha;
+      for (const f of doGrupo(gr)) {
         const g = el("g", { class: "hit", "aria-label": `${f.nivel}: ${pct(f.efeito)}` }, s);
         el("rect", { x: 0, y: y - linha / 2 - 4, width: W, height: linha, fill: "transparent" }, g);
-        txt(g, esq - 12, y, f.nivel === "outros estados" ? "Outros estados" : f.nivel, { "text-anchor": "end" });
+        txt(g, estreito ? 0 : esq - 12, estreito ? y - 18 : y, f.nivel === "outros estados" ? "Outros estados" : f.nivel, { "text-anchor": estreito ? "start" : "end" });
+        // intervalo que não cruza o zero: efeito distinguível da referência
+        const claro = f.ic[0] > 0 || f.ic[1] < 0;
         el("line", { x1: x(f.ic[0]), x2: x(f.ic[1]), y1: y - 4, y2: y - 4, stroke: "var(--series-1)", "stroke-width": 2, opacity: 0.5 }, g);
-        ponto(g, x(f.efeito), y - 4, "var(--series-1)");
+        el("circle", { class: "mark", cx: x(f.efeito), cy: y - 4, r: 5, fill: claro ? "var(--series-1)" : "var(--surface-1)", stroke: claro ? "var(--surface-1)" : "var(--series-1)", "stroke-width": 2 }, g);
         txt(g, x(Math.max(f.ic[1], 0)) + 8, y, pct(f.efeito), { class: "val" });
-        interativo(g, () => [pct(f.efeito), `${f.nivel} · ${gr}`, `IC 95%: ${pct(f.ic[0])} a ${pct(f.ic[1])}`]);
+        interativo(g, () => [pct(f.efeito), `${f.nivel} · ${gr}`, `IC 95%: ${pct(f.ic[0])} a ${pct(f.ic[1])}`,
+          claro ? "Intervalo não cruza o zero" : "Intervalo cruza o zero: não se distingue da referência",
+          nivelFatores === "Todos" ? "Todos os níveis" : `Só ${nivelFatores.toLowerCase()}`]);
         y += linha;
       }
       y += 8;
     }
     document.getElementById("fatores").replaceChildren(s);
-  })();
+  }
+  segmentado("seg-fatores", Object.keys(D.fatores_todos), "Todos", v => { nivelFatores = v; desenharFatores(); });
+  desenharFatores(); redesenhar.push(desenharFatores);
 
   // ── experiência ──
   (() => {
@@ -386,6 +502,94 @@ async function iniciar() {
       });
     }
     document.getElementById("satisfacao").replaceChildren(s);
+  })();
+
+  // ── simulador ──
+  // log(salário) = xβ; a mediana de uma log-normal é exp(xβ), e a incerteza
+  // dela vem de x'Σx. A faixa de metade das pessoas usa o σ dos resíduos.
+  (() => {
+    const S = D.simulador, k = S.colunas.length;
+    const ORDEM = { exp_faixa: ["Sem experiência", ...D.experiencia.faixas], porte: ["1–10", "11–100", "101–500", "501–3.000", "Acima de 3.000"] };
+    const ordenar = v => ORDEM[v.var] ? v.niveis.slice().sort((a, b) => ORDEM[v.var].indexOf(a.nivel) - ORDEM[v.var].indexOf(b.nivel)) : v.niveis;
+    const NOME = { "Masculino": "Homem", "Feminino": "Mulher", "outros estados": "Outros estados" };
+    const nome = n => NOME[n] || n;
+    const perfil = {};
+    let salvo = {};
+    try { salvo = Object.fromEntries(new URLSearchParams(location.hash.slice(1))); } catch (e) {}
+    const form = document.getElementById("campos");
+    for (const v of S.variaveis) {
+      const moda = v.niveis.reduce((a, b) => b.n > a.n ? b : a).nivel;
+      perfil[v.var] = v.niveis.some(n => n.nivel === salvo[v.var]) ? salvo[v.var] : moda;
+      const l = node("label"); l.appendChild(document.createTextNode(v.rotulo));
+      const s = document.createElement("select");
+      for (const n of ordenar(v)) s.appendChild(new Option(nome(n.nivel), n.nivel));
+      s.value = perfil[v.var];
+      s.addEventListener("change", () => { perfil[v.var] = s.value; calcular(); });
+      l.appendChild(s); form.appendChild(l);
+    }
+    const refs = S.variaveis.map(v => nome(v.ref)).join(", ");
+    document.getElementById("sim-ref").textContent = `Em relação ao perfil de referência: ${refs}.`;
+
+    function calcular() {
+      const fixo = { ...S.fixo, ...perfil };
+      const xv = S.colunas.map(c => { if (c === "Intercept") return 1; const i = c.indexOf("="); return fixo[c.slice(0, i)] === c.slice(i + 1) ? 1 : 0; });
+      let xb = 0, var_ = 0;
+      for (let i = 0; i < k; i++) { if (!xv[i]) continue; xb += S.beta[i]; for (let j = 0; j < k; j++) if (xv[j]) var_ += S.cov[i][j]; }
+      const ep = Math.sqrt(var_), med = Math.exp(xb);
+      const q = z => Math.exp(xb + z * S.sigma);
+      document.getElementById("sim-num").textContent = mil(med);
+      document.getElementById("sim-txt").textContent = `mediana prevista por mês, em 2025 (IC 95%: ${mil(Math.exp(xb - 1.96 * ep))} a ${mil(Math.exp(xb + 1.96 * ep))}). Metade das pessoas com esse perfil ganha entre ${mil(q(-0.6745))} e ${mil(q(0.6745))}.`;
+
+      // faixa: 80% das pessoas (10º a 90º percentil), 50% no miolo, mediana
+      const W = largura("sim-faixa", 520), H = 64, m = { l: 10, r: 10 };
+      const p10 = q(-1.2816), p90 = q(1.2816);
+      const max = Math.max(20000, Math.ceil(p90 / 10000) * 10000), step = max > 40000 ? 20000 : 10000;
+      const x = v => m.l + v / max * (W - m.l - m.r);
+      const s = svg(W, H, "Faixa salarial prevista para o perfil", false);
+      for (let t = 0; t <= max; t += step) {
+        el("line", { x1: x(t), x2: x(t), y1: 6, y2: 38, stroke: "var(--grid)" }, s);
+        txt(s, x(t), 56, t ? `R$ ${t / 1000} mil` : "R$ 0", { class: "ax", "text-anchor": t === 0 ? "start" : t === max ? "end" : "middle" });
+      }
+      if (max > 40000) el("rect", { x: x(40000), y: 6, width: x(max) - x(40000), height: 32, fill: "var(--grid)", opacity: 0.5 }, s);
+      const g = el("g", { class: "hit" }, s);
+      el("line", { x1: x(p10), x2: x(p90), y1: 22, y2: 22, stroke: "var(--series-1)", "stroke-width": 2, opacity: 0.5 }, g);
+      el("rect", { x: x(q(-0.6745)), y: 14, width: x(q(0.6745)) - x(q(-0.6745)), height: 16, rx: 4, fill: "var(--series-1)", opacity: 0.35 }, g);
+      ponto(g, x(med), 22, "var(--series-1)");
+      interativo(g, () => [mil(med), "Mediana prevista", `Metade: ${mil(q(-0.6745))} a ${mil(q(0.6745))}`, `80%: ${mil(p10)} a ${mil(p90)}`]);
+      document.getElementById("sim-faixa").replaceChildren(s);
+
+      // contribuições: cada escolha diferente da referência, da que mais pesa
+      const pesos = S.colunas.map((c, i) => ({ c, b: S.beta[i], on: xv[i] })).filter(p => p.on && p.c !== "Intercept" && !p.c.startsWith("ano_c="))
+        .sort((a, b) => Math.abs(b.b) - Math.abs(a.b));
+      const P = document.getElementById("sim-pesos");
+      if (!pesos.length) { P.replaceChildren(node("p", "Este é o perfil de referência.", "aviso")); }
+      else {
+        const Wp = largura("sim-pesos", 520), estreito = Wp < 440, lin = estreito ? 38 : 24, esq = estreito ? 0 : 200, Hp = pesos.length * lin + 4;
+        const lim = Math.max(0.5, ...pesos.map(p => Math.abs(p.b)));
+        const meio = (Wp - 60 - esq - 12) / 2, xp = b => esq + 12 + meio + b / lim * meio;
+        const sp = svg(Wp, Hp, "Peso de cada escolha no salário previsto", false);
+        el("line", { x1: xp(0), x2: xp(0), y1: 0, y2: Hp, stroke: "var(--text-muted)" }, sp);
+        pesos.forEach((p, i) => {
+          const yy = i * lin + lin / 2 + (estreito ? 10 : 2), v = p.c.split("=")[0], n = p.c.slice(v.length + 1);
+          const rot = S.variaveis.find(w => w.var === v).rotulo;
+          const gg = el("g", { class: "hit" }, sp);
+          el("rect", { x: 0, y: yy - lin / 2, width: Wp, height: lin, fill: "transparent" }, gg);
+          txt(gg, esq, estreito ? yy - 12 : yy + 4, nome(n), { "text-anchor": estreito ? "start" : "end" });
+          el("rect", { class: "mark", x: Math.min(xp(0), xp(p.b)), y: yy - 5, width: Math.max(2, Math.abs(xp(p.b) - xp(0))), height: 10, rx: 3,
+            fill: p.b > 0 ? "var(--series-1)" : "var(--series-2)" }, gg);
+          txt(gg, Wp - 4, yy + 4, pct(Math.expm1(p.b), 0), { class: "val", "text-anchor": "end" });
+          interativo(gg, () => [pct(Math.expm1(p.b)), `${rot}: ${nome(n)}`, `em relação a ${nome(S.variaveis.find(w => w.var === v).ref)}`]);
+        });
+        P.replaceChildren(sp);
+      }
+
+      const avisos = [];
+      for (const v of S.variaveis) { const n = v.niveis.find(w => w.nivel === perfil[v.var]).n; if (n < 150) avisos.push(`${nome(perfil[v.var])} tem só ${n} respostas no modelo: estimativa frágil.`); }
+      if (p90 > 40000) avisos.push("Acima de R$ 40 mil a pesquisa só sabe que o salário passa do topo; a parte sombreada é extrapolação do modelo.");
+      document.getElementById("sim-aviso").textContent = avisos.join(" ");
+      try { history.replaceState(null, "", "#" + new URLSearchParams(perfil).toString()); } catch (e) {}
+    }
+    calcular(); redesenhar.push(calcular);
   })();
 }
 
