@@ -95,6 +95,8 @@ svg .rotulo:hover, svg .rotulo.ativo { fill: var(--text-primary); }
 .previsto .txt { color: var(--text-secondary); font-size: 14px; }
 .pesos h3 { font-size: 14px; font-weight: 600; margin: 14px 0 4px; }
 .aviso { color: var(--text-secondary); font-size: 13px; margin-top: 8px; }
+.paineis { display: grid; gap: 8px 32px; }
+.painel h3 { font-size: 14px; font-weight: 600; margin: 10px 0 2px; }
 footer { color: var(--text-muted); font-size: 13px; margin-top: 40px; }
 </style>
 </head>
@@ -139,9 +141,10 @@ footer { color: var(--text-muted); font-size: 13px; margin-top: 40px; }
 
   <section class="card" aria-labelledby="t-fatores">
     <h2 id="t-fatores">Do que o salário depende</h2>
-    <div class="sub">Cada efeito compara pessoas iguais em todo o resto: cargo, nível, experiência, estado, escolaridade, gênero, porte da empresa, vínculo, modelo de trabalho e ano. É associação, não causa. A escala é proporcional (+100% fica à mesma distância do zero que −50%); separando por nível, cada um tem o próprio modelo.</div>
+    <div class="sub">Cada efeito compara pessoas iguais em todo o resto: cargo, nível, experiência, estado, escolaridade, gênero, porte da empresa, vínculo, modelo de trabalho e ano. É associação, não causa. Separando por nível, cada um tem o próprio modelo.</div>
     <div class="ctrl"><span>Quem entra no modelo</span><div class="seg" id="seg-fatores" role="group" aria-label="Nível"></div><span id="n-fatores"></span></div>
-    <div class="scroll"><div id="fatores"></div></div>
+    <div class="legend"><span><i class="dot" style="background:var(--series-1)"></i>Ganha mais que a referência</span><span><i class="dot" style="background:var(--series-2)"></i>Ganha menos</span><span>Barra clara: não se distingue da referência · traço: intervalo de 95%</span></div>
+    <div id="fatores" class="paineis"></div>
   </section>
 
   <div class="grid2">
@@ -406,45 +409,58 @@ async function iniciar() {
   })();
 
   // ── fatores, por nível ──
-  // escala em log(1 + efeito): +100% e −50% são o mesmo fator, ×2 e ÷2
+  // um painel por grupo, todos na mesma escala linear. A escala cobre onde
+  // está quase todo efeito (−35% a +45%); os poucos além disso (empresa de
+  // fora, estágio) param na borda com o valor escrito, em vez de espremer o
+  // resto contra o zero
   const ordemFatores = {};
   for (const f of D.fatores_todos["Todos"]) ordemFatores[f.var + "|" + f.nivel] = f.efeito;
+  const CURTO = { "outros estados": "Outros estados", "No Brasil, para empresa de fora": "Empresa de fora (no Brasil)",
+                  "Pós-graduação (lato sensu)": "Pós lato sensu", "Feminino": "Mulheres" };
   let nivelFatores = "Todos";
   function desenharFatores() {
     const F = D.fatores_todos[nivelFatores];
     document.getElementById("n-fatores").textContent = `${D.n_fatores[nivelFatores].toLocaleString("pt-BR")} respostas, 2021–2025`;
-    const grupos = [...new Set(F.map(f => f.grupo))];
-    const doGrupo = gr => F.filter(f => f.grupo === gr).sort((a, b) => ordemFatores[b.var + "|" + b.nivel] - ordemFatores[a.var + "|" + a.nivel]);
-    const W = largura("fatores", 980), estreito = W < 640, esq = estreito ? 8 : 260, dir = 64, linha = estreito ? 40 : 26;
-    const H = F.length * linha + grupos.length * (26 + 8) + 30;
-    const lo = -0.8, hi = 1.6, L = v => Math.log1p(Math.min(hi, Math.max(lo, v)));
-    const x = v => esq + (L(v) - L(lo)) / (L(hi) - L(lo)) * (W - esq - dir);
-    const s = svg(W, H, `Efeito de cada fator no salário, com o resto fixo (${nivelFatores})`, false);
-    for (const t of estreito ? [-0.5, 0, 0.5, 1.5] : [-0.75, -0.5, -0.25, 0, 0.25, 0.5, 1, 1.5]) {
-      el("line", { x1: x(t), x2: x(t), y1: 0, y2: H - 24, stroke: t === 0 ? "var(--text-muted)" : "var(--grid)" }, s);
-      txt(s, x(t), H - 8, (t > 0 ? "+" : "") + fmt(t * 100, 0) + "%", { class: "ax", "text-anchor": "middle" });
-    }
-    let y = 18;
-    for (const gr of grupos) {
-      txt(s, 0, y, gr, { class: "grp" });
-      y += estreito ? 34 : linha;
-      for (const f of doGrupo(gr)) {
-        const g = el("g", { class: "hit", "aria-label": `${f.nivel}: ${pct(f.efeito)}` }, s);
-        el("rect", { x: 0, y: y - linha / 2 - 4, width: W, height: linha, fill: "transparent" }, g);
-        txt(g, estreito ? 0 : esq - 12, estreito ? y - 18 : y, f.nivel === "outros estados" ? "Outros estados" : f.nivel, { "text-anchor": estreito ? "start" : "end" });
-        // intervalo que não cruza o zero: efeito distinguível da referência
-        const claro = f.ic[0] > 0 || f.ic[1] < 0;
-        el("line", { x1: x(f.ic[0]), x2: x(f.ic[1]), y1: y - 4, y2: y - 4, stroke: "var(--series-1)", "stroke-width": 2, opacity: 0.5 }, g);
-        el("circle", { class: "mark", cx: x(f.efeito), cy: y - 4, r: 5, fill: claro ? "var(--series-1)" : "var(--surface-1)", stroke: claro ? "var(--surface-1)" : "var(--series-1)", "stroke-width": 2 }, g);
-        txt(g, x(Math.max(f.ic[1], 0)) + 8, y, pct(f.efeito), { class: "val" });
-        interativo(g, () => [pct(f.efeito), `${f.nivel} · ${gr}`, `IC 95%: ${pct(f.ic[0])} a ${pct(f.ic[1])}`,
-          claro ? "Intervalo não cruza o zero" : "Intervalo cruza o zero: não se distingue da referência",
-          nivelFatores === "Todos" ? "Todos os níveis" : `Só ${nivelFatores.toLowerCase()}`]);
-        y += linha;
+    const lo = Math.max(-0.4, Math.floor(Math.min(...F.map(f => f.ic[0])) * 10) / 10);
+    const hi = Math.min(0.5, Math.ceil(Math.max(...F.map(f => f.ic[1])) * 10) / 10);
+    const caixa = document.getElementById("fatores");
+    caixa.replaceChildren();
+    // duas colunas só quando cada painel ainda fica com 430 px ou mais
+    const total = largura("fatores", 1000), duas = total >= 900, W = duas ? (total - 32) / 2 : total;
+    caixa.style.gridTemplateColumns = duas ? "1fr 1fr" : "1fr";
+    for (const gr of [...new Set(F.map(f => f.grupo))]) {
+      const itens = F.filter(f => f.grupo === gr).sort((a, b) => ordemFatores[b.var + "|" + b.nivel] - ordemFatores[a.var + "|" + a.nivel]);
+      const painel = node("div", null, "painel");
+      painel.appendChild(node("h3", gr));
+      caixa.appendChild(painel);
+      // em tela estreita o nome vai acima da barra e o gráfico usa a largura toda
+      const estreito = W < 560, esq = estreito ? 0 : 170, pad = 62, linha = estreito ? 42 : 26, H = itens.length * linha + 24;
+      const x0 = esq + pad, x1 = W - pad, x = v => x0 + (Math.min(hi, Math.max(lo, v)) - lo) / (hi - lo) * (x1 - x0);
+      const s = svg(W, H, `${gr}: efeito no salário com o resto fixo (${nivelFatores})`, false);
+      for (let t = Math.round(lo * 10); t <= Math.round(hi * 10); t++) {
+        const v = t / 10;
+        el("line", { x1: x(v), x2: x(v), y1: 0, y2: H - 20, stroke: t === 0 ? "var(--text-muted)" : "var(--grid)" }, s);
+        if (t % 2 === 0) txt(s, x(v), H - 6, (v > 0 ? "+" : "") + fmt(v * 100, 0) + "%", { class: "ax", "text-anchor": "middle" });
       }
-      y += 8;
+      itens.forEach((f, i) => {
+        const y = i * linha + linha / 2 + (estreito ? 8 : 0);
+        const claro = f.ic[0] > 0 || f.ic[1] < 0, pos = f.efeito >= 0, cor = pos ? "var(--series-1)" : "var(--series-2)";
+        const fora = f.efeito > hi || f.efeito < lo;
+        const g = el("g", { class: "hit", "aria-label": `${f.nivel}: ${pct(f.efeito)}` }, s);
+        el("rect", { x: 0, y: y - linha / 2, width: W, height: linha, fill: "transparent" }, g);
+        txt(g, estreito ? 0 : esq, estreito ? y - 12 : y + 4, CURTO[f.nivel] || f.nivel, { "text-anchor": estreito ? "start" : "end" });
+        el("rect", { class: "mark", x: Math.min(x(0), x(f.efeito)), y: y - 7, width: Math.max(2, Math.abs(x(f.efeito) - x(0))), height: 14, rx: 3,
+          fill: cor, opacity: claro ? 1 : 0.35 }, g);
+        if (fora) el("path", { d: `M${x(f.efeito) + (pos ? -9 : 9)},${y - 9}l${pos ? 4 : -4},18`, stroke: "var(--surface-1)", "stroke-width": 3 }, g);
+        else el("line", { x1: x(f.ic[0]), x2: x(f.ic[1]), y1: y, y2: y, stroke: "var(--text-primary)", "stroke-width": 1.5, opacity: 0.55 }, g);
+        const fim = fora ? x(f.efeito) : x(pos ? Math.max(f.efeito, f.ic[1]) : Math.min(f.efeito, f.ic[0]));
+        txt(g, fim + (pos ? 6 : -6), y + 4, pct(f.efeito), { class: "val", "text-anchor": pos ? "start" : "end" });
+        interativo(g, () => [pct(f.efeito), `${f.nivel}, ${gr.replace(/^.*\((vs\..*)\)$/, "$1")}`, `IC 95%: ${pct(f.ic[0])} a ${pct(f.ic[1])}`,
+          ...(claro ? [] : ["Não se distingue da referência"]), ...(fora ? ["Barra cortada na borda da escala"] : []),
+          nivelFatores === "Todos" ? "Todos os níveis" : `Só ${nivelFatores.toLowerCase()}`]);
+      });
+      painel.appendChild(s);
     }
-    document.getElementById("fatores").replaceChildren(s);
   }
   segmentado("seg-fatores", Object.keys(D.fatores_todos), "Todos", v => { nivelFatores = v; desenharFatores(); });
   desenharFatores(); redesenhar.push(desenharFatores);
