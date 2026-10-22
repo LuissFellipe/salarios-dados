@@ -160,12 +160,14 @@ def exportar():
     experiencia = {nome: [0.0 if n == "1 a 3 anos" else efeito(m, "exp_faixa", n)["efeito"] for n in exp_ordem]
                    for nome, m in [("total", sem_nivel), ("dentro_do_nivel", completo)]}
 
-    remoto_nivel, fatores_todos, n_por_nivel = {}, {"Todos": todos_os_efeitos(completo)}, {"Todos": completo.n}
+    remoto_nivel, fatores_todos, n_por_nivel, sim_nivel = {}, {"Todos": todos_os_efeitos(completo)}, {"Todos": completo.n}, {}
     for nv in NIVEIS:
-        m = RegressaoIntervalar(" + ".join(termo(v) for v in controles if v != "nivel_comparavel"),
-                                d[d["nivel_comparavel"] == nv]).ajustar()
+        dn = sem_categorias_vazias(d[d["nivel_comparavel"] == nv].copy())
+        m = RegressaoIntervalar(" + ".join(termo(v) for v in controles if v != "nivel_comparavel"), dn).ajustar()
         remoto_nivel[nv] = efeito(m, "modelo", "Remoto")
         fatores_todos[nv], n_por_nivel[nv] = todos_os_efeitos(m), m.n
+        # o gráfico de fatores em reais usa o modelo do nível escolhido
+        sim_nivel[nv] = simulador(m, dn, [v for v in controles if v not in ("ano_c", "nivel_comparavel")])
     sim = simulador(completo, d, [v for v in controles if v != "ano_c"])
 
     d["relativo"] = completo.residuo_generalizado()
@@ -196,7 +198,7 @@ def exportar():
         "fatores": fatores, "n_modelo": completo.n,
         "experiencia": {"faixas": exp_ordem, **experiencia},
         "remoto_por_nivel": remoto_nivel, "fatores_todos": fatores_todos, "n_fatores": n_por_nivel,
-        "simulador": sim,
+        "simulador": sim, "simulador_nivel": sim_nivel,
         "remoto_pct": {int(a): round(float(v), 6) for a, v in modelo_trab["Remoto"].items()},
         "quintos": quintos,
         "insatisfacao_por_10pct": round(float(lg.get_margeff().summary_frame().loc["dez_pct_abaixo", "dy/dx"]), 6),

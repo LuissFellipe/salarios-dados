@@ -95,8 +95,6 @@ svg .rotulo:hover, svg .rotulo.ativo { fill: var(--text-primary); }
 .previsto .txt { color: var(--text-secondary); font-size: 14px; }
 .pesos h3 { font-size: 14px; font-weight: 600; margin: 14px 0 4px; }
 .aviso { color: var(--text-secondary); font-size: 13px; margin-top: 8px; }
-.paineis { display: grid; gap: 8px 32px; }
-.painel h3 { font-size: 14px; font-weight: 600; margin: 10px 0 2px; }
 footer { color: var(--text-muted); font-size: 13px; margin-top: 40px; }
 </style>
 </head>
@@ -141,10 +139,11 @@ footer { color: var(--text-muted); font-size: 13px; margin-top: 40px; }
 
   <section class="card" aria-labelledby="t-fatores">
     <h2 id="t-fatores">Do que o salário depende</h2>
-    <div class="sub">Cada efeito compara pessoas iguais em todo o resto: cargo, nível, experiência, estado, escolaridade, gênero, porte da empresa, vínculo, modelo de trabalho e ano. É associação, não causa. Separando por nível, cada um tem o próprio modelo.</div>
-    <div class="ctrl"><span>Quem entra no modelo</span><div class="seg" id="seg-fatores" role="group" aria-label="Nível"></div><span id="n-fatores"></span></div>
-    <div class="legend"><span><i class="dot" style="background:var(--series-1)"></i>Ganha mais que a referência</span><span><i class="dot" style="background:var(--series-2)"></i>Ganha menos</span><span>Barra clara: não se distingue da referência · traço: intervalo de 95%</span></div>
-    <div id="fatores" class="paineis"></div>
+    <div class="sub">Quanto um mesmo perfil ganharia se mudasse só uma coisa: o modelo de trabalho, o estado, a escolaridade, o gênero, o porte da empresa ou o vínculo, com todo o resto igual. Valores previstos pela regressão do nível escolhido, em reais de novembro de 2025. É associação, não causa.</div>
+    <div class="ctrl"><span>Perfil base</span><select id="sel-fatores" aria-label="Cargo do perfil base"></select><div class="seg" id="seg-fatores" role="group" aria-label="Nível do perfil base"></div><span id="n-fatores"></span></div>
+    <p class="sub" id="base-fatores" style="font-size:14px"></p>
+    <div class="legend"><span><i class="dot" style="background:var(--series-1)"></i>Ganha mais que a base</span><span><i class="dot" style="background:var(--series-2)"></i>Ganha menos</span><span>Linha tracejada: salário da base · traço: intervalo de 95% · ponto vazado: menos de 50 respostas</span></div>
+    <div class="scroll"><div id="fatores"></div></div>
   </section>
 
   <div class="grid2">
@@ -230,7 +229,7 @@ function legendaNiveis(id) {
 }
 // largura disponível para o gráfico; abaixo de 640 px o rótulo vai para cima
 // da linha em vez de ocupar uma coluna à esquerda
-const largura = (id, max) => Math.max(320, Math.min(max, document.getElementById(id).clientWidth || max));
+const largura = (id, max) => Math.max(280, Math.min(max, document.getElementById(id).clientWidth || max));
 const redesenhar = [];
 let tRes; addEventListener("resize", () => { clearTimeout(tRes); tRes = setTimeout(() => redesenhar.forEach(f => f()), 150); });
 function segmentado(id, opcoes, atual, ao) {
@@ -408,61 +407,101 @@ async function iniciar() {
     document.getElementById("anos").replaceChildren(s);
   })();
 
-  // ── fatores, por nível ──
-  // um painel por grupo, todos na mesma escala linear. A escala cobre onde
-  // está quase todo efeito (−35% a +45%); os poucos além disso (empresa de
-  // fora, estágio) param na borda com o valor escrito, em vez de espremer o
-  // resto contra o zero
-  const ordemFatores = {};
-  for (const f of D.fatores_todos["Todos"]) ordemFatores[f.var + "|" + f.nivel] = f.efeito;
+  // ── fatores, em reais ──
+  // perfil base = cargo e nível escolhidos + a resposta mais comum do nível em
+  // cada item; cada linha troca um item só e mostra o salário previsto pelo
+  // modelo daquele nível (exp(xβ), IC por x'Σx)
+  const GRUPOS_R = [["modelo", "Modelo de trabalho"], ["uf_grupo", "Estado"], ["ensino", "Escolaridade"],
+                    ["genero_b", "Gênero"], ["porte", "Porte da empresa (pessoas)"], ["situacao", "Vínculo"]];
   const CURTO = { "outros estados": "Outros estados", "No Brasil, para empresa de fora": "Empresa de fora (no Brasil)",
-                  "Pós-graduação (lato sensu)": "Pós lato sensu", "Feminino": "Mulheres" };
-  let nivelFatores = "Todos";
-  function desenharFatores() {
-    const F = D.fatores_todos[nivelFatores];
-    document.getElementById("n-fatores").textContent = `${D.n_fatores[nivelFatores].toLocaleString("pt-BR")} respostas, 2021–2025`;
-    const lo = Math.max(-0.4, Math.floor(Math.min(...F.map(f => f.ic[0])) * 10) / 10);
-    const hi = Math.min(0.5, Math.ceil(Math.max(...F.map(f => f.ic[1])) * 10) / 10);
-    const caixa = document.getElementById("fatores");
-    caixa.replaceChildren();
-    // duas colunas só quando cada painel ainda fica com 430 px ou mais
-    const total = largura("fatores", 1000), duas = total >= 900, W = duas ? (total - 32) / 2 : total;
-    caixa.style.gridTemplateColumns = duas ? "1fr 1fr" : "1fr";
-    for (const gr of [...new Set(F.map(f => f.grupo))]) {
-      const itens = F.filter(f => f.grupo === gr).sort((a, b) => ordemFatores[b.var + "|" + b.nivel] - ordemFatores[a.var + "|" + a.nivel]);
-      const painel = node("div", null, "painel");
-      painel.appendChild(node("h3", gr));
-      caixa.appendChild(painel);
-      // em tela estreita o nome vai acima da barra e o gráfico usa a largura toda
-      const estreito = W < 560, esq = estreito ? 0 : 170, pad = 62, linha = estreito ? 42 : 26, H = itens.length * linha + 24;
-      const x0 = esq + pad, x1 = W - pad, x = v => x0 + (Math.min(hi, Math.max(lo, v)) - lo) / (hi - lo) * (x1 - x0);
-      const s = svg(W, H, `${gr}: efeito no salário com o resto fixo (${nivelFatores})`, false);
-      for (let t = Math.round(lo * 10); t <= Math.round(hi * 10); t++) {
-        const v = t / 10;
-        el("line", { x1: x(v), x2: x(v), y1: 0, y2: H - 20, stroke: t === 0 ? "var(--text-muted)" : "var(--grid)" }, s);
-        if (t % 2 === 0) txt(s, x(v), H - 6, (v > 0 ? "+" : "") + fmt(v * 100, 0) + "%", { class: "ax", "text-anchor": "middle" });
-      }
-      itens.forEach((f, i) => {
-        const y = i * linha + linha / 2 + (estreito ? 8 : 0);
-        const claro = f.ic[0] > 0 || f.ic[1] < 0, pos = f.efeito >= 0, cor = pos ? "var(--series-1)" : "var(--series-2)";
-        const fora = f.efeito > hi || f.efeito < lo;
-        const g = el("g", { class: "hit", "aria-label": `${f.nivel}: ${pct(f.efeito)}` }, s);
-        el("rect", { x: 0, y: y - linha / 2, width: W, height: linha, fill: "transparent" }, g);
-        txt(g, estreito ? 0 : esq, estreito ? y - 12 : y + 4, CURTO[f.nivel] || f.nivel, { "text-anchor": estreito ? "start" : "end" });
-        el("rect", { class: "mark", x: Math.min(x(0), x(f.efeito)), y: y - 7, width: Math.max(2, Math.abs(x(f.efeito) - x(0))), height: 14, rx: 3,
-          fill: cor, opacity: claro ? 1 : 0.35 }, g);
-        if (fora) el("path", { d: `M${x(f.efeito) + (pos ? -9 : 9)},${y - 9}l${pos ? 4 : -4},18`, stroke: "var(--surface-1)", "stroke-width": 3 }, g);
-        else el("line", { x1: x(f.ic[0]), x2: x(f.ic[1]), y1: y, y2: y, stroke: "var(--text-primary)", "stroke-width": 1.5, opacity: 0.55 }, g);
-        const fim = fora ? x(f.efeito) : x(pos ? Math.max(f.efeito, f.ic[1]) : Math.min(f.efeito, f.ic[0]));
-        txt(g, fim + (pos ? 6 : -6), y + 4, pct(f.efeito), { class: "val", "text-anchor": pos ? "start" : "end" });
-        interativo(g, () => [pct(f.efeito), `${f.nivel}, ${gr.replace(/^.*\((vs\..*)\)$/, "$1")}`, `IC 95%: ${pct(f.ic[0])} a ${pct(f.ic[1])}`,
-          ...(claro ? [] : ["Não se distingue da referência"]), ...(fora ? ["Barra cortada na borda da escala"] : []),
-          nivelFatores === "Todos" ? "Todos os níveis" : `Só ${nivelFatores.toLowerCase()}`]);
-      });
-      painel.appendChild(s);
-    }
+                  "Masculino": "Homem", "Feminino": "Mulher" };
+  const rotuloR = n => CURTO[n] || n;
+  function prever(S, perfil) {
+    const xv = S.colunas.map(c => { if (c === "Intercept") return 1; const i = c.indexOf("="); return (perfil[c.slice(0, i)] ?? S.fixo[c.slice(0, i)]) === c.slice(i + 1) ? 1 : 0; });
+    let xb = 0, v = 0;
+    xv.forEach((a, i) => { if (!a) return; xb += S.beta[i]; xv.forEach((b, j) => { if (b) v += S.cov[i][j]; }); });
+    const ep = Math.sqrt(v);
+    return { med: Math.exp(xb), ic: [Math.exp(xb - 1.96 * ep), Math.exp(xb + 1.96 * ep)] };
   }
-  segmentado("seg-fatores", Object.keys(D.fatores_todos), "Todos", v => { nivelFatores = v; desenharFatores(); });
+  const SN = D.simulador_nivel;
+  let nivelR = "Sênior", cargoR = "Analista de Dados";
+  const selCargoR = document.getElementById("sel-fatores");
+  for (const n of SN[nivelR].variaveis.find(v => v.var === "familia").niveis.map(n => n.nivel)) selCargoR.appendChild(new Option(n, n));
+  selCargoR.value = cargoR;
+  selCargoR.addEventListener("change", () => { cargoR = selCargoR.value; desenharFatores(); });
+
+  function desenharFatores() {
+    const S = SN[nivelR];
+    const base = { familia: cargoR };
+    for (const v of S.variaveis) if (v.var !== "familia") base[v.var] = v.niveis.reduce((a, b) => b.n > a.n ? b : a).nivel;
+    const pb = prever(S, base);
+    document.getElementById("n-fatores").textContent = `modelo com ${S.n.toLocaleString("pt-BR")} respostas de nível ${nivelR.toLowerCase()}, 2021–2025`;
+    document.getElementById("base-fatores").textContent =
+      `Perfil base: ${cargoR.toLowerCase().replace(/^./, c => c.toUpperCase())}, ${nivelR.toLowerCase()}, ${base.exp_faixa} de experiência, ${base.modelo.toLowerCase()}, ${base.uf_grupo}, ${base.ensino.toLowerCase()}, ${rotuloR(base.genero_b).toLowerCase()}, empresa com ${base.porte.toLowerCase()} pessoas, ${base.situacao}. ` +
+      `O modelo prevê ${mil(pb.med)} por mês em 2025 para ele. Cada linha troca só um item.`;
+
+    const linhas = GRUPOS_R.map(([v, nome]) => {
+      const info = S.variaveis.find(w => w.var === v);
+      // estágio só se compara com júnior; no pleno e no sênior são poucas
+      // respostas e esticariam a escala até R$ 2 mil
+      const itens = info.niveis.filter(n => !(n.nivel === "Estágio" && nivelR !== "Júnior")).map(n => ({ nivel: n.nivel, n: n.n, base: n.nivel === base[v], ...prever(S, { ...base, [v]: n.nivel }) }))
+        .sort((a, b) => b.med - a.med);
+      return { v, nome, itens };
+    });
+    const todos = linhas.flatMap(l => l.itens);
+    const W = largura("fatores", 980), estreito = W < 640;
+    // no celular o nome e os valores ficam na linha de cima e o ponto usa a
+    // largura toda; no desktop os valores ficam numa coluna à direita
+    const esq = estreito ? 0 : 220, dir = estreito ? 22 : 170, linha = estreito ? 42 : 26, cab = 30;
+    // a escala vai de 55% a 160% da base: o que passa disso (empresa de fora)
+    // para na borda com seta, e o valor exato está na coluna de números
+    const vmin = Math.max(pb.med * 0.55, Math.min(...todos.map(i => i.ic[0])));
+    const vmax = Math.min(pb.med * 1.6, Math.max(...todos.map(i => i.ic[1])));
+    const x0 = esq + 16, x1 = W - dir;
+    const passo = [1000, 2000, 5000, 10000].find(p => (x1 - x0) / ((vmax - vmin) / p) >= 64) || 20000;
+    const lo = Math.floor(vmin / passo) * passo, hi = Math.ceil(vmax / passo) * passo;
+    const x = v => x0 + (Math.min(hi, Math.max(lo, v)) - lo) / (hi - lo) * (x1 - x0);
+    const H = 24 + linhas.reduce((n, l) => n + cab + l.itens.length * linha, 0) + 24;
+    const s = svg(W, H, `Salário previsto para o perfil base trocando um item por vez (${cargoR}, ${nivelR})`, false);
+    const eixo = y => { for (let t = lo; t <= hi; t += passo) txt(s, x(t), y, `R$ ${fmt(t / 1000, 0)} mil`,
+      { class: "ax", "text-anchor": estreito && t === lo ? "start" : estreito && t + passo > hi ? "end" : "middle" }); };
+    if (!estreito) txt(s, W, 12, "vs. base", { class: "ax", "text-anchor": "end" });
+    for (let t = lo; t <= hi; t += passo) el("line", { x1: x(t), x2: x(t), y1: 20, y2: H - 20, stroke: "var(--grid)" }, s);
+    // a linha do perfil base atravessa o gráfico: o que fica à direita paga mais
+    el("line", { x1: x(pb.med), x2: x(pb.med), y1: 20, y2: H - 20, stroke: "var(--text-muted)", "stroke-dasharray": "4 3" }, s);
+    eixo(12); eixo(H - 4);
+    let y = 24;
+    for (const l of linhas) {
+      txt(s, 0, y + 20, l.nome, { class: "grp" });
+      y += cab;
+      for (const it of l.itens) {
+        const yy = y + linha / 2 + (estreito ? 8 : 0);
+        const cor = it.base ? "var(--text-primary)" : it.med >= pb.med ? "var(--series-1)" : "var(--series-2)";
+        const g = el("g", { class: "hit", "aria-label": `${rotuloR(it.nivel)}: ${mil(it.med)}` }, s);
+        el("rect", { x: 0, y: y, width: W, height: linha, fill: "transparent" }, g);
+        txt(g, estreito ? 0 : esq, estreito ? yy - 13 : yy + 4, rotuloR(it.nivel) + (it.base ? " (base)" : ""),
+          { "text-anchor": estreito ? "start" : "end", ...(it.base ? { class: "val", "font-weight": 600 } : {}) });
+        el("line", { x1: x(it.ic[0]), x2: x(it.ic[1]), y1: yy, y2: yy, stroke: cor, "stroke-width": 2, opacity: 0.4 }, g);
+        const fraco = it.n < 50;
+        if (it.med > hi || it.med < lo) {
+          const d = it.med > hi ? 1 : -1, xe = x(it.med) + d * 10;
+          el("path", { d: `M${xe},${yy}l${-d * 8},-5v10z`, fill: cor }, g);
+        }
+        el("circle", { class: "mark", cx: x(it.med), cy: yy, r: 5.5, fill: fraco ? "var(--surface-1)" : cor, stroke: fraco ? cor : "var(--surface-1)", "stroke-width": 2 }, g);
+        // valores numa coluna à direita, fora do desenho
+        const dif = it.med - pb.med;
+        const yt = estreito ? yy - 13 : yy + 4, rel = Math.round((it.med / pb.med - 1) * 100) / 100;
+        txt(g, W - 54, yt, mil(it.med), { class: "val", "text-anchor": "end" });
+        txt(g, W, yt, it.base ? "base" : rel === 0 ? "0%" : pct(rel, 0), { class: it.base ? "ax" : "val", "text-anchor": "end" });
+        interativo(g, () => [mil(it.med), it.base ? "Perfil base" : `${l.nome}: ${rotuloR(it.nivel)} no lugar de ${rotuloR(base[l.v])}`,
+          ...(it.base ? [] : [`${dif >= 0 ? "+" : "−"}R$ ${fmt(Math.abs(dif) / 1000)} mil (${pct(it.med / pb.med - 1)}) em relação à base`]),
+          `IC 95%: ${mil(it.ic[0])} a ${mil(it.ic[1])}`, `${it.n.toLocaleString("pt-BR")} respostas de nível ${nivelR.toLowerCase()} com ${rotuloR(it.nivel)}` + (fraco ? " — poucas" : "")]);
+        y += linha;
+      }
+    }
+    document.getElementById("fatores").replaceChildren(s);
+  }
+  segmentado("seg-fatores", Object.keys(SN), nivelR, v => { nivelR = v; desenharFatores(); });
   desenharFatores(); redesenhar.push(desenharFatores);
 
   // ── experiência ──
