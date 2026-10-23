@@ -95,6 +95,8 @@ svg .rotulo:hover, svg .rotulo.ativo { fill: var(--text-primary); }
 .previsto .txt { color: var(--text-secondary); font-size: 14px; }
 .pesos h3 { font-size: 14px; font-weight: 600; margin: 14px 0 4px; }
 .aviso { color: var(--text-secondary); font-size: 13px; margin-top: 8px; }
+.mais { margin-top: 10px; font: inherit; font-size: 13px; color: var(--text-primary); background: transparent; border: 1px solid var(--border); border-radius: 8px; padding: 6px 12px; min-height: 36px; cursor: pointer; }
+.mais[hidden] { display: none; }
 footer { color: var(--text-muted); font-size: 13px; margin-top: 40px; }
 </style>
 </head>
@@ -143,6 +145,7 @@ footer { color: var(--text-muted); font-size: 13px; margin-top: 40px; }
     <p class="sub" id="base-fatores" style="font-size:14px"></p>
     <div class="legend"><span><i class="dot" style="background:var(--series-1)"></i>Ganha mais que a base</span><span><i class="dot" style="background:var(--series-2)"></i>Ganha menos</span><span>Barra clara: menos de 50 respostas · intervalo de 95% ao passar o mouse</span></div>
     <div class="scroll"><div id="fatores"></div></div>
+    <button type="button" id="mais-estados" class="mais" hidden>Mostrar todos os estados</button>
   </section>
 
   <div class="grid2">
@@ -422,7 +425,8 @@ async function iniciar() {
   // modelo daquele nível (exp(xβ), IC por x'Σx)
   const GRUPOS_R = [["modelo", "Modelo de trabalho"], ["uf_grupo", "Estado"], ["ensino", "Escolaridade"],
                     ["genero_b", "Gênero"], ["porte", "Porte da empresa (pessoas)"], ["situacao", "Vínculo"]];
-  const CURTO = { "outros estados": "Outros estados", "No Brasil, para empresa de fora": "Empresa de fora (no Brasil)",
+  const CURTO = { "outros estados": "Outros estados", "No Brasil, para empresa de fora": "Empresa de fora", "Híbrido com dias fixos": "Híbrido fixo",
+                  "Graduação em curso": "Cursando", "Pós-graduação (lato sensu)": "Pós lato sensu",
                   "Masculino": "Homem", "Feminino": "Mulher" };
   const rotuloR = n => CURTO[n] || n;
   function prever(S, perfil) {
@@ -433,7 +437,7 @@ async function iniciar() {
     return { med: Math.exp(xb), ic: [Math.exp(xb - 1.96 * ep), Math.exp(xb + 1.96 * ep)] };
   }
   const SN = D.simulador_nivel;
-  let nivelR = "Sênior", cargoR = "Analista de Dados";
+  let nivelR = "Sênior", cargoR = "Analista de Dados", todosEstados = false;
   const selCargoR = document.getElementById("sel-fatores");
   for (const n of SN[nivelR].variaveis.find(v => v.var === "familia").niveis.map(n => n.nivel)) selCargoR.appendChild(new Option(n, n));
   selCargoR.value = cargoR;
@@ -459,16 +463,24 @@ async function iniciar() {
         .sort((a, b) => b.dif - a.dif);
       return { v, nome, itens };
     });
-    const difs = linhas.flatMap(l => l.itens.map(i => i.dif));
     const W = largura("fatores", 980), estreito = W < 640, duas = W >= 900;
+    // celular: dos 13 estados, os 2 mais próximos e os 2 mais distantes da base
+    // (a escala continua a de todos); o botão mostra o resto
+    const recolhe = estreito && !todosEstados;
+    const todasDifs = linhas.flatMap(l => l.itens.map(i => i.dif));
+    for (const l of linhas) if (recolhe && l.v === "uf_grupo") l.itens = [...l.itens.slice(0, 2), ...l.itens.slice(-2)];
+    const difs = todasDifs;
+    const bt = document.getElementById("mais-estados");
+    bt.hidden = !estreito; bt.textContent = todosEstados ? "Mostrar só 4 estados" : "Mostrar todos os estados";
     // compacto: no desktop os grupos ficam em duas colunas (modelo e estado à
     // esquerda, o resto à direita) com a mesma escala; linhas de 20 px
     const cw = duas ? (W - 32) / 2 : W;
-    const esq = estreito ? 0 : duas ? 150 : 200, margem = estreito ? 64 : 64, linha = estreito ? 36 : 20, cab = 26, bar = estreito ? 12 : 12;
+    // celular: nome à esquerda, barra no meio e valor numa coluna à direita, tudo numa linha
+    const esq = estreito ? 104 : duas ? 150 : 200, mE = estreito ? 6 : 64, mD = estreito ? 94 : 64, linha = estreito ? 24 : 20, cab = 26, bar = 12;
     const colunas = duas ? [linhas.slice(0, 2), linhas.slice(2)] : [linhas];
     const alturaCol = c => c.reduce((n, l) => n + cab + l.itens.length * linha, 0);
     const H = 8 + Math.max(...colunas.map(alturaCol)) + 26;
-    const rel = cw - esq - 2 * margem;
+    const rel = cw - esq - mE - mD;
     const vmin = Math.min(-pb.med * 0.01, Math.max(Math.min(...difs), -pb.med * 0.4));
     const vmax = Math.max(pb.med * 0.01, Math.min(Math.max(...difs), pb.med * 0.5));
     const passo = [500, 1000, 2000, 5000].find(p => rel / ((vmax - vmin) / p) >= 52) || 5000;
@@ -478,7 +490,7 @@ async function iniciar() {
     const minusc = n => /^[A-ZÀ-Ú]{2,}/.test(n) ? n : n.toLowerCase();
     const s = svg(W, H, `Diferença de salário ao trocar um item do perfil base (${cargoR}, ${nivelR})`, false);
     colunas.forEach((col, ci) => {
-      const ox = ci * (cw + 32), x0 = ox + esq + margem, x1 = ox + cw - margem;
+      const ox = ci * (cw + 32), x0 = ox + esq + mE, x1 = ox + cw - mD;
       const x = v => x0 + (Math.min(hi, Math.max(lo, v)) - lo) / (hi - lo) * (x1 - x0);
       for (let t = t0; t <= hi; t += passo) {
         el("line", { x1: x(t), x2: x(t), y1: 4, y2: H - 22, stroke: t === 0 ? "var(--text-muted)" : "var(--grid)" }, s);
@@ -489,16 +501,17 @@ async function iniciar() {
         txt(s, ox, y + 16, `${l.nome} (base: ${minusc(rotuloR(base[l.v]))})`, { class: "grp" });
         y += cab;
         for (const it of l.itens) {
-          const yy = y + linha / 2 + (estreito ? 8 : 0), pos = it.dif >= 0, cor = pos ? "var(--series-1)" : "var(--series-2)";
+          const yy = y + linha / 2, pos = it.dif >= 0, cor = pos ? "var(--series-1)" : "var(--series-2)";
           const fora = it.dif > hi || it.dif < lo, fraco = it.n < 50;
           const g = el("g", { class: "hit", "aria-label": `${rotuloR(it.nivel)}: ${sinal(it.dif)}` }, s);
           el("rect", { x: ox, y, width: cw, height: linha, fill: "transparent" }, g);
-          txt(g, estreito ? ox : ox + esq, estreito ? yy - 12 : yy + 4, rotuloR(it.nivel), { "text-anchor": estreito ? "start" : "end" });
+          txt(g, ox + esq, yy + 4, rotuloR(it.nivel), { "text-anchor": "end" });
           el("rect", { class: "mark", x: Math.min(x(0), x(it.dif)), y: yy - bar / 2, width: Math.max(2, Math.abs(x(it.dif) - x(0))), height: bar, rx: 3, fill: cor, opacity: fraco ? 0.45 : 1 }, g);
           if (fora) el("path", { d: `M${x(it.dif) + (pos ? -8 : 8)},${yy - 8}l${pos ? 4 : -4},16`, stroke: "var(--surface-1)", "stroke-width": 3 }, g);
           // sem espaço fora da barra (barra cortada na borda): o valor vai dentro dela
-          const dentro = pos ? x(it.dif) + 8 + 84 > ox + cw : x(it.dif) - 8 - 84 < ox + (estreito ? 0 : esq);
-          const tv = txt(g, x(it.dif) + (pos !== dentro ? 8 : -8), yy + 4, sinal(it.dif), { class: "val", "text-anchor": pos !== dentro ? "start" : "end" });
+          const dentro = !estreito && (pos ? x(it.dif) + 8 + 84 > ox + cw : x(it.dif) - 8 - 84 < ox + esq);
+          const tv = estreito ? txt(g, ox + cw, yy + 4, sinal(it.dif), { class: "val", "text-anchor": "end" })
+            : txt(g, x(it.dif) + (pos !== dentro ? 8 : -8), yy + 4, sinal(it.dif), { class: "val", "text-anchor": pos !== dentro ? "start" : "end" });
           if (dentro) tv.style.fill = "#fff";
           interativo(g, () => [sinal(it.dif), `${l.nome}: ${rotuloR(it.nivel)} no lugar de ${rotuloR(base[l.v])}`, `Salário previsto: ${mil(it.med)} (${pct(it.med / pb.med - 1, 0)})`,
             `IC 95% do salário: ${mil(it.ic[0])} a ${mil(it.ic[1])}`, `${it.n.toLocaleString("pt-BR")} respostas de nível ${nivelR.toLowerCase()} com ${rotuloR(it.nivel)}` + (fraco ? " — poucas" : ""),
@@ -509,6 +522,7 @@ async function iniciar() {
     });
     document.getElementById("fatores").replaceChildren(s);
   }
+  document.getElementById("mais-estados").addEventListener("click", () => { todosEstados = !todosEstados; desenharFatores(); });
   segmentado("seg-fatores", Object.keys(SN), nivelR, v => { nivelR = v; desenharFatores(); });
   desenharFatores(); redesenhar.push(desenharFatores);
 
