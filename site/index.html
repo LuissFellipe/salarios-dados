@@ -138,10 +138,10 @@ footer { color: var(--text-muted); font-size: 13px; margin-top: 40px; }
 
   <section class="card" aria-labelledby="t-fatores">
     <h2 id="t-fatores">Do que o salário depende</h2>
-    <div class="sub">Quanto um mesmo perfil ganharia se mudasse só uma coisa: o modelo de trabalho, o estado, a escolaridade, o gênero, o porte da empresa ou o vínculo, com todo o resto igual. Valores previstos pela regressão do nível escolhido, em reais de novembro de 2025. É associação, não causa.</div>
+    <div class="sub">Quanto a mais ou a menos um mesmo perfil ganharia se mudasse só uma coisa: o modelo de trabalho, o estado, a escolaridade, o gênero, o porte da empresa ou o vínculo, com todo o resto igual. Valores previstos pela regressão do nível escolhido, em reais de novembro de 2025. É associação, não causa.</div>
     <div class="ctrl"><span>Perfil base</span><select id="sel-fatores" aria-label="Cargo do perfil base"></select><div class="seg" id="seg-fatores" role="group" aria-label="Nível do perfil base"></div><span id="n-fatores"></span></div>
     <p class="sub" id="base-fatores" style="font-size:14px"></p>
-    <div class="legend"><span><i class="dot" style="background:var(--series-1)"></i>Ganha mais que a base</span><span><i class="dot" style="background:var(--series-2)"></i>Ganha menos</span><span>Linha tracejada: salário da base · traço: intervalo de 95% · ponto vazado: menos de 50 respostas</span></div>
+    <div class="legend"><span><i class="dot" style="background:var(--series-1)"></i>Ganha mais que a base</span><span><i class="dot" style="background:var(--series-2)"></i>Ganha menos</span><span>Barra clara: menos de 50 respostas · intervalo de 95% ao passar o mouse</span></div>
     <div class="scroll"><div id="fatores"></div></div>
   </section>
 
@@ -447,64 +447,54 @@ async function iniciar() {
     document.getElementById("n-fatores").textContent = `modelo com ${S.n.toLocaleString("pt-BR")} respostas de nível ${nivelR.toLowerCase()}, 2021–2025`;
     document.getElementById("base-fatores").textContent =
       `Perfil base: ${cargoR.toLowerCase().replace(/^./, c => c.toUpperCase())}, ${nivelR.toLowerCase()}, ${base.exp_faixa} de experiência, ${base.modelo.toLowerCase()}, ${base.uf_grupo}, ${base.ensino.toLowerCase()}, ${rotuloR(base.genero_b).toLowerCase()}, empresa com ${base.porte.toLowerCase()} pessoas, ${base.situacao}. ` +
-      `O modelo prevê ${mil(pb.med)} por mês em 2025 para ele. Cada linha troca só um item.`;
+      `O modelo prevê ${mil(pb.med)} por mês em 2025 para ele. Cada barra mostra quanto muda se trocar só esse item.`;
 
+    // barras da diferença em reais: o zero é o salário do perfil base; para a
+    // direita a troca paga mais, para a esquerda paga menos. A escala segue o
+    // grosso dos dados e o que passa (empresa de fora) para na borda com o valor escrito
     const linhas = GRUPOS_R.map(([v, nome]) => {
       const info = S.variaveis.find(w => w.var === v);
-      // estágio só se compara com júnior; no pleno e no sênior são poucas
-      // respostas e esticariam a escala até R$ 2 mil
-      const itens = info.niveis.filter(n => !(n.nivel === "Estágio" && nivelR !== "Júnior")).map(n => ({ nivel: n.nivel, n: n.n, base: n.nivel === base[v], ...prever(S, { ...base, [v]: n.nivel }) }))
-        .sort((a, b) => b.med - a.med);
+      const itens = info.niveis.filter(n => n.nivel !== base[v] && !(n.nivel === "Estágio" && nivelR !== "Júnior"))
+        .map(n => { const p = prever(S, { ...base, [v]: n.nivel }); return { nivel: n.nivel, n: n.n, ...p, dif: p.med - pb.med }; })
+        .sort((a, b) => b.dif - a.dif);
       return { v, nome, itens };
     });
-    const todos = linhas.flatMap(l => l.itens);
+    const difs = linhas.flatMap(l => l.itens.map(i => i.dif));
     const W = largura("fatores", 980), estreito = W < 640;
-    // no celular o nome e os valores ficam na linha de cima e o ponto usa a
-    // largura toda; no desktop os valores ficam numa coluna à direita
-    const esq = estreito ? 0 : 220, dir = estreito ? 22 : 170, linha = estreito ? 42 : 26, cab = 30;
-    // a escala vai de 55% a 160% da base: o que passa disso (empresa de fora)
-    // para na borda com seta, e o valor exato está na coluna de números
-    const vmin = Math.max(pb.med * 0.55, Math.min(...todos.map(i => i.ic[0])));
-    const vmax = Math.min(pb.med * 1.6, Math.max(...todos.map(i => i.ic[1])));
-    const x0 = esq + 16, x1 = W - dir;
-    const passo = [1000, 2000, 5000, 10000].find(p => (x1 - x0) / ((vmax - vmin) / p) >= 64) || 20000;
+    const esq = estreito ? 0 : 200, margem = estreito ? 64 : 78, linha = estreito ? 44 : 28, cab = 34;
+    const x0 = esq + margem, x1 = W - margem;
+    const vmin = Math.min(-pb.med * 0.01, Math.max(Math.min(...difs), -pb.med * 0.4));
+    const vmax = Math.max(pb.med * 0.01, Math.min(Math.max(...difs), pb.med * 0.5));
+    const passo = [500, 1000, 2000, 5000].find(p => (x1 - x0) / ((vmax - vmin) / p) >= 56) || 5000;
     const lo = Math.floor(vmin / passo) * passo, hi = Math.ceil(vmax / passo) * passo;
     const x = v => x0 + (Math.min(hi, Math.max(lo, v)) - lo) / (hi - lo) * (x1 - x0);
-    const H = 24 + linhas.reduce((n, l) => n + cab + l.itens.length * linha, 0) + 24;
-    const s = svg(W, H, `Salário previsto para o perfil base trocando um item por vez (${cargoR}, ${nivelR})`, false);
-    const eixo = y => { for (let t = lo; t <= hi; t += passo) txt(s, x(t), y, `R$ ${fmt(t / 1000, 0)} mil`,
-      { class: "ax", "text-anchor": estreito && t === lo ? "start" : estreito && t + passo > hi ? "end" : "middle" }); };
-    if (!estreito) txt(s, W, 12, "vs. base", { class: "ax", "text-anchor": "end" });
-    for (let t = lo; t <= hi; t += passo) el("line", { x1: x(t), x2: x(t), y1: 20, y2: H - 20, stroke: "var(--grid)" }, s);
-    // a linha do perfil base atravessa o gráfico: o que fica à direita paga mais
-    el("line", { x1: x(pb.med), x2: x(pb.med), y1: 20, y2: H - 20, stroke: "var(--text-muted)", "stroke-dasharray": "4 3" }, s);
-    eixo(12); eixo(H - 4);
-    let y = 24;
+    const sinal = v => Math.abs(v) < 50 ? "sem diferença" : (v >= 0 ? "+" : "−") + "R$ " + fmt(Math.abs(v) / 1000) + " mil";
+    const minusc = n => /^[A-ZÀ-Ú]{2,}/.test(n) ? n : n.toLowerCase();
+    const H = 20 + linhas.reduce((n, l) => n + cab + l.itens.length * linha, 0) + 24;
+    const s = svg(W, H, `Diferença de salário ao trocar um item do perfil base (${cargoR}, ${nivelR})`, false);
+    for (let t = lo; t <= hi; t += passo) {
+      el("line", { x1: x(t), x2: x(t), y1: 14, y2: H - 20, stroke: t === 0 ? "var(--text-muted)" : "var(--grid)" }, s);
+      txt(s, x(t), H - 6, t === 0 ? "base" : (t > 0 ? "+" : "−") + fmt(Math.abs(t) / 1000, passo < 1000 ? 1 : 0) + " mil", { class: "ax", "text-anchor": "middle" });
+    }
+    let y = 14;
     for (const l of linhas) {
-      txt(s, 0, y + 20, l.nome, { class: "grp" });
+      txt(s, 0, y + 22, `${l.nome} (base: ${minusc(rotuloR(base[l.v]))})`, { class: "grp" });
       y += cab;
       for (const it of l.itens) {
-        const yy = y + linha / 2 + (estreito ? 8 : 0);
-        const cor = it.base ? "var(--text-primary)" : it.med >= pb.med ? "var(--series-1)" : "var(--series-2)";
-        const g = el("g", { class: "hit", "aria-label": `${rotuloR(it.nivel)}: ${mil(it.med)}` }, s);
-        el("rect", { x: 0, y: y, width: W, height: linha, fill: "transparent" }, g);
-        txt(g, estreito ? 0 : esq, estreito ? yy - 13 : yy + 4, rotuloR(it.nivel) + (it.base ? " (base)" : ""),
-          { "text-anchor": estreito ? "start" : "end", ...(it.base ? { class: "val", "font-weight": 600 } : {}) });
-        el("line", { x1: x(it.ic[0]), x2: x(it.ic[1]), y1: yy, y2: yy, stroke: cor, "stroke-width": 2, opacity: 0.4 }, g);
-        const fraco = it.n < 50;
-        if (it.med > hi || it.med < lo) {
-          const d = it.med > hi ? 1 : -1, xe = x(it.med) + d * 10;
-          el("path", { d: `M${xe},${yy}l${-d * 8},-5v10z`, fill: cor }, g);
-        }
-        el("circle", { class: "mark", cx: x(it.med), cy: yy, r: 5.5, fill: fraco ? "var(--surface-1)" : cor, stroke: fraco ? cor : "var(--surface-1)", "stroke-width": 2 }, g);
-        // valores numa coluna à direita, fora do desenho
-        const dif = it.med - pb.med;
-        const yt = estreito ? yy - 13 : yy + 4, rel = Math.round((it.med / pb.med - 1) * 100) / 100;
-        txt(g, W - 54, yt, mil(it.med), { class: "val", "text-anchor": "end" });
-        txt(g, W, yt, it.base ? "base" : rel === 0 ? "0%" : pct(rel, 0), { class: it.base ? "ax" : "val", "text-anchor": "end" });
-        interativo(g, () => [mil(it.med), it.base ? "Perfil base" : `${l.nome}: ${rotuloR(it.nivel)} no lugar de ${rotuloR(base[l.v])}`,
-          ...(it.base ? [] : [`${dif >= 0 ? "+" : "−"}R$ ${fmt(Math.abs(dif) / 1000)} mil (${pct(it.med / pb.med - 1)}) em relação à base`]),
-          `IC 95%: ${mil(it.ic[0])} a ${mil(it.ic[1])}`, `${it.n.toLocaleString("pt-BR")} respostas de nível ${nivelR.toLowerCase()} com ${rotuloR(it.nivel)}` + (fraco ? " — poucas" : "")]);
+        const yy = y + linha / 2 + (estreito ? 8 : 0), pos = it.dif >= 0, cor = pos ? "var(--series-1)" : "var(--series-2)";
+        const fora = it.dif > hi || it.dif < lo, fraco = it.n < 50;
+        const g = el("g", { class: "hit", "aria-label": `${rotuloR(it.nivel)}: ${sinal(it.dif)}` }, s);
+        el("rect", { x: 0, y, width: W, height: linha, fill: "transparent" }, g);
+        txt(g, estreito ? 0 : esq, estreito ? yy - 15 : yy + 4, rotuloR(it.nivel), { "text-anchor": estreito ? "start" : "end" });
+        el("rect", { class: "mark", x: Math.min(x(0), x(it.dif)), y: yy - 8, width: Math.max(2, Math.abs(x(it.dif) - x(0))), height: 16, rx: 4, fill: cor, opacity: fraco ? 0.45 : 1 }, g);
+        if (fora) el("path", { d: `M${x(it.dif) + (pos ? -10 : 10)},${yy - 10}l${pos ? 5 : -5},20`, stroke: "var(--surface-1)", "stroke-width": 3 }, g);
+        // sem espaço fora da barra (celular, barra cortada na borda): o valor vai dentro dela
+        const dentro = pos ? x(it.dif) + 8 + 84 > W : x(it.dif) - 8 - 84 < 0;
+        const tv = txt(g, x(it.dif) + (pos !== dentro ? 8 : -8), yy + 4, sinal(it.dif), { class: "val", "text-anchor": pos !== dentro ? "start" : "end" });
+        if (dentro) tv.style.fill = "#fff";
+        interativo(g, () => [sinal(it.dif), `${l.nome}: ${rotuloR(it.nivel)} no lugar de ${rotuloR(base[l.v])}`, `Salário previsto: ${mil(it.med)} (${pct(it.med / pb.med - 1, 0)})`,
+          `IC 95% do salário: ${mil(it.ic[0])} a ${mil(it.ic[1])}`, `${it.n.toLocaleString("pt-BR")} respostas de nível ${nivelR.toLowerCase()} com ${rotuloR(it.nivel)}` + (fraco ? " — poucas" : ""),
+          ...(fora ? ["Barra cortada na borda da escala"] : [])]);
         y += linha;
       }
     }
