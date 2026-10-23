@@ -115,10 +115,9 @@ footer { color: var(--text-muted); font-size: 13px; margin-top: 40px; }
 
   <section class="card" aria-labelledby="t-cargos">
     <h2 id="t-cargos">Quanto ganha cada cargo, em cada nível (<span id="cargos-ano">2025</span>)</h2>
-    <div class="sub">Mediana mensal de quem mora no Brasil, em reais de novembro de 2025. A pesquisa pergunta a faixa salarial, não o valor: a mediana é interpolada dentro da faixa, e o traço é o intervalo de 95% (500 reamostragens). Grupos com menos de 20 respostas ficam de fora. A escala é a mesma em todos os anos; clique num cargo para ver a evolução dele.</div>
+    <div class="sub">Mediana mensal de quem mora no Brasil, em reais de novembro de 2025. A pesquisa pergunta a faixa salarial, não o valor: a mediana é interpolada dentro da faixa (o intervalo de 95% aparece ao passar o mouse). Grupos com menos de 20 respostas ficam de fora. A escala é a mesma em todos os anos; clique no nome de um cargo para ver a evolução dele.</div>
     <div class="ctrl"><span>Edição</span><div class="seg" id="seg-cargos" role="group" aria-label="Edição da pesquisa"></div></div>
-    <div class="legend" id="leg-niveis"></div>
-    <div class="scroll"><div id="cargos"></div></div>
+    <div id="cargos"></div>
     <details class="tabela"><summary>Ver como tabela</summary><div class="scroll" id="tab-cargos"></div></details>
   </section>
 
@@ -132,7 +131,7 @@ footer { color: var(--text-muted); font-size: 13px; margin-top: 40px; }
     </section>
     <section class="card" aria-labelledby="t-ano">
       <h2 id="t-ano">Mesmo perfil, anos diferentes</h2>
-      <div class="sub">Regressão por intervalo com cargo, nível, experiência, estado e escolaridade fixos (quem não é gestor). Cada ponto é o salário real em relação a 2021.</div>
+      <div class="sub">Para cada R$ 10.000 que um perfil ganhava em 2021, quanto o mesmo perfil (mesmo cargo, nível, experiência, estado e escolaridade; quem não é gestor) passou a ganhar, já descontada a inflação. O traço é o intervalo de 95%.</div>
       <div id="anos"></div>
     </section>
   </div>
@@ -278,7 +277,7 @@ async function iniciar() {
   const dl = document.getElementById("perguntas");
   for (const [q, r] of perguntas) { const d = node("div"); d.append(node("dt", q), node("dd", r)); dl.appendChild(d); }
 
-  legendaNiveis("leg-niveis"); legendaNiveis("leg-niveis2");
+  legendaNiveis("leg-niveis2");
 
   // ── cargo × nível, com filtro de edição ──
   // a ordem das linhas é a do sênior em 2025 e não muda com o ano, para o
@@ -292,40 +291,41 @@ async function iniciar() {
 
   function desenharCargos() {
     document.getElementById("cargos-ano").textContent = anoCargos;
-    const W = largura("cargos", 980), estreito = W < 640, esq = estreito ? 8 : 260, dir = 90, linha = estreito ? 72 : 54, topo = 8, H = topo + fams.length * linha + 30;
-    const max = Math.ceil(Math.max(...D.cargos_ano.map(c => c.ic[1])) / 5000) * 5000, x = v => esq + v / max * (W - esq - dir);
+    // barras agrupadas: um bloco por cargo, uma barra por nível, valor na ponta.
+    // A escala vai até a maior mediana de todas as edições e não muda com o ano
+    const W = largura("cargos", 820), nv = Object.keys(NIVEIS), esq = 64, dir = 96, cab = 30, barra = 18, gap = 5;
+    const bloco = cab + nv.length * (barra + gap) + 10, H = fams.length * bloco + 24;
+    const max = Math.ceil(Math.max(...D.cargos_ano.map(c => c.mediana)) / 5000) * 5000;
+    const x = v => esq + v / max * (W - esq - dir);
     const s = svg(W, H, `Mediana salarial por cargo e nível em ${anoCargos}`, false);
+    const rotulaCada = W < 520 ? 10000 : 5000;
     for (let t = 0; t <= max; t += 5000) {
-      el("line", { x1: x(t), x2: x(t), y1: topo, y2: H - 24, stroke: "var(--grid)" }, s);
-      txt(s, x(t), H - 8, t ? `R$ ${t / 1000} mil` : "R$ 0", { class: "ax", "text-anchor": "middle" });
+      el("line", { x1: x(t), x2: x(t), y1: 0, y2: H - 22, stroke: "var(--grid)" }, s);
+      if (t % rotulaCada === 0) txt(s, x(t), H - 6, t ? `R$ ${t / 1000} mil` : "R$ 0", { class: "ax", "text-anchor": t ? "middle" : "start" });
     }
-    const desloc = { "Júnior": -14, "Pleno": 0, "Sênior": 14 };
     fams.forEach((f, i) => {
-      const y0 = topo + i * linha + linha / 2 + (estreito ? 10 : 0);
-      const r = txt(s, estreito ? 0 : esq - 12, estreito ? y0 - 24 : y0 + 4, f, { "text-anchor": estreito ? "start" : "end", class: "rotulo" + (f === famEvo ? " ativo" : ""), tabindex: 0, role: "button", "aria-label": `Ver a evolução de ${f}` });
+      const y0 = i * bloco;
+      const r = txt(s, 0, y0 + 20, f, { class: "grp rotulo" + (f === famEvo ? " ativo" : ""), tabindex: 0, role: "button", "aria-label": `Ver a evolução de ${f}` });
       const escolher = () => { famEvo = famEvo === f ? "" : f; document.getElementById("sel-evo").value = famEvo; desenharCargos(); desenharEvolucao(); };
       r.addEventListener("click", escolher);
       r.addEventListener("keydown", ev => { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); escolher(); } });
-      let algum = false;
-      for (const nv of Object.keys(NIVEIS)) {
-        const c = cargoAno(f, nv, anoCargos); if (!c) continue;
-        algum = true;
-        const y = y0 + desloc[nv];
-        const g = el("g", { class: "hit", "aria-label": `${f}, ${nv}: ${mil(c.mediana)}` }, s);
-        el("rect", { x: esq, y: y - 7, width: W - esq, height: 14, fill: "transparent" }, g);
-        el("line", { x1: x(c.ic[0]), x2: x(c.ic[1]), y1: y, y2: y, stroke: NIVEIS[nv], "stroke-width": 2, opacity: 0.45 }, g);
-        ponto(g, x(c.mediana), y, NIVEIS[nv]);
-        if (nv === "Sênior") txt(g, x(c.ic[1]) + 8, y + 4, mil(c.mediana), { class: "val" });
-        const ant = cargoAno(f, nv, anoCargos - 1);
-        interativo(g, () => [mil(c.mediana), `${f} · ${nv} · ${anoCargos}`, `IC 95%: ${mil(c.ic[0])} a ${mil(c.ic[1])}`, `${c.n} respostas`,
+      nv.forEach((n, j) => {
+        const y = y0 + cab + j * (barra + gap), c = cargoAno(f, n, anoCargos);
+        txt(s, 0, y + barra / 2 + 4, n);
+        if (!c) { txt(s, esq + 4, y + barra / 2 + 4, "menos de 20 respostas", { class: "ax" }); return; }
+        const g = el("g", { class: "hit", "aria-label": `${f}, ${n}: ${mil(c.mediana)}` }, s);
+        el("rect", { x: 0, y: y - gap / 2, width: W, height: barra + gap, fill: "transparent" }, g);
+        el("rect", { class: "mark", x: esq, y, width: Math.max(2, x(c.mediana) - esq), height: barra, rx: 4, fill: NIVEIS[n] }, g);
+        txt(g, x(c.mediana) + 8, y + barra / 2 + 4, mil(c.mediana), { class: "val" });
+        const ant = cargoAno(f, n, anoCargos - 1);
+        interativo(g, () => [mil(c.mediana), `${f} · ${n} · ${anoCargos}`, `IC 95%: ${mil(c.ic[0])} a ${mil(c.ic[1])}`, `${c.n} respostas`,
           ...(ant ? [`${pct(c.mediana / ant.mediana - 1, 0)} sobre ${anoCargos - 1} (real)`] : [])]);
-      }
-      if (!algum) txt(s, esq + 8, y0 + 4, "menos de 20 respostas em cada nível", { class: "ax" });
+      });
     });
     document.getElementById("cargos").replaceChildren(s);
 
     const t = document.createElement("table");
-    const cab = t.insertRow(); for (const h of ["Cargo", "Nível", "Mediana", "IC 95%", "Respostas"]) cab.appendChild(node("th", h));
+    const cabT = t.insertRow(); for (const h of ["Cargo", "Nível", "Mediana", "IC 95%", "Respostas"]) cabT.appendChild(node("th", h));
     for (const f of fams) for (const nv of Object.keys(NIVEIS)) {
       const c = cargoAno(f, nv, anoCargos); if (!c) continue;
       const r = t.insertRow();
@@ -343,7 +343,7 @@ async function iniciar() {
   segmentado("seg-evo", ["Real", "Nominal"], "Real", v => { nominal = v === "Nominal"; desenharEvolucao(); });
 
   function desenharEvolucao() {
-    const W = 480, H = 300, m = { l: 62, r: 64, t: 12, b: 30 };
+    const W = 480, H = 300, m = { l: 62, r: 92, t: 12, b: 30 };
     const serieDe = nv => famEvo ? D.cargos_ano.filter(c => c.familia === famEvo && c.nivel === nv) : evo(nv);
     const anos = [...new Set(D.evolucao_nivel.map(e => e.ano))];
     const todas = Object.keys(NIVEIS).flatMap(serieDe);
@@ -375,34 +375,43 @@ async function iniciar() {
           `IC 95%: ${mil(real(e.ic[0], e.ano))} a ${mil(real(e.ic[1], e.ano))}`, `${e.n} respostas`]);
       }
       const ini = serie[0], fim = serie.at(-1);
-      if (ini !== fim) rotulos.push({ y: y(real(fim.mediana, fim.ano)), x: x(fim.ano) + 8,
+      // fim da linha: o valor em reais e, embaixo, a variação desde o início
+      if (ini !== fim) rotulos.push({ y: y(real(fim.mediana, fim.ano)), x: x(fim.ano) + 10, v: mil(real(fim.mediana, fim.ano)),
         t: pct(real(fim.mediana, fim.ano) / real(ini.mediana, ini.ano) - 1, 0) + (ini.ano !== anos[0] ? ` desde ${ini.ano}` : "") });
     }
     // rótulos do fim da linha não se sobrepõem
-    rotulos.sort((a, b) => a.y - b.y).forEach((r, i, arr) => { if (i && r.y - arr[i - 1].y < 14) r.y = arr[i - 1].y + 14; txt(s, r.x, r.y + 4, r.t, { class: "val" }); });
+    rotulos.sort((a, b) => a.y - b.y).forEach((r, i, arr) => {
+      if (i && r.y - arr[i - 1].y < 30) r.y = arr[i - 1].y + 30;
+      txt(s, r.x, r.y, r.v, { class: "val" }); txt(s, r.x, r.y + 14, r.t, { class: "ax" });
+    });
     document.getElementById("evolucao").replaceChildren(s);
   }
   desenharEvolucao();
 
-  // ── efeito do ano ──
+  // ── efeito do ano, em reais ──
+  // o efeito vira dinheiro: quanto o mesmo perfil ganhava a cada R$ 10 mil
+  // de 2021, já descontada a inflação
   (() => {
-    const W = 480, H = 300, m = { l: 48, r: 20, t: 16, b: 30 };
-    const A = D.efeito_ano;
-    const x = a => m.l + (a - 2021) / 4 * (W - m.l - m.r - 40) + 20;
-    const y = v => m.t + (0.04 - v) / 0.14 * (H - m.t - m.b);
-    const s = svg(W, H, "Salário real do mesmo perfil em relação a 2021");
-    for (const t of [0.02, 0, -0.02, -0.04, -0.06, -0.08, -0.1]) {
-      el("line", { x1: m.l, x2: W - m.r, y1: y(t), y2: y(t), stroke: t === 0 ? "var(--text-muted)" : "var(--grid)" }, s);
-      txt(s, m.l - 6, y(t) + 4, (t > 0 ? "+" : "") + fmt(t * 100, 0) + "%", { class: "ax", "text-anchor": "end" });
+    const W = 480, H = 300, m = { l: 62, r: 20, t: 16, b: 30 }, B = 10000;
+    const A = D.efeito_ano.map(a => ({ ...a, v: B * (1 + a.efeito), lo: B * (1 + a.ic[0]), hi: B * (1 + a.ic[1]) }));
+    const rs = v => "R$ " + (Math.round(v / 10) * 10).toLocaleString("pt-BR");
+    const vlo = Math.floor(Math.min(...A.map(a => a.lo)) / 200) * 200, vhi = Math.ceil(Math.max(...A.map(a => a.hi)) / 200) * 200;
+    const x = a => m.l + 24 + (a - 2021) / 4 * (W - m.l - m.r - 80);
+    const y = v => m.t + (vhi - v) / (vhi - vlo) * (H - m.t - m.b);
+    const s = svg(W, H, "Salário do mesmo perfil a cada R$ 10 mil de 2021");
+    for (let t = vlo; t <= vhi; t += 200) {
+      el("line", { x1: m.l, x2: W - m.r, y1: y(t), y2: y(t), stroke: t === B ? "var(--text-muted)" : "var(--grid)", ...(t === B ? { "stroke-dasharray": "4 3" } : {}) }, s);
+      if (t % 400 === 0) txt(s, m.l - 6, y(t) + 4, rs(t), { class: "ax", "text-anchor": "end" });
     }
     for (const a of A) {
       txt(s, x(a.ano), H - 10, a.ano, { class: "ax", "text-anchor": "middle" });
       const g = el("g", { class: "hit" }, s);
-      el("rect", { x: x(a.ano) - 16, y: m.t, width: 32, height: H - m.t - m.b, fill: "transparent" }, g);
-      el("line", { x1: x(a.ano), x2: x(a.ano), y1: y(a.ic[0]), y2: y(a.ic[1]), stroke: "var(--series-1)", "stroke-width": 2, opacity: 0.5 }, g);
-      ponto(g, x(a.ano), y(a.efeito), "var(--series-1)");
-      txt(g, x(a.ano) + 9, y(a.efeito) + 4, a.ano === 2021 ? "referência" : pct(a.efeito), { class: "val" });
-      interativo(g, () => a.ano === 2021 ? ["Referência", "2021"] : [pct(a.efeito), `${a.ano} em relação a 2021`, `IC 95%: ${pct(a.ic[0])} a ${pct(a.ic[1])}`, `${D.n_modelo_ano.toLocaleString("pt-BR")} respostas no modelo`]);
+      el("rect", { x: x(a.ano) - 20, y: m.t, width: 40, height: H - m.t - m.b, fill: "transparent" }, g);
+      const cor = a.ano === 2021 ? "var(--text-primary)" : "var(--series-2)";
+      if (a.ano !== 2021) el("line", { x1: x(a.ano), x2: x(a.ano), y1: y(a.lo), y2: y(a.hi), stroke: cor, "stroke-width": 2, opacity: 0.4 }, g);
+      ponto(g, x(a.ano), y(a.v), cor);
+      txt(g, x(a.ano) + 10, y(a.v) + 4, rs(a.v), { class: "val" });
+      interativo(g, () => a.ano === 2021 ? ["R$ 10.000", "Referência: 2021"] : [rs(a.v), `em ${a.ano}, para cada R$ 10.000 de 2021`, `${pct(a.efeito)} (IC 95%: ${pct(a.ic[0])} a ${pct(a.ic[1])})`, `${D.n_modelo_ano.toLocaleString("pt-BR")} respostas no modelo`]);
     }
     document.getElementById("anos").replaceChildren(s);
   })();
